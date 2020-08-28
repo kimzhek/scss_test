@@ -1,0 +1,29 @@
+$color: aqua;
+$margin:20px;
+
+@mixin testMixin($fontsize, $lineheight) {
+    margin:$margin;
+    font-size:$fontsize;
+    line-height:$lineheight;
+}
+
+div {
+    background:$color;
+    display:flex;
+    align-items:center;
+    box-sizing:border-box;
+}
+.btn {
+    display:block;
+    width:50px;
+    height:80px;
+    background:$color;
+    transform: rotate(45deg);
+}
+.content {
+    //  @extend .btn;
+    // transform: rotate(0);
+    @include testMixin(20px, 10px);
+    color:$color;
+    // font-size:28px;
+}

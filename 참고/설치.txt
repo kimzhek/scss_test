@@ -1,0 +1,20 @@
+
+.ejs
+
+
+
+
+browser-sync
+npm install browser-sync --save-dev
+
+include
+npm install  --save-dev gulp-file-include
+
+watch
+npm install --save-dev gulp-watch
+
+del
+npm install --save-dev gulp del
+
+autoprefixer
+$ npm install --save-dev gulp-autoprefixer

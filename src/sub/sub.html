@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>eGovCp</title>
+    @@include('/sass_test/src/include/head.html')
+</head>
+
+<body>
+    <!-- wrap -->
+    <div id="wrap">
+        <!-- header -->
+        @@include('/sass_test/src/include/header.html')
+        <!-- //header -->
+
+        <!-- container -->
+        <div id="container">
+            @@include('/sass_test/src/include/var.html', {
+                'title' : "서브페이지",
+                'desc' : "서브페이지 입니다."
+            })
+            
+            <!-- content -->
+            <div class="content">
+                content
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- //container -->
+
+        <!-- footer -->
+        @@include('/sass_test/src/include/footer.html')
+        <!-- //footer -->
+    </div>
+    <!-- //wrap -->
+</body>
+</html>
