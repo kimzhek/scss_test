@@ -7,6 +7,20 @@ $margin:20px;
     line-height:$lineheight;
 }
 
+@mixin btnMixin() {
+    // margin:$margin;
+    // font-size:$fontsize;
+    // line-height:$lineheight;
+    display:inline-block;
+    height:36px;
+    padding:0 20px;
+    border-radius:8px;
+    color:#222;
+    font-size:14px;
+    font-weight:700;
+    line-height:34px;
+}
+
 div {
     background:$color;
     display:flex;
@@ -26,4 +40,17 @@ div {
     @include testMixin(20px, 10px);
     color:$color;
     // font-size:28px;
+}
+
+.btn-outline-default,
+.btn-default {
+    @include btnMixin();
+}
+.btn-default {
+    border:1px solid #f8f8f8;
+    background-color:#f8f8f8;
+}
+.btn-outline-default {
+    border:1px solid #d8d8d8;
+    background-color:#fff;
 }

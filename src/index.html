@@ -1,56 +1,56 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title>eGovCp </title>
-    @@include('/sass_test/src/include/head.html')
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<title>eGovCp </title>
+	@@include('./include/head.html')
 </head>
 
 <body>
-    <!-- wrap -->
-    <div id="wrap">
-        <!-- header -->
-        @@if (nav === true){
-            @@include('/sass_test/src/include/header.html')
-        }
-        <!-- //header -->
+	<!-- wrap -->
+	<div id="wrap">
+		<!-- header -->
+		@@if (nav === true){
+			@@include('./include/header.html')
+		}
+		<!-- //header -->
 
-        <!-- container -->
-        <div id="container">
-            @@include('/sass_test/src/include/var.html', {
-                'title' : "메인",
-                'desc' : "메인페이지 입니다요."
-            })
-            
-            <div class="content">
-                content
-                <a href="@@webRoot" class="btn">@@webRoot</a>
-                <img src="images/logo.png" alt="">
-                <ul>
-                    <li>
-                        <span>
-                            <strong>
-                                <em></em>
-                                <em></em>
-                                <em>fdsfdsfdsfdsfdsfd</em>
-                                <em></em>
-                                <em></em>
-                                <em></em>
-                                <em></em>
-                                <em></em>
-                            </strong>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- //container -->
+		<!-- container -->
+		<div id="container">
+			@@include('./include/var.html', {
+				'title' : "메인",
+				'desc' : "메인페이지 입니다요."
+			})
+			
+			<div class="content">
+				contentsss
+				<a href="@@webRoot" class="btn">@@webRoot</a>
+				<img src="images/logo.png" alt="">
+				<ul>
+					<li>
+						<span>
+							<strong>
+								<em></em>
+								<em></em>
+								<em>fdsfdsfdsfdsfdsfd</em>
+								<em></em>
+								<em></em>
+								<em></em>
+								<em></em>
+								<em></em>
+							</strong>
+						</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //container -->
 
-        <!-- footer -->
-        @@include('/sass_test/src/include/footer.html')
-        <!-- //footer -->
-    </div>
-    <!-- //wrap -->
+		<!-- footer -->
+		@@include('./include/footer.html')
+		<!-- //footer -->
+	</div>
+	<!-- //wrap -->
 </body>
 </html>
