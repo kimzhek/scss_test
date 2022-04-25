@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+@mixin commonBgImg() {
+	background-size:100% 100%;
+	background-position:center center;
+	background-repeat:no-repeat;
+	overflow:hidden;
+	color:transparent;
+	font-size:1px;
+	text-indent:-9999px;
+}
+
+// 말줄임
+@mixin textEllipsis() {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+// slide Down && slide Up
+@mixin slideAnimate($mh, $mt, $ts, $tcb) {
+	max-height:$mh;
+	margin-top:$mt;
+	transition:all $ts $tcb;
+}
+
+// checkbox && radio
+@mixin commonCustom($bColor, $bRadius:100%) {
+	position:absolute;
+	width:1px;
+	height:1px;
+	padding:0;
+	margin:-1px;
+	overflow:hidden;
+	clip:rect(0,0,0,0);
+	border:0;
+	& + label {
+		position:relative;
+		display:inline-block;
+		color:$dark;
+		font-size:13px;
+		line-height:20px;
+		&:before {
+			content:'';
+			display:inline-block;
+			width:20px;
+			height:20px;
+			margin-right:10px;
+			border:1px solid $bColor;
+			background-color:$white;
+			border-radius:$bRadius;
+			vertical-align:top;
+			box-sizing:border-box;
+		}
+	}
+	&:checked + label {
+		@content;
+	}
+	&:disabled + label {
+		cursor: default;
+		&:before {
+			border-color:transparent;
+			background-color:#eee;
+		}
+	}
+	&.no-label + label:before {
+		margin:0;
+	}
+}
+
+// radio type
+@mixin radioType($width, $height, $bcolor, $checkBw, $checkBc, $checkBg, $checkC) {
+	& + label {
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		min-width:$width;
+		height:$height;
+		min-height:$height;
+		padding:0 18px;
+		border:1px solid $bcolor;
+		background-color:$white;
+		&:before, &:after {
+			display:none;
+		}
+	}
+	&:checked + label {
+		border:$checkBw solid $checkBc;
+		background-color:$checkBg;
+		color:$checkC;
+		@content;
+	}
+}
+
+// button
+@mixin buttonType($bc, $bg, $fc:$white, $fs:13px) {
+	display:inline-flex;
+	justify-content:center;
+	align-items:center;
+	height:40px;
+	padding:0 20px;
+	border:1px solid $bc;
+	background:$bg;
+	color:$fc;
+	font-size:$fs;
+	&.disabled,
+	&:disabled {
+		border-color:#ddd;
+		background:#ddd;
+		color:#fff;
+		cursor: default;
+	}
+}
+
+// button icon
+@mixin buttonIconType($w, $h, $mr, $bg) {
+	&:before {
+		content:'';
+		display:inline-block;
+		width:$w;
+		height:$h;
+		margin-right:$mr;
+		background-image:url(''+$url-common+''+$bg+'.png');
+		background-repeat:no-repeat;
+		background-position:center center;
+		@content;
+	}
+}
+
+// label
+@mixin labelType ($h, $br:5){
+	position:relative;
+	display:inline-block;
+	height:$h;
+	padding:0 7px;
+	border-radius:calc($h / $br);
+	color:$white;
+	font-size:12px;
+	text-align:center;
+	line-height:$h;
+	vertical-align:middle;
+}

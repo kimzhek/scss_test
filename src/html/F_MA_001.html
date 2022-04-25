@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+@@include('../include/head.html')
+</head>
+<body>
+	<div id="wrap">
+		<!-- banner -->
+		<div id="topBanner" style="background-color:#ffebf7;">
+			<div class="inner">
+				<!-- 1227 퍼블추가 -->
+				<span class="txt">현대백화점카드 x THT 추가 할인 프로모션</span>
+				<!-- //1227 퍼블추가 -->
+				<img src="../images/tmp/@tmp_top_banner.png" alt="">
+				<div class="check">
+					<input type="checkbox" id="topBannerCheck" class="custom-check" name="topBannerCheck">
+					<label for="topBannerCheck">1일 동안 보지 않기</label>
+				</div>
+				<button type="button" class="btn-close">닫기</button>
+			</div>
+		</div>
+		<!-- //banner -->
+
+		<!-- header -->
+@@include('../include/header.html')
+		<!-- //header -->
+		
+		<!-- container -->
+		<section id="container">
+
+			<div class="main-content-wrap">
+				<!-- main visual -->
+				<div class="main-visual-section" style="background-image:url('../images/tmp/@tmp_main_visual.png');"></div>
+				<!-- //main visual -->
+
+				<!-- contents inner -->
+				<div class="contents-inner">
+					<!-- 0106 퍼블추가 -->
+					<div class="main-notice-box">
+						<div class="box-inner">
+							2줄13자2줄13자2줄13자2줄13자2줄13자2
+						</div>
+					</div>
+					<!-- 0106 퍼블추가 -->
+
+					<!-- 구간권 & 패스권 -->
+					<div class="main-search-section">
+						<div class="search-box">
+							<ul class="search-ctab">
+								<li class="selected"><a href="#">구간권</a></li>
+								<li><a href="#">패스권</a></li>
+							</ul>
+
+							<!-- 구간권 -->
+							<div class="search-container">
+								<ul class="ctab">
+									<li class="selected"><a href="#">편도</a></li>
+									<li><a href="#">왕복</a></li>
+								</ul>
+
+								<div class="search-check">
+									<input type="checkbox" id="tmpcheck01" class="custom-check" name="tmpcheck">
+									<label for="tmpcheck01">즐겨찾기</label>
+
+									<input type="checkbox" id="tmpcheck02" class="custom-check" name="tmpcheck">
+									<!-- 0103 퍼블수정 -->
+									<label for="tmpcheck02">직통 검색</label>
+									<!-- 0103 퍼블수정 -->
+								</div>
+
+								<!-- 편도 -->
+								<div class="search-content">
+									<div class="content-section">
+										<div class="section-inner">
+											<input type="text" placeholder="출발도시/역 선택" value="London (All stations)">
+											<div class="dropdown-box mCustomScrollbar" style="display:none;">
+												<ul class="dropdown-list location">
+													<li><a href="#"><strong>Lo</strong>(All Stations), UK</a></li>
+													<li><a href="#"><strong>Lo</strong>hne, Germany</a></li>
+													<li><a href="#"><strong>Lo</strong>uviers, France</a></li>
+													<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+													<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+													<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+													<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+													<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+													<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+												</ul>
+											</div>
+										</div>
+										<div class="section-inner">
+											<input type="text" placeholder="도착도시/역 선택">
+										</div>
+										<button type="button" class="btn-switch">출도착지 전환</button>
+										<!-- <div class="invalid-feedback">도시/역 선택 해주세요.</div> -->
+									</div>
+
+									<div class="content-section">
+										<strong class="title">가는날</strong>
+										<div class="section-inner">
+											<div class="datepicker">
+												<input type="text" value="2021.10.12" readonly>
+												<!-- <div class="invalid-feedback">날짜선택 해주세요.</div> -->
+											</div>
+											<div class="dropdown">
+												<input type="text" placeholder="선택" readonly>
+												<div class="dropdown-box mCustomScrollbar" style="display:none;">
+													<ul class="dropdown-list time">
+														<li><a href="#">01:00 am</a></li>
+														<li><a href="#">02:00 am</a></li>
+														<li><a href="#">03:00 am</a></li>
+														<li><a href="#">04:00 am</a></li>
+														<li><a href="#">05:00 am</a></li>
+														<li><a href="#">06:00 am</a></li>
+														<li><a href="#">07:00 am</a></li>
+														<li><a href="#">08:00 am</a></li>
+														<li><a href="#">09:00 am</a></li>
+														<li><a href="#">10:00 am</a></li>
+														<li><a href="#">11:00 am</a></li>
+														<li><a href="#">12:00 am</a></li>
+													</ul>
+												</div>
+												<!-- <div class="invalid-feedback">시간선택 해주세요.</div> -->
+											</div>
+										</div>
+									</div>
+
+									<div class="content-section">
+										<strong class="title">인원</strong>
+										<div class="section-inner">
+											<div class="dropdown">
+												<input type="text" value="성인 1, 청소년 0, 아동 0, 경로 0" readonly>
+												<div class="personnel-box" style="display:none;">
+													<div class="section-box">
+														<div class="noti">※ 최대 9명까지</div>
+														<ul class="personnel">
+															<li>
+																<!-- 12-17 수정 -->
+																<label for="tmpNum01">성인<em>만 26~59세</em></label>
+																<div class="plus-minus">
+																	<input type="number" id="tmpNum01" value="1">
+																	<button type="button" class="plus">증가</button>
+																	<button type="button" class="minus">감소</button>
+																</div>
+															</li>
+															<li>
+																<!-- 12-17 수정 -->
+																<label for="tmpNum02">경로<em>만 60세 이상</em></label>
+																<div class="plus-minus">
+																	<input type="number" id="tmpNum02" value="2">
+																	<button type="button" class="plus">증가</button>
+																	<button type="button" class="minus">감소</button>
+																</div>
+															</li>
+															<li>
+																<!-- 12-17 수정 -->
+																<label for="tmpNum03">청소년<em>만 12~25세</em></label>
+																<div class="plus-minus">
+																	<input type="number" id="tmpNum03" value="1">
+																	<button type="button" class="plus">증가</button>
+																	<button type="button" class="minus">감소</button>
+																</div>
+															</li>
+															<li>
+																<!-- 12-17 수정 -->
+																<label for="tmpNum04">아동<em>만 4~11세</em></label>
+																<div class="plus-minus">
+																	<input type="number" id="tmpNum04" value="0">
+																	<button type="button" class="plus">증가</button>
+																	<button type="button" class="minus">감소</button>
+																</div>
+															</li>
+														</ul>
+
+														<!-- 0103 퍼블추가 -->
+														<div class="txt-refer">나이는 상품별로 달라질 수 있습니다. 자세한 내용은 <a href="#">[자세한 내용 보기]</a> 참조</div>
+														<!-- //0103 퍼블추가 -->
+
+														<!-- 0318 퍼블추가 -->
+														<div class="btn-area">
+															<a href="#" class="btn-primary btn-l">적용</a>
+														</div>
+														<!-- //0318 퍼블추가 -->
+													</div>
+													<div class="section-box">
+														<div class="noti">청소년/ 아동의 <strong>여행 첫날 나이를 입력</strong>하세요.</div>
+														<ul class="age">
+															<li><span>만</span><input type="number" value="8"></li>
+															<li><span>만</span><input type="number" value="8"></li>
+															<li><span>만</span><input type="number" value="8"></li>
+															<li><span>만</span><input type="number" value="8"></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //편도 -->
+
+								<!-- 왕복 -->
+								<div class="search-content" style="display:none;">
+									<div class="content-section">
+										<div class="section-inner">
+											<input type="text" placeholder="출발도시/역 선택">
+										</div>
+										<div class="section-inner">
+											<input type="text" placeholder="도착도시/역 선택">
+										</div>
+										<button type="button" class="btn-switch">출도착지 전환</button>
+										<div class="invalid-feedback">도시/역 선택 해주세요.</div>
+									</div>
+								
+									<div class="content-section">
+										<div class="section-col">
+											<strong class="title">가는날</strong>
+											<div class="section-inner">
+												<div class="datepicker">
+													<input type="text" placeholder="가는날 선택" readonly>
+													<div class="invalid-feedback">날짜선택 해주세요.</div>
+												</div>
+												<div class="dropdown">
+													<input type="text" placeholder="시간 선택" readonly>
+													<div class="invalid-feedback">시간선택 해주세요.</div>
+												</div>
+											</div>
+										</div>
+								
+										<div class="section-col">
+											<strong class="title">오는날</strong>
+											<div class="section-inner">
+												<div class="datepicker">
+													<input type="text" placeholder="오는날 선택" readonly>
+													<div class="invalid-feedback">날짜선택 해주세요.</div>
+												</div>
+												<div class="dropdown">
+													<input type="text" placeholder="시간 선택" readonly>
+													<div class="invalid-feedback">시간선택 해주세요.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								
+									<div class="content-section">
+										<strong class="title">인원</strong>
+										<div class="section-inner">
+											<div class="dropdown">
+												<input type="text" value="성인 1, 청소년 0, 아동 0, 경로 0" readonly>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- //왕복 -->
+							</div>
+							<!-- //구간권 -->
+
+							<!-- 패스권 -->
+							<div class="search-container" style="display:none;">
+								<div class="search-check">
+									<input type="checkbox" id="tmpcheck03" class="custom-check" name="tmpcheck">
+									<label for="tmpcheck03">즐겨찾기</label>
+								</div>
+								<div class="content-section">
+									<strong class="title">패스 상품 선택</strong>
+									<div class="section-inner">
+										<div class="dropdown">
+											<input type="text" placeholder="패스 상품 선택" readonly>
+											<div class="invalid-feedback">도시/역 선택 해주세요.</div>
+										</div>
+									</div>
+								</div>
+							
+								<div class="content-section">
+									<strong class="title">가는날</strong>
+									<div class="section-inner">
+										<div class="datepicker">
+											<input type="text" placeholder="가는날 선택" readonly>
+											<div class="invalid-feedback">날짜선택 해주세요.</div>
+										</div>
+									</div>
+								</div>
+							
+								<div class="content-section">
+									<strong class="title">인원</strong>
+									<div class="section-inner">
+										<div class="dropdown">
+											<input type="text" value="성인 1, 청소년 0, 아동 0, 경로 0" readonly>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- //패스권 -->
+
+							<div class="btn-area">
+								<button type="button" class="btn-dark-outline btn-xl">초기화</button>
+								<!-- 02-04 퍼블수정 -->
+								<button type="button" class="btn-primary btn-xl">검색</button>
+								<!-- //02-04 퍼블수정 -->
+							</div>
+						</div>
+
+						<!-- 구간권 인기노선 -->
+						<div class="popularity-box" style="display:none;">
+							<h2 class="stit">구간권 인기노선</h2>
+							<ul>
+								<li>
+									<button type="button">
+										<span>LONDON <em>(All stations)</em></span>
+										<span>PARIS <em>(All stations)</em></span>
+									</button>
+								</li>
+								<li>
+									<button type="button">
+										<span>PARIS <em>(All stations)</em></span>
+										<span>BASEL <em>(All stations)</em></span>
+									</button>
+								</li>
+								<li>
+									<button type="button">
+										<span>PARIS <em>(All stations)</em></span>
+										<span>GENEVA <em>(All stations)</em></span>
+									</button>
+								</li>
+								<li>
+									<button type="button">
+										<span>ROME <em>(All stations)</em></span>
+										<span>FIRENZE <em>(All stations)</em></span>
+									</button>
+								</li>
+							</ul>
+						</div>
+						<!-- //구간권 인기노선 -->
+
+						<!-- 패스권 인기노선 -->
+						<div class="popularity-box" style="display:none;">
+							<h2 class="stit">패스권 인기노선</h2>
+							<ul>
+								<li>
+									<button type="button">
+										<span>Swiss Travel<br>Pass</span>
+									</button>
+								</li>
+								<li>
+									<button type="button">
+										<span>Eurail Global Mobile<br>Pass</span>
+									</button>
+								</li>
+								<li>
+									<button type="button">
+										<span>Eurail Germany Mobile<br>Pass</span>
+									</button>
+								</li>
+								<li></li>
+							</ul>
+						</div>
+						<!-- //패스권 인기노선 -->
+
+						<!-- 구간권 & 패스권 즐겨찾기 -->
+						<div class="popularity-box">
+							<h2 class="stit">구간권 즐겨찾기</h2>
+							<div>
+								<ul>
+									<li><button type="button"><span><strong>LONDON</strong> (All stations)</span> ↔ <span><strong>PARIS</strong> (All stations)</span></button></li>
+									<li><button type="button"><span><strong>PARIS</strong> (All stations)</span> ↔ <span><strong>BASEL</strong> (All stations)</span></button></li>
+									<li><button type="button"><span><strong>PARIS</strong> (All stations)</span> ↔ <span><strong>GENEVA</strong> (All stations)</span></button></li>
+									<li><button type="button"><span><strong>ROME</strong> (All stations)</span> ↔ <span><strong>FIRENZE</strong> (All stations)</span></button></li>
+									<li><button type="button"><span><strong>PARIS</strong> (All stations)</span> ↔ <span><strong>GENEVA</strong> (All stations)</span></button></li>
+									<li><button type="button"><span><strong>ROME</strong> (All stations)</span> ↔ <span><strong>FIRENZE</strong> (All stations)</span></button></li>
+								</ul>
+							</div>
+						</div>
+						<!-- //구간권 & 패스권 즐겨찾기 -->
+
+					</div>
+					<!-- //구간권 & 패스권 -->
+					
+					<!-- 프로모션 -->
+					<div class="main-promotion-section">
+						<h2 class="stit">프로모션</h2>
+						<div class="promotion-banner-list">
+							<ul class="swiper-wrapper">
+								<li class="swiper-slide"><a href="#"><img src="../images/tmp/@tmp_banner01.jpg" alt="" data-swiper-parallax-x="60%"></a></li>
+								<li class="swiper-slide"><a href="#"><img src="../images/tmp/@tmp_banner02.jpg" alt="" data-swiper-parallax-x="60%"></a></li>
+								<li class="swiper-slide"><a href="#"><img src="../images/tmp/@tmp_banner01.jpg" alt="" data-swiper-parallax-x="60%"></a></li>
+								<li class="swiper-slide"><a href="#"><img src="../images/tmp/@tmp_banner02.jpg" alt="" data-swiper-parallax-x="60%"></a></li>
+							</ul>
+						</div>
+						<!-- 02-08 퍼블수정 -->
+						<div class="swiper-control-box">
+							<div class="swiper-pagination"></div>
+							<button type="button" class="start-stop">정지</button>
+						</div>
+						<!-- //02-08 퍼블수정 -->
+						<a href="#" class="btn-all">전체보기</a>
+					</div>
+					<!-- //프로모션 -->
+
+					<!-- 고객센터 & 공지사항 & FAQ -->
+					<div class="main-notice-faq-section">
+						<div class="box-csc">
+							<h2 class="stit">고객센터</h2>
+							<div>
+								<em>09:00~18:00</em> (주말/공휴일 휴무)
+								<strong>1234-5678</strong>
+								팩스 : 02-755-6605<br>
+								E-mail : hyundai@hyundai.com
+							</div>
+						</div>
+
+						<div class="box-notice">
+							<h2 class="stit">공지사항</h2>
+							<ul class="notice">
+								<li><a href="#">유럽기차 공급자(DBAHN, STS) 장애</a></li>
+								<li><a href="#">2021.08.15 24:00~02:00 시스템 점검 안내</a></li>
+								<li><a href="#">유럽기차 API 서버 장애에 따른 시스템 불안정 유럽기차 API 서버 장애에 따른 시스템 불안정</a></li>
+							</ul>
+							<div class="btn-more"><a href="#">더보기</a></div>
+						</div>
+
+						<div class="box-faq">
+							<h2 class="stit">FAQ</h2>
+							<ul class="faq">
+								<li><a href="#" class="btn-default-outline">패스권</a></li>
+								<li><a href="#" class="btn-default-outline">구간권</a></li>
+								<li><a href="#" class="btn-default-outline">결제시스템</a></li>
+								<li><a href="#" class="btn-default-outline">기타</a></li>
+							</ul>
+							<div class="btn-more"><a href="#">더보기</a></div>
+						</div>
+					</div>
+					<!-- //고객센터 & 공지사항 & FAQ -->
+				</div>
+				<!-- //contents inner -->
+			</div>
+			
+		</section>
+		<!-- //container -->
+
+		<!-- footer -->
+@@include('../include/footer.html')
+		<!-- //footer -->
+	</div>
+
+	<script type="text/javascript">
+		// 프로모션
+		// 02-08 퍼블수정
+		var promotionList = new Swiper('.promotion-banner-list', {
+			speed: 800,
+			loop: true,
+			parallax: true,
+			simulateTouch: false,
+			autoplay: {
+				delay: 4000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+				el: '.main-promotion-section .swiper-pagination',
+				clickable: true,
+			},
+		});
+
+		$('.main-promotion-section .swiper-control-box').find('.start-stop').on('click', function () {
+			if (!$(this).hasClass('stop')) {
+				promotionList.autoplay.stop();
+				$(this).addClass('stop').text('시작');
+			} else {
+				promotionList.autoplay.start();
+				$(this).removeClass('stop').text('정지');
+			}
+		});
+	</script>
+</body>
+</html>

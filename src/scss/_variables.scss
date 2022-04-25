@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+// color
+$white:#fff !default;
+$light:#999 !default;
+$default:#797979 !default;
+$dark:#1f1b1c !default;
+$black:#000 !default;
+$primary:#004d45 !default;
+$secondary:#17af98 !default;
+$emphasis:#fa4156 !default;
+$warning:#e6b300 !default;
+$info:#bfbfbf !default;
+
+$line-c8:#c8c8c8 !default;
+$line-e0:#e0e0e0 !default;
+
+$theme-colors: () !default;
+$theme-colors: map-merge(
+	(
+		"primary":		$primary,
+		"secondary":	$secondary,
+		"dark":			$dark,
+		"default":		$default,
+		"light":		$light,
+		"info":			$info
+	),
+	$theme-colors
+);
+
+// font
+$font-light:300 !default;
+$font-regular:400 !default;
+$font-medium:500 !default;
+$font-bold:700 !default;
+
+// width
+$min-content-w:1100px !default;
+
+// url
+$url-path: "../images/" !default;
+$url-common: ""+$url-path+"common/" !default;

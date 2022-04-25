@@ -1,0 +1,2965 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+@@include('../include/head.html')
+	<style type="text/css">
+		.contents-inner {width:1300px !important;}
+		.search-result-top {overflow:hidden;}
+		.box {padding:30px; border:1px solid #eee; border-radius:5px; box-shadow: 0 0 10px #ccc;}
+		.box .stit {width:100%; margin-bottom:20px;}
+		.box > .row {display:flex; flex-wrap:wrap;}
+		.box > .row + .row {margin-top:20px;}
+		.row .flex-group {width:100%;}
+		.row .flex-group .stit {width:auto; margin:0;}
+		.row .col {margin:0 10px;}
+		.row .col5 {flex:1;}
+		.row .col5 + .col5 {margin-left:50px;}
+		.row .col input {width:100%;}
+		.row.icon .col {width:11%; margin:20px 0; color:#999; font-size:11px; text-align:center;}
+		.row.icon .col span {display:inline-block; margin-bottom:10px; font-size:0;}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<!-- header -->
+@@include('../include/header.html')
+		<!-- //header -->
+		
+		<!-- container -->
+		<section id="container">
+			<div class="contents-inner">
+
+				<!-- title -->
+				<div class="box">
+					<div class="row">
+						<div class="col5">
+							<h2 class="stit">Title stit</h2>
+							<h3 class="sstit">타이틀 sstit</h3>
+							<h4 class="ssstit">타이틀 ssstit</h4>
+							<div class="row">
+								<div class="flex-group">
+									<h2 class="stit">탑승자 정보</h2>
+									<div class="noti"><span class="t-emphasis">*</span> 항목은 필수 입력사항입니다.</div>
+								</div>
+							</div>
+						</div>
+						<div class="col5">
+							<h2 class="stit">Text color</h2>
+							<div class="t-emphasis">#fa4156</div>
+							<div class="t-emphasis02">#17af98</div>
+							<div class="t-emphasis03">#e6b300</div>
+							<div class="t-emphasis04">#4d7ce5</div>
+							<div class="t-dark">#1f1b1c</div>
+							<div class="t-default">#797979</div>
+							<div class="t-light">#999999</div>
+						</div>
+					</div>
+				</div>
+				<!-- //title -->
+<br><br>
+				<!-- tab -->
+				<div class="box">
+					<h2 class="stit">Tab</h2>
+					<ul class="ctab">
+						<li class="selected"><a href="#">개인정보 수집,이용 동의</a></li>
+						<li><a href="#">제3자 제공 안내</a></li>
+						<li><a href="#">취소 수수료 규정</a></li>
+					</ul>
+					<br>
+					<ul class="ctab">
+						<li class="selected"><a href="#">구간권</a></li>
+						<li><a href="#">패스권</a></li>
+					</ul>
+				</div>
+				<!-- //tab -->
+<br><br>
+				<!-- input -->
+				<div class="box">
+					<h2 class="stit">Input</h2>
+					<div class="row">
+						<div class="col">
+							<input type="text">
+						</div>
+						<div class="col">
+							<input type="text" value="홍길동">
+						</div>
+						<div class="col">
+							<input type="text" placeholder="한글이름 입력">
+						</div>
+						<div class="col">
+							<input type="text" value="홍길동" disabled>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<select>
+								<option value="">선택</option>
+								<option value="">선택1</option>
+								<option value="">선택2</option>
+								<option value="">선택3</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<!-- //input -->
+<br><br>
+				<!-- Radio & Checkbox -->
+				<div class="box">
+					<h2 class="stit">Radio & Checkbox</h2>
+					<div class="row">
+						<div class="col">
+							<input type="radio" id="tmpRadio01" class="custom-radio" name="tmpRadio" checked>
+							<label for="tmpRadio01">남자</label>
+
+							<input type="radio" id="tmpRadio02" class="custom-radio" name="tmpRadio">
+							<label for="tmpRadio02">여자</label>
+						</div>
+
+						<div class="col">
+							<input type="checkbox" id="tmpcheck" class="custom-check" name="tmpcheck">
+							<label for="tmpcheck">직항 검색</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio00_1" class="custom-radio type-primary" name="tmpBtnRadio00" checked>
+							<label for="tmpBtnRadio00_1">15일</label>
+						</div>
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio00_2" class="custom-radio type-primary" name="tmpBtnRadio00">
+							<label for="tmpBtnRadio00_2">22일</label>
+						</div>
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio00_3" class="custom-radio type-primary" name="tmpBtnRadio00">
+							<label for="tmpBtnRadio00_3">1개월</label>
+						</div>
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio00_4" class="custom-radio type-primary" name="tmpBtnRadio00">
+							<label for="tmpBtnRadio00_4">2개월</label>
+						</div>
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio00_5" class="custom-radio type-primary" name="tmpBtnRadio00">
+							<label for="tmpBtnRadio00_5">3개월</label>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio01_1" class="custom-radio type-outline" name="tmpBtnRadio01" checked>
+							<label for="tmpBtnRadio01_1">€ 79.00</label>
+						</div>
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio01_2" class="custom-radio type-outline" name="tmpBtnRadio01">
+							<label for="tmpBtnRadio01_2">€ 129.00</label>
+						</div>
+						<div class="col">
+							<input type="radio" id="tmpBtnRadio01_3" class="custom-radio type-outline" name="tmpBtnRadio01" disabled>
+							<label for="tmpBtnRadio01_3">-</label>
+						</div>
+					</div>
+				</div>
+				<!-- //Radio & Checkbox -->
+<br><br>
+				<!-- Button -->
+				<div class="box">
+					<h2 class="stit">Button</h2>
+					<div class="row">
+						<div class="col">
+							<a href="#" class="btn-primary">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-secondary">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-dark">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-default">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-light">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<button type="button" class="btn-light" disabled>disabled</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<a href="#" class="btn-primary-outline">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-secondary-outline">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-dark-outline">세부 정보 참조</a>
+						</div>
+						<!-- <div class="col">
+							<a href="#" class="btn-light-outline">세부 정보 참조</a>
+						</div> -->
+						<div class="col">
+							<a href="#" class="btn-default-outline">세부 정보 참조</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<a href="#" class="btn-primary btn-m">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-primary">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-primary btn-l">세부 정보 참조</a>
+						</div>
+						<div class="col">
+							<a href="#" class="btn-primary btn-xl">세부 정보 참조</a>
+						</div>
+					</div>
+
+					<div class="btn-area-wrap">
+						<div class="box-l">
+							<a href="#" class="btn-default-outline btn-w-140">예약추가</a>
+							<a href="#" class="btn-default-outline btn-w-140">예약변경</a>
+							<a href="#" class="btn-default-outline btn-w-140">예약취소</a>
+						</div>
+					
+						<div class="box-r">
+							<a href="#" class="btn-primary btn-w-140">발권하기</a>
+						</div>
+					</div>
+
+					<div class="btn-area-wrap">
+						<div class="box-l">
+							<a href="#" class="btn-default-outline btn-xl btn-w-180">예약추가</a>
+							<a href="#" class="btn-default-outline btn-xl btn-w-180">예약변경</a>
+							<a href="#" class="btn-default-outline btn-xl btn-w-180">예약취소</a>
+						</div>
+					
+						<div class="box-r">
+							<a href="#" class="btn-primary btn-xl btn-w-180">발권하기</a>
+						</div>
+					</div>
+				</div>
+				<!-- //Button -->
+<br><br>
+				<!-- Label -->
+				<div class="box">
+					<h2 class="stit">Label</h2>
+					<div class="row">
+						<div class="col">
+							<span class="label-pill01">예약확정</span>
+							<span class="label-pill01">부분확정</span>
+							<span class="label-pill02">예약대기</span>
+							<span class="label-pill03">예약취소</span>
+							<span class="label-pill04">예약에러</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<span class="label-pill05">직행</span>
+							<span class="label-pill06">연속</span>
+							<span class="label-pill07">환승</span>
+							<span class="label-pill08">플랙시</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<span class="label-outline01">결제완료</span>
+							<span class="label-outline02">전체미납</span>
+							<span class="label-outline02">부분미납</span>
+							<span class="label-outline03">현재</span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<span class="label-pass consecutive">연속 패스</span>
+							<span class="label-pass flexi">플랙시 패스</span>
+						</div>
+					</div>
+				</div>
+				<!-- //Label -->
+<br><br>
+				<!-- ICON -->
+				<div class="box">
+					<h2 class="stit">ICON</h2>
+					<div class="row icon">
+						<div class="col">
+							<span class="icon-ticket">e-ticket</span>
+							<br>
+							e-ticket<br>
+							icon-ticket
+						</div>
+						<div class="col">
+							<span class="icon-air_conditioner">air-conditioner</span>
+							<br>
+							air-conditioner<br>
+							icon-air_conditioner
+						</div>
+						<div class="col">
+							<span class="icon-audio">audio</span>
+							<br>
+							audio<br>
+							icon-audio
+						</div>
+						<div class="col">
+							<span class="icon-bar">bar</span>
+							<br>
+							bar<br>
+							icon-bar
+						</div>
+						<div class="col">
+							<span class="icon-meal">meal</span>
+							<br>
+							meal<br>
+							icon-meal
+						</div>
+						<div class="col">
+							<span class="icon-lounge">lounge</span>
+							<br>
+							lounge<br>
+							icon-lounge
+						</div>
+						<div class="col">
+							<span class="icon-parking">parking</span>
+							<br>
+							parking<br>
+							icon-parking
+						</div>
+						<div class="col">
+							<span class="icon-power_socket">power-socket</span>
+							<br>
+							power-socket<br>
+							icon-power_socket
+						</div>
+						<div class="col">
+							<span class="icon-taxi">taxi</span>
+							<br>
+							taxi<br>
+							icon-taxi
+						</div>
+						<div class="col">
+							<span class="icon-trolley">trolley</span>
+							<br>
+							trolley<br>
+							icon-trolley
+						</div>
+						<div class="col">
+							<span class="icon-wifi">wifi</span>
+							<br>
+							wifi<br>
+							icon-wifi
+						</div>
+						<div class="col">
+							<span class="icon-wheelchair">wheelchair</span>
+							<br>
+							wheelchair<br>
+							icon-wheelchair
+						</div>
+						<div class="col">
+							<span class="icon-bicycle">bicycle</span>
+							<br>
+							bicycle<br>
+							icon-bicycle
+						</div>
+						<div class="col">
+							<span class="icon-toilet">toilet</span>
+							<br>
+							toilet<br>
+							icon-toilet
+						</div>
+						<div class="col">
+							<span class="icon-change_station">change-station</span>
+							<br>
+							change-station<br>
+							icon-change_station
+						</div>
+						<div class="col">
+							<span class="icon-change_platform">change-platform</span>
+							<br>
+							change-platform<br>
+							icon-change_platform
+						</div>
+						<div class="col">
+							<span class="icon-information_plain">information-plain</span>
+							<br>
+							information-plain<br>
+							icon-information_plain
+						</div>
+						<div class="col">
+							<span class="icon-information">information</span>
+							<br>
+							information<br>
+							icon-information
+						</div>
+						<div class="col">
+							<span class="icon-valet">valet</span>
+							<br>
+							valet<br>
+							icon-valet
+						</div>
+						<div class="col">
+							<span class="icon-usb_plug">usb-plug</span>
+							<br>
+							usb-plug<br>
+							icon-usb_plug
+						</div>
+						<div class="col">
+							<span class="icon-external_reservation">external-reservation</span>
+							<br>
+							external-reservation<br>
+							icon-external_reservation
+						</div>
+						<div class="col">
+							<span class="icon-pedestrian">pedestrian</span>
+							<br>
+							pedestrian<br>
+							icon-pedestrian
+						</div>
+						<div class="col">
+							<span class="icon-fee_card">fee-card</span>
+							<br>
+							fee-card<br>
+							icon-fee_card
+						</div>
+						<div class="col">
+							<span class="icon-pass_contact">pass-contact</span>
+							<br>
+							pass-contact<br>
+							icon-pass_contact
+						</div>
+						<div class="col">
+							<span class="icon-print_at_station">print-at-station</span>
+							<br>
+							print-at-station<br>
+							icon-print_at_station
+						</div>
+						<div class="col">
+							<span class="icon-ebillet">ebillet</span>
+							<br>
+							ebillet<br>
+							icon-ebillet
+						</div>
+						<div class="col">
+							<span class="icon-luggage">luggage</span>
+							<br>
+							luggage<br>
+							icon-luggage
+						</div>
+						<div class="col">
+							<span class="icon-vending_machine">vending-machine</span>
+							<br>
+							vending-machine<br>
+							icon-vending_machine
+						</div>
+						<div class="col">
+							<span class="icon-station">station</span>
+							<br>
+							station<br>
+							icon-station
+						</div>
+						<div class="col">
+							<span class="icon-hot-food">hot_food</span>
+							<br>
+							hot-food<br>
+							icon-hot_food
+						</div>
+						<div class="col">
+							<span class="icon-video">video</span>
+							<br>
+							video<br>
+							icon-video
+						</div>
+						<div class="col">
+							<span class="icon-sandwich">sandwich</span>
+							<br>
+							sandwich<br>
+							icon-sandwich
+						</div>
+						<div class="col">
+							<span class="icon-point_of_interest">point-of-interest</span>
+							<br>
+							point-of-interest<br>
+							icon-point_of_interest
+						</div>
+						<div class="col">
+							<span class="icon-refund">refund-icon</span>
+							<br>
+							refund-icon<br>
+							icon-refund
+						</div>
+						<div class="col">
+							<span class="icon-priority_boarding">priority-boarding</span>
+							<br>
+							priority-boarding<br>
+							icon-priority_boarding
+						</div>
+					</div>
+				</div>
+				<!-- //ICON -->
+<br><br>
+				<!-- contents -->
+				<div class="box">
+					<h2 class="stit">contents</h2>
+
+					<div class="search-result-wrap">
+						<!-- 검색결과 -->
+						<div class="search-result-top"><!-- selected 추가시 재검색 펼쳐짐 -->
+							<div class="search-result-inner">
+								<div class="location type-col">
+									<div>LONDON <em>(All stations)</em></div>
+									<div>PARIS <em>(All stations)</em></div>
+									<button type="button" class="btn-switch">출도착지 전환</button>
+								</div>
+								<div class="date">2021-09-13 | 07:00 am ~ 2021-09-14 | 07:00 pm</div>
+								<div class="member">성인 1, 청소년 1, 아동 2, 경로 0</div>
+								<div class="btn">
+									<button type="button" class="btn-primary-outline">재검색</button>
+								</div>
+							</div>
+							<div class="search-section">
+						
+								<div class="search-container">
+									<ul class="ctab">
+										<li class="selected"><a href="#">편도</a></li>
+										<li><a href="#">왕복</a></li>
+									</ul>
+						
+									<div class="search-check">
+										<input type="checkbox" id="tmpcheck01" class="custom-check" name="tmpcheck">
+										<label for="tmpcheck01">즐겨찾기</label>
+
+										<input type="checkbox" id="tmpcheck" class="custom-check" name="tmpcheck">
+										<label for="tmpcheck">직항 검색</label>
+									</div>
+						
+									<!-- 편도 -->
+									<div class="search-content">
+										<div class="content-section type-col">
+											<div class="section-inner">
+												<strong class="title">출발지</strong>
+												<input type="text" placeholder="출발도시/역 선택">
+												<div class="dropdown-box mCustomScrollbar" style="display:none;">
+													<ul class="dropdown-list location">
+														<li><a href="#"><strong>Lo</strong>(All Stations), UK</a></li>
+														<li><a href="#"><strong>Lo</strong>hne, Germany</a></li>
+														<li><a href="#"><strong>Lo</strong>uviers, France</a></li>
+														<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+														<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+														<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+														<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+														<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+														<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="section-inner">
+												<strong class="title">도착지</strong>
+												<input type="text" placeholder="도착도시/역 선택">
+											</div>
+											<button type="button" class="btn-switch">출도착지 전환</button>
+											<!-- <div class="invalid-feedback">도시/역 선택 해주세요.</div> -->
+										</div>
+						
+										<div class="content-section">
+											<strong class="title">가는날</strong>
+											<div class="section-inner">
+												<div class="datepicker">
+													<input type="text" placeholder="가는날 선택" readonly>
+													<!-- <div class="invalid-feedback">날짜선택 해주세요.</div> -->
+												</div>
+												<div class="dropdown">
+													<input type="text" placeholder="시간 선택" readonly>
+													<div class="dropdown-box mCustomScrollbar" style="display:none;">
+														<ul class="dropdown-list time">
+															<li><a href="#">01:00 am</a></li>
+															<li><a href="#">02:00 am</a></li>
+															<li><a href="#">03:00 am</a></li>
+															<li><a href="#">04:00 am</a></li>
+															<li><a href="#">05:00 am</a></li>
+															<li><a href="#">06:00 am</a></li>
+															<li><a href="#">07:00 am</a></li>
+															<li><a href="#">08:00 am</a></li>
+															<li><a href="#">09:00 am</a></li>
+															<li><a href="#">10:00 am</a></li>
+															<li><a href="#">11:00 am</a></li>
+															<li><a href="#">12:00 am</a></li>
+														</ul>
+													</div>
+													<!-- <div class="invalid-feedback">시간선택 해주세요.</div> -->
+												</div>
+											</div>
+										</div>
+						
+										<div class="content-section">
+											<strong class="title">인원</strong>
+											<div class="section-inner">
+												<div class="dropdown">
+													<input type="text" value="성인 1, 청소년 0, 아동 0, 경로 0" readonly>
+													<div class="personnel-box" style="display:none;">
+														<div class="section-box">
+															<div class="noti">※ 최대 9명까지</div>
+															<ul class="personnel">
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum01">성인<em>만 26~59세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum01" value="1">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum02">경로<em>만 60세 이상</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum02" value="2">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum03">청소년<em>만 12~25세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum03" value="1">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum04">아동<em>만 4~11세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum04" value="0">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+															</ul>
+															<!-- 0318 퍼블추가 -->
+															<div class="btn-area">
+																<a href="#" class="btn-primary btn-l">적용</a>
+															</div>
+															<!-- //0318 퍼블추가 -->
+														</div>
+														<div class="section-box">
+															<div class="noti">청소년/ 아동의 <strong>여행 첫날 나이를 입력</strong>하세요.</div>
+															<ul class="age">
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- //편도 -->
+
+									<!-- 왕복 -->
+									<div class="search-content" style="display:none;">
+										<div class="content-section type-col">
+											<div class="section-inner">
+												<strong class="title">출발지</strong>
+												<input type="text" placeholder="출발도시/역 선택">
+												<div class="dropdown-box mCustomScrollbar" style="display:none;">
+													<ul class="dropdown-list location">
+														<li><a href="#"><strong>Lo</strong>(All Stations), UK</a></li>
+														<li><a href="#"><strong>Lo</strong>hne, Germany</a></li>
+														<li><a href="#"><strong>Lo</strong>uviers, France</a></li>
+														<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+														<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+														<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+														<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+														<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+														<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+													</ul>
+												</div>
+											</div>
+											<div class="section-inner">
+												<strong class="title">도착지</strong>
+												<input type="text" placeholder="도착도시/역 선택">
+											</div>
+											<button type="button" class="btn-switch">출도착지 전환</button>
+											<!-- <div class="invalid-feedback">도시/역 선택 해주세요.</div> -->
+										</div>
+						
+										<div class="content-section">
+											<div class="section-col">
+												<strong class="title">가는날</strong>
+												<div class="section-inner">
+													<div class="datepicker">
+														<input type="text" placeholder="가는날 선택" readonly>
+														<!-- <div class="invalid-feedback">날짜선택 해주세요.</div> -->
+													</div>
+													<div class="dropdown">
+														<input type="text" placeholder="시간 선택" readonly>
+														<!-- <div class="invalid-feedback">시간선택 해주세요.</div> -->
+													</div>
+												</div>
+											</div>
+											
+											<div class="section-col">
+												<strong class="title">오는날</strong>
+												<div class="section-inner">
+													<div class="datepicker">
+														<input type="text" placeholder="오는날 선택" readonly>
+														<!-- <div class="invalid-feedback">날짜선택 해주세요.</div> -->
+													</div>
+													<div class="dropdown">
+														<input type="text" placeholder="시간 선택" readonly>
+														<!-- <div class="invalid-feedback">시간선택 해주세요.</div> -->
+													</div>
+												</div>
+											</div>
+										</div>
+						
+										<div class="content-section">
+											<strong class="title">인원</strong>
+											<div class="section-inner">
+												<div class="dropdown">
+													<input type="text" value="성인 1, 청소년 0, 아동 0, 경로 0" readonly>
+													<div class="personnel-box" style="display:none;">
+														<div class="section-box">
+															<div class="noti">※ 최대 9명까지</div>
+															<ul class="personnel">
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum01">성인<em>만 26~59세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum01" value="1">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum02">경로<em>만 60세 이상</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum02" value="2">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum03">청소년<em>만 12~25세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum03" value="1">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum04">아동<em>만 4~11세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum04" value="0">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+															</ul>
+															<!-- 0318 퍼블추가 -->
+															<div class="btn-area">
+																<a href="#" class="btn-primary btn-l">적용</a>
+															</div>
+															<!-- //0318 퍼블추가 -->
+														</div>
+														<div class="section-box">
+															<div class="noti">청소년/ 아동의 <strong>여행 첫날 나이를 입력</strong>하세요.</div>
+															<ul class="age">
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- //왕복 -->
+						
+									<div class="btn-area">
+										<button type="button" class="btn-dark-outline btn-xl">초기화</button>
+										<button type="button" class="btn-primary btn-xl">기차검색</button>
+									</div>
+								</div>
+						
+							</div>
+						</div>
+						<!-- //검색결과 -->
+
+						<!-- 검색결과 -->
+						<div class="search-result-top"><!-- selected 추가시 재검색 펼쳐짐 -->
+							<div class="search-result-inner">
+								<div class="location">Europe</div>
+								<div class="date">2021.09.13 | 07:00 am</div>
+								<div class="member">성인 1, 청소년 1, 아동 2, 경로 0</div>
+								<div class="btn">
+									<button type="button" class="btn-primary-outline">재검색</button>
+								</div>
+							</div>
+							<div class="search-section">
+
+								<div class="search-container">
+
+									<div class="search-check">
+										<input type="checkbox" id="tmpcheck01" class="custom-check" name="tmpcheck">
+										<label for="tmpcheck01">즐겨찾기</label>
+									</div>
+						
+									<div class="search-content">
+										<div class="content-section">
+											<strong class="title">출발지</strong>
+											<div class="section-inner">
+												<div class="dropdown">
+													<input type="text" placeholder="목적지 선택" readonly>
+													<div class="dropdown-box mCustomScrollbar" style="display:none;">
+														<ul class="dropdown-list location">
+															<li><a href="#"><strong>Lo</strong>(All Stations), UK</a></li>
+															<li><a href="#"><strong>Lo</strong>hne, Germany</a></li>
+															<li><a href="#"><strong>Lo</strong>uviers, France</a></li>
+															<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+															<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+															<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+															<li><a href="#"><strong>Lo</strong>uverne, France</a></li>
+															<li><a href="#"><strong>Lo</strong>nguyon, France</a></li>
+															<li><a href="#"><strong>Lo</strong>grono, Spain</a></li>
+														</ul>
+													</div>
+													<!-- <div class="invalid-feedback">도시/역 선택 해주세요.</div> -->
+												</div>
+											</div>
+										</div>
+						
+										<div class="content-section">
+											<strong class="title">가는날</strong>
+											<div class="section-inner">
+												<div class="datepicker">
+													<input type="text" placeholder="가는날 선택" readonly>
+													<!-- <div class="invalid-feedback">날짜선택 해주세요.</div> -->
+												</div>
+												<div class="dropdown">
+													<input type="text" placeholder="시간 선택" readonly>
+													<div class="dropdown-box mCustomScrollbar" style="display:none;">
+														<ul class="dropdown-list time">
+															<li><a href="#">01:00 am</a></li>
+															<li><a href="#">02:00 am</a></li>
+															<li><a href="#">03:00 am</a></li>
+															<li><a href="#">04:00 am</a></li>
+															<li><a href="#">05:00 am</a></li>
+															<li><a href="#">06:00 am</a></li>
+															<li><a href="#">07:00 am</a></li>
+															<li><a href="#">08:00 am</a></li>
+															<li><a href="#">09:00 am</a></li>
+															<li><a href="#">10:00 am</a></li>
+															<li><a href="#">11:00 am</a></li>
+															<li><a href="#">12:00 am</a></li>
+														</ul>
+													</div>
+													<!-- <div class="invalid-feedback">시간선택 해주세요.</div> -->
+												</div>
+											</div>
+										</div>
+						
+										<div class="content-section">
+											<strong class="title">인원</strong>
+											<div class="section-inner">
+												<div class="dropdown">
+													<input type="text" value="성인 1, 청소년 0, 아동 0, 경로 0" readonly>
+													<div class="personnel-box" style="display:none;">
+														<div class="section-box">
+															<div class="noti">※ 최대 9명까지</div>
+															<ul class="personnel">
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum01">성인<em>만 26~59세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum01" value="1">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum02">경로<em>만 60세 이상</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum02" value="2">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum03">청소년<em>만 12~25세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum03" value="1">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+																<li>
+																	<!-- 12-17 수정 -->
+																	<label for="tmpNum04">아동<em>만 4~11세</em></label>
+																	<div class="plus-minus">
+																		<input type="number" id="tmpNum04" value="0">
+																		<button type="button" class="plus">증가</button>
+																		<button type="button" class="minus">감소</button>
+																	</div>
+																</li>
+															</ul>
+															<!-- 0318 퍼블추가 -->
+															<div class="btn-area">
+																<a href="#" class="btn-primary btn-l">적용</a>
+															</div>
+															<!-- //0318 퍼블추가 -->
+														</div>
+														<div class="section-box">
+															<div class="noti">청소년/ 아동의 <strong>여행 첫날 나이를 입력</strong>하세요.</div>
+															<ul class="age">
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+																<li><span>만</span><input type="number" value="8"></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+						
+									<div class="btn-area">
+										<button type="button" class="btn-dark-outline btn-xl">초기화</button>
+										<button type="button" class="btn-primary btn-xl">기차검색</button>
+									</div>
+								</div>
+						
+							</div>
+						</div>
+						<!-- //검색결과 -->
+					</div>
+<br><br>
+					<div class="row">
+						<div class="col5">
+							<!-- 여정 -->
+							<div class="route-wrap">
+								<div class="route-section">
+									<div class="route"><em>12:31 PM</em> <span>London St Pancras Internation</span></div>
+									<div class="details">
+										<div>
+											<span class="icon-time">2시간 16분</span>
+											<span class="icon-train">고속기차 9008</span>
+										</div>
+										<div>
+											<a href="#" class="logo">
+												<object type="image/svg+xml" data="../images/logo/sbb_eurocity.svg"></object>
+											</a>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+										</div>
+									</div>
+									<div class="route"><em>03:47 PM</em> <span>Paris Nord</span></div>
+								</div>
+							</div>
+							<!-- //여정 -->
+						</div>
+						<div class="col5">
+							<!-- 여정 -->
+							<div class="route-wrap type-transfer" data-toggle="wrap">
+								<button type="button" class="btn-more" data-toggle="button">펼치기</button>
+								<div class="route-section">
+									<div class="route"><em>12:31 PM</em> <span>London St Pancras Internation</span></div>
+									<div class="details">
+										<div>
+											<span class="icon-time">2시간 16분</span>
+											<span class="icon-train">고속기차 9008</span>
+										</div>
+										<div>
+											<a href="#" class="logo">
+												<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+											</a>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+										</div>
+									</div>
+									<div class="route"><em>03:47 PM</em> <span>Paris Nord</span></div>
+								</div>
+								<div class="transfer">
+									환승 24분
+								</div>
+								<div class="route-section">
+									<div class="route"><em>12:31 PM</em> <span>London St Pancras Internation</span></div>
+									<div class="details">
+										<div>
+											<span class="icon-time">2시간 16분</span>
+											<span class="icon-train">고속기차 9008</span>
+										</div>
+										<div>
+											<a href="#" class="logo">
+												<object type="image/svg+xml" data="../images/logo/renfe.svg"></object>
+											</a>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+											<span class="icon-wifi">와이파이</span>
+										</div>
+									</div>
+									<div class="route"><em>03:47 PM</em> <span>Paris Nord</span></div>
+								</div>
+							</div>
+							<!-- //여정 -->
+						</div>
+					</div>
+<br><br>
+					<!-- paging -->
+					<div class="paging">
+						<a href="#" class="first">처음</a>
+						<a href="#" class="prev">이전</a>
+						<a href="#" class="selected">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#">4</a>
+						<a href="#">5</a>
+						<a href="#">6</a>
+						<a href="#">7</a>
+						<a href="#">8</a>
+						<a href="#">9</a>
+						<a href="#">10</a>
+						<a href="#" class="next">다음</a>
+						<a href="#" class="last">마지막</a>
+					</div>
+					<!-- //paging -->
+				</div>
+				<!-- //contents -->
+<br><br>
+				<!-- TABEL -->
+				<div class="box">
+					<h2 class="stit">TABEL</h2>
+					<h3 class="sstit">board-list</h3>
+					<!-- S -->
+					<table class="board-list">
+						<colgroup>
+							<col>
+							<col style="width:180px;">
+							<col style="width:120px;">
+							<col style="width:120px;">
+							<col style="width:180px;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">예약번호</th>
+								<th scope="col">첫 탑승일</th>
+								<th scope="col">총 금액</th>
+								<th scope="col">예약자</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-toggle="wrap">
+								<td class="subject">
+									<button type="button" data-toggle="button" class="flex-group">
+										<span>
+											<span>[예약확정]</span>
+											<span class="t-emphasis">[미입금]</span>
+											<span class="t-emphasis03">[미발권]</span>
+											<span class="num">H123456789</span>
+										</span>
+										<span class="btn-icon-more">더보기</span>
+									</button>
+								</td>
+								<td class="td-c">2021.10.15(금)</td>
+								<td class="price">
+									(€ 141.00)
+									<strong>280,024원</strong>
+								</td>
+								<td class="td-c">홍길동</td>
+								<td class="btn">
+									<a href="#" class="btn-default-outline btn-m">상세보기</a>
+								</td>
+							</tr>
+							<!-- 상세내용 펼쳐보기 -->
+							<tr class="details">
+								<td colspan="5">
+									<div class="details-wrap">
+										<div class="row">
+											<div class="col num">K123456789</div>
+											<div class="col location"><span class="label-pill05">직행</span> London ↔ Paris</div>
+											<div class="col">현드림 외 1명</div>
+											<div class="col t-emphasis02">미발권</div>
+											<div class="col t-emphasis02">2021.10.15(금)</div>
+											<div class="col price">
+												(€ 141.00)
+												<strong>163,560원</strong>
+											</div>
+										</div>
+										
+										<div class="row">
+											<div class="col num">K123456789</div>
+											<div class="col location"><span class="label-pill06">연속</span> 유로스타</div>
+											<div class="col">현드림 외 11명</div>
+											<div class="col">발권완료</div>
+											<div class="col">2021.10.15(금)</div>
+											<div class="col price">
+												(€ 141.00)
+												<strong>163,560원</strong>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<!-- //상세내용 펼쳐보기 -->
+							<tr data-toggle="wrap">
+								<td class="subject">
+									<button type="button" data-toggle="button" class="flex-group">
+										<span>
+											<span>[예약확정]</span>
+											<span>[결제완료]</span>
+											<span>[발권완료]</span>
+											<span class="num">H123456789</span>
+										</span>
+										<span class="btn-icon-more">더보기</span>
+									</button>
+								</td>
+								<td class="td-c">2021.10.15(금)</td>
+								<td class="price">
+									(€ 141.00)
+									<strong>280,024원</strong>
+								</td>
+								<td class="td-c">홍길동</td>
+								<td class="btn">
+									<a href="#" class="btn-default-outline btn-m">상세보기</a>
+								</td>
+							</tr>
+							<!-- 상세내용 펼쳐보기 -->
+							<tr class="details">
+								<td colspan="5">
+									<div class="details-wrap">
+										<div class="row">
+											<div class="col num">K123456789</div>
+											<div class="col location"><span class="label-pill06">연속</span> 유로스타</div>
+											<div class="col">현드림 외 11명</div>
+											<div class="col">발권완료</div>
+											<div class="col">2021.10.15(금)</div>
+											<div class="col price">
+												(€ 141.00)
+												<strong>163,560원</strong>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<!-- //상세내용 펼쳐보기 -->
+							<tr data-toggle="wrap">
+								<td class="subject">
+									<button type="button" data-toggle="button" class="flex-group">
+										<span>
+											<span>[예약확정]</span>
+											<span class="t-emphasis">[미입금]</span>
+											<span class="t-emphasis03">[미발권]</span>
+											<span class="num">H123456789</span>
+										</span>
+										<span class="btn-icon-more">더보기</span>
+									</button>
+								</td>
+								<td class="td-c">2021.10.15(금)</td>
+								<td class="price">
+									(€ 141.00)
+									<strong>280,024원</strong>
+								</td>
+								<td class="td-c">홍길동</td>
+								<td class="btn">
+									<a href="#" class="btn-default-outline btn-m">상세보기</a>
+								</td>
+							</tr>
+							<!-- 상세내용 펼쳐보기 -->
+							<tr class="details">
+								<td colspan="5">
+									<div class="details-wrap">
+										<div class="row">
+											<div class="col num">K123456789</div>
+											<div class="col location"><span class="label-pill05">직행</span> London ↔ Paris</div>
+											<div class="col">현드림 외 1명</div>
+											<div class="col t-emphasis02">미발권</div>
+											<div class="col t-emphasis02">2021.10.15(금)</div>
+											<div class="col price">
+												(€ 141.00)
+												<strong>163,560원</strong>
+											</div>
+										</div>
+							
+										<div class="row">
+											<div class="col num">K123456789</div>
+											<div class="col location"><span class="label-pill06">연속</span> 유로스타</div>
+											<div class="col">현드림 외 11명</div>
+											<div class="col">발권완료</div>
+											<div class="col">2021.10.15(금)</div>
+											<div class="col price">
+												(€ 141.00)
+												<strong>163,560원</strong>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<!-- //상세내용 펼쳐보기 -->
+							<tr data-toggle="wrap">
+								<td class="subject">
+									<button type="button" data-toggle="button" class="flex-group">
+										<span>
+											<span>[예약확정]</span>
+											<span>[결제완료]</span>
+											<span>[발권완료]</span>
+											<span class="num">H123456789</span>
+										</span>
+										<span class="btn-icon-more">더보기</span>
+									</button>
+								</td>
+								<td class="td-c">2021.10.15(금)</td>
+								<td class="price">
+									(€ 141.00)
+									<strong>280,024원</strong>
+								</td>
+								<td class="td-c">홍길동</td>
+								<td class="btn">
+									<a href="#" class="btn-default-outline btn-m">상세보기</a>
+								</td>
+							</tr>
+							<!-- 상세내용 펼쳐보기 -->
+							<tr class="details">
+								<td colspan="5">
+									<div class="details-wrap">
+										<div class="row">
+											<div class="col num">K123456789</div>
+											<div class="col location"><span class="label-pill06">연속</span> 유로스타</div>
+											<div class="col">현드림 외 11명</div>
+											<div class="col">발권완료</div>
+											<div class="col">2021.10.15(금)</div>
+											<div class="col price">
+												(€ 141.00)
+												<strong>163,560원</strong>
+											</div>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<!-- //상세내용 펼쳐보기 -->
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="board-list">
+						<colgroup>
+							<col style="width:40px;">
+							<col>
+							<col style="width:200px;">
+							<col style="width:120px;">
+							<col style="width:130px;">
+							<col style="width:110px;">
+							<col style="width:90px;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">
+									<input type="checkbox" id="tmpcheck01" class="custom-check no-label" name="tmpcheck">
+									<label for="tmpcheck01"></label>
+								</th>
+								<th scope="col">예약번호</th>
+								<th scope="col">상품명</th>
+								<th scope="col">첫 탑승일</th>
+								<th scope="col">발권마감</th>
+								<th scope="col">총 금액</th>
+								<th scope="col"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-toggle="wrap">
+								<td>
+									<input type="checkbox" id="tmpcheck02" class="custom-check no-label" name="tmpcheck">
+									<label for="tmpcheck02"></label>
+								</td>
+								<td class="subject">
+									<button type="button" data-toggle="button">
+										<span>[예약확정]</span>
+										<span class="t-emphasis">[미입금]</span>
+										<span class="t-emphasis03">[미발권]</span>
+										<span class="num">H123456789</span>
+									</button>
+								</td>
+								<td class="name">London ↔ Paris Nord</td>
+								<td class="td-c">2021-10-15 금</td>
+								<td class="td-c">2021-10-20 13:00</td>
+								<td class="price">
+									(€ 141.00)
+									<strong>280,024원</strong>
+								</td>
+								<td class="btn"><button class="btn-icon-more" data-toggle="button">더보기</button></td>
+							</tr>
+							
+							<!-- 상세내용 펼쳐보기 -->
+							<tr class="details">
+								<td colspan="7">
+									<div class="details-wrap">
+										<div class="details-box">
+											<a href="#" class="btn-primary btn-m btn-w-110">여행자 정보</a>
+
+											<div class="board-section-wrap" data-toggle="wrap"><!-- selected -->
+												<button type="button" class="section-top" data-toggle="button">
+													<span class="box-l">
+														<span>PNR : BJXQK5</span>
+														<span>
+															<span class="label-pill05">직행</span>
+															<!-- <span class="label-pill06">연속</span> -->
+															<!-- <span class="label-pill07">환승</span> -->
+															<!-- <span class="label-pill08">플랙시</span> -->
+															가는 여정 <em>2022-03-16 수</em>
+														</span>
+													</span>
+													<span class="box-r">
+														<span>환율 <em>￦ 1,400 (CHF) / ￦ 1,350 (EUR)</em></span>
+														<span><strong>(€ 413.00)</strong> 479,080원</span>
+													</span>
+												</button>
+
+												<div class="board-section">
+													<div class="view">
+														<div class="section-l">
+															<ul class="list">
+																<li>
+																	<span><strong>Business Premier</strong> (성인1, 경로1, 청소년 1, 아동 2)</span>
+																	<em>€ 413.00</em>
+																</li>
+																<li>
+																	<span><strong>발권비</strong> (4)</span>
+																	<em>€ 32.00</em>
+																</li>
+																<li>
+																	<span><strong>좌석 예약비</strong> (4)</span>
+																	<em>€ 16.00</em>
+																</li>
+															</ul>
+
+															<ul class="list2">
+																<li>
+																	<span>여행자1</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자2</span>
+																	<span>성인</span>
+																	<span>박주</span>
+																</li>
+																<li>
+																	<span>여행자3</span>
+																	<span>청소년</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자4</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자5</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+															</ul>
+														</div>
+														<div class="section-r">
+															<div class="route-wrap" data-toggle="wrap">
+																<div class="route-section">
+																	<div class="route"><em>12:31 PM</em> <span>London St Pancras Internation</span></div>
+																	<div class="details">
+																		<div>
+																			<span class="icon-time">2시간 16분</span>
+																			<span class="icon-train">고속기차 9008</span>
+																		</div>
+																		<div>
+																			<a href="#" class="logo">
+																				<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+																			</a>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																		</div>
+																	</div>
+																	<div class="route"><em>03:47 PM</em> <span>Paris Nord</span></div>
+																</div>
+															</div>
+															<div class="btn-area">
+																<a href="#" class="btn-default-outline btn-m">요금 규정</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="board-section-wrap" data-toggle="wrap"><!-- selected -->
+												<button type="button" class="section-top" data-toggle="button">
+													<span class="box-l">
+														<span>PNR : BJXQK5</span>
+														<span>
+															<!-- <span class="label-pill05">직행</span> -->
+															<!-- <span class="label-pill06">연속</span> -->
+															<span class="label-pill07">환승</span>
+															<!-- <span class="label-pill08">플랙시</span> -->
+															오는 여정 <em>2022-03-16 수</em>
+														</span>
+													</span>
+													<span class="box-r">
+														<span>환율 <em>￦ 1,400 (CHF) / ￦ 1,350 (EUR)</em></span>
+														<span><strong>(€ 413.00)</strong> 479,080원</span>
+													</span>
+												</button>
+											
+												<div class="board-section">
+													<div class="view">
+														<div class="section-l">
+															<ul class="list">
+																<li>
+																	<span><strong>Business Premier</strong> (성인1, 경로1, 청소년 1, 아동 2)</span>
+																	<em>€ 413.00</em>
+																</li>
+																<li>
+																	<span><strong>발권비</strong> (4)</span>
+																	<em>€ 32.00</em>
+																</li>
+																<li>
+																	<span><strong>좌석 예약비</strong> (4)</span>
+																	<em>€ 16.00</em>
+																</li>
+															</ul>
+											
+															<ul class="list2">
+																<li>
+																	<span>여행자1</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자2</span>
+																	<span>성인</span>
+																	<span>박주</span>
+																</li>
+																<li>
+																	<span>여행자3</span>
+																	<span>청소년</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자4</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자5</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+															</ul>
+														</div>
+														<div class="section-r">
+															<div class="route-wrap type-transfer" data-toggle="wrap">
+																<button type="button" class="btn-more" data-toggle="button">펼치기</button>
+																<div class="route-section">
+																	<div class="route"><em>12:31 PM</em> <span>London St Pancras Internation</span></div>
+																	<div class="details">
+																		<div>
+																			<span class="icon-time">2시간 16분</span>
+																			<span class="icon-train">고속기차 9008</span>
+																		</div>
+																		<div>
+																			<a href="#" class="logo">
+																				<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+																			</a>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																		</div>
+																	</div>
+																	<div class="route"><em>03:47 PM</em> <span>Paris Nord</span></div>
+																</div>
+																<div class="transfer">
+																	환승 24분
+																</div>
+																<div class="route-section">
+																	<div class="route"><em>12:31 PM</em> <span>London St Pancras Internation</span></div>
+																	<div class="details">
+																		<div>
+																			<span class="icon-time">2시간 16분</span>
+																			<span class="icon-train">고속기차 9008</span>
+																		</div>
+																		<div>
+																			<a href="#" class="logo">
+																				<object type="image/svg+xml" data="../images/logo/renfe.svg"></object>
+																			</a>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																			<span class="icon-wifi">와이파이</span>
+																		</div>
+																	</div>
+																	<div class="route"><em>03:47 PM</em> <span>Paris Nord</span></div>
+																</div>
+															</div>
+															<div class="btn-area">
+																<a href="#" class="btn-default-outline btn-m">요금 규정</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</td>
+							</tr>
+							<!-- //상세내용 펼쳐보기 -->
+
+							<tr data-toggle="wrap">
+								<td>
+									<input type="checkbox" id="tmpcheck03" class="custom-check no-label" name="tmpcheck">
+									<label for="tmpcheck03"></label>
+								</td>
+								<td class="subject">
+									<button type="button" data-toggle="button">
+											<span>[예약확정]</span>
+											<span class="t-emphasis">[미입금]</span>
+											<span class="t-emphasis03">[미발권]</span>
+											<span class="num">H123456789</span>
+									</button>
+								</td>
+								<td class="name">Eurail Global Mobile Pass<br>Continuous</td>
+								<td class="td-c">2021-10-15 금</td>
+								<td class="td-c">2021-10-20 13:00</td>
+								<td class="price">
+									(€ 141.00)
+									<strong>280,024원</strong>
+								</td>
+								<td class="btn"><button class="btn-icon-more" data-toggle="button">더보기</button></td>
+							</tr>
+
+							<!-- 상세내용 펼쳐보기 -->
+							<tr class="details">
+								<td colspan="7">
+									<div class="details-wrap">
+										<div class="details-box">
+											<a href="#" class="btn-primary btn-m btn-w-110">여행자 정보</a>
+
+											<div class="board-section-wrap" data-toggle="wrap"><!-- selected -->
+												<button type="button" class="section-top" data-toggle="button">
+													<span class="box-l">
+														<span>PNR : BJXQK5</span>
+														<span>
+															<!-- <span class="label-pill05">직행</span> -->
+															<span class="label-pill06">연속</span>
+															<!-- <span class="label-pill07">환승</span> -->
+															<!-- <span class="label-pill08">플랙시</span> -->
+															2021-10-20 수 ~ 2021-12-30 목
+														</span>
+													</span>
+													<span class="box-r">
+														<span>환율 <em>￦ 1,400 (CHF) / ￦ 1,350 (EUR)</em></span>
+														<span><strong>(€ 413.00)</strong> 479,080원</span>
+													</span>
+												</button>
+
+												<div class="board-section">
+													<div class="view">
+														<div class="section-l">
+															<ul class="list">
+																<li>
+																	<span><strong>Business Premier</strong> (성인1, 경로1, 청소년 1, 아동 2)</span>
+																	<em>€ 413.00</em>
+																</li>
+																<li>
+																	<span><strong>발권비</strong> (4)</span>
+																	<em>€ 32.00</em>
+																</li>
+																<li>
+																	<span><strong>좌석 예약비</strong> (4)</span>
+																	<em>€ 16.00</em>
+																</li>
+															</ul>
+
+															<ul class="list2">
+																<li>
+																	<span>여행자1</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자2</span>
+																	<span>성인</span>
+																	<span>박주</span>
+																</li>
+																<li>
+																	<span>여행자3</span>
+																	<span>청소년</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자4</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+																<li>
+																	<span>여행자5</span>
+																	<span>성인</span>
+																	<span>박은주</span>
+																</li>
+															</ul>
+														</div>
+														<div class="section-r">
+															<div class="route-wrap">
+																<div class="logo">
+																	<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+																</div>
+																<strong>연속패스 15일</strong>
+																<span>2021-10-20 수 ~ 2021-12-30 목</span>
+															</div>
+															<div class="btn-area">
+																<a href="#" class="btn-default-outline btn-m">패스 정보</a>
+																<a href="#" class="btn-default-outline btn-m">요금 규정</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</td>
+							</tr>
+							<!-- //상세내용 펼쳐보기 -->
+
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="board-list type-c">
+						<colgroup>
+							<col style="width:7%;">
+							<col style="width:13%;">
+							<col>
+							<col style="width:10%;">
+							<col style="width:12.5%;">
+							<col style="width:12.5%;">
+							<col style="width:12.5%;">
+							<col style="width:17%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">No</th>
+								<th scope="col">상품타입</th>
+								<th scope="col">공급사</th>
+								<th scope="col">글로벌</th>
+								<th scope="col">AGT Comm %</th>
+								<th scope="col">발권비</th>
+								<th scope="col">최종수정자</th>
+								<th scope="col">최종수정일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>PASS</td>
+								<td class="td-l">EUROSTAR</td>
+								<td>Y</td>
+								<td>2%</td>
+								<td>€ 8</td>
+								<td>관리자</td>
+								<td>2021-11-01 10:00</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>PASS</td>
+								<td class="td-l">EURAIL</td>
+								<td>Y</td>
+								<td>2%</td>
+								<td>€ 8</td>
+								<td>관리자</td>
+								<td>2021-11-01 10:00</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="board-list board-type">
+						<colgroup>
+							<col style="width:12%;">
+							<col style="width:14%;">
+							<col style="width:12%;">
+							<col style="width:16%;">
+							<col>
+							<col style="width:20%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">승인번호</th>
+								<th scope="col">Current</th>
+								<th scope="col">금액</th>
+								<th scope="col">결제상태</th>
+								<th scope="col">결제방법</th>
+								<th scope="col">거래일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>123456</td>
+								<td>KRW</td>
+								<td class="td-r">- 1,372,800</td>
+								<td>환불완료</td>
+								<td class="td-l card-type"><strong>신용카드</strong> 국민카드/일시불</td>
+								<td>2021-10-08 13:00</td>
+							</tr>
+							<tr>
+								<td>123456</td>
+								<td>EUR</td>
+								<td class="td-r">- 342.5</td>
+								<td>환불예정</td>
+								<td class="td-l card-type"><strong>신용카드</strong> 하나은행</td>
+								<td>2021-10-08 13:00</td>
+							</tr>
+							<tr>
+								<td>123456</td>
+								<td>EUR</td>
+								<td class="td-r">- 342.5</td>
+								<td>환불예정</td>
+								<td class="td-l card-type"><strong>신용카드</strong> 하나은행</td>
+								<td>2021-10-08 13:00</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="board-list board-type02">
+						<colgroup>
+							<col style="width:13%;">
+							<col style="width:8%;">
+							<col style="width:16%;">
+							<col style="width:12%;">
+							<col>
+							<col style="width:14%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">R예약번호</th>
+								<th scope="col">상태</th>
+								<th scope="col">변경 날짜</th>
+								<th scope="col">적용 환율</th>
+								<th scope="col">금액</th>
+								<th scope="col">합계</th>
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								<td colspan="6">
+									<div class="total-price">
+										<div class="txt">총 결제 금액</div>
+										<div class="price">(€ 851.32) <strong>1,201,212원</strong></div>
+									</div>
+								</td>
+							</tr>
+						</tfoot>
+						<tbody>
+							<tr>
+								<td>K313757940</td>
+								<td class="t-emphasis02">이전</td>
+								<td class="date">
+									<strong>2021-10-20 수 10:30</strong>
+									<span>직행(1시간26분)</span>
+									<em>2등석</em>
+								</td>
+								<td class="exchange-rate">
+									(2022-03-24)
+									<strong>EUR 1,411.00</strong>
+								</td>
+								<td class="price02">
+									<ul>
+										<li>
+											<span>이전 티켓금액</span>
+											<div>(€ 841.41) <strong>1,187,229원</strong></div>
+										</li>
+										<li>
+											<span>취소수수료</span>
+											<div>(€ 16.00) <strong>22,576원</strong></div>
+										</li>
+										<li>
+											<span>총 AGT Comm</span>
+											<div>(- € 6.09) <strong>- 8,592원</strong></div>
+										</li>
+									</ul>
+								</td>
+								<td class="total">
+									(€ 851.32)
+									<strong>1,201,212원</strong>
+								</td>
+							</tr>
+							<tr>
+								<td>K313757940</td>
+								<td class="t-emphasis02">변경</td>
+								<td class="date">
+									<strong>2021-10-20 수 10:30</strong>
+									<span>직행(1시간26분)</span>
+									<em>2등석</em>
+								</td>
+								<td class="exchange-rate">
+									(2022-03-24)
+									<strong>EUR 1,411.00</strong>
+								</td>
+								<td class="price02">
+									<ul>
+										<li>
+											<span>이전 티켓금액</span>
+											<div>(€ 841.41) <strong>1,187,229원</strong></div>
+										</li>
+										<li>
+											<span>취소수수료</span>
+											<div>(€ 16.00) <strong>22,576원</strong></div>
+										</li>
+										<li>
+											<span>총 AGT Comm</span>
+											<div>(- € 6.09) <strong>- 8,592원</strong></div>
+										</li>
+									</ul>
+								</td>
+								<td class="total">
+									(€ 851.32)
+									<strong>1,201,212원</strong>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<h3 class="sstit">data-a</h3>
+<br>
+					<!-- S -->
+					<table class="data-a">
+						<colgroup>
+							<col style="width:5%;">
+							<col style="width:8%;">
+							<col style="width:10%;">
+							<col style="width:12%;">
+							<col style="width:12%;">
+							<col>
+							<col style="width:8%;">
+							<col style="width:14%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">No</th>
+								<th scope="col">상품분류</th>
+								<th scope="col">Status</th>
+								<th scope="col">Point</th>
+								<th scope="col">잔액</th>
+								<th scope="col">메모</th>
+								<th scope="col">적용자</th>
+								<th scope="col">적용일</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>PTP</td>
+								<td class="t-dark">적립예정</td>
+								<td class="td-r">500,000 P</td>
+								<td class="td-r">1,000,000 P</td>
+								<td class="td-l">예약변경</td>
+								<td>한혜영</td>
+								<td>2021-09-30 13:00</td>
+							</tr>
+							<tr>
+								<td>1</td>
+								<td>PASS</td>
+								<td class="t-dark">적립예정</td>
+								<td class="td-r">500,000 P</td>
+								<td class="td-r">1,000,000 P</td>
+								<td class="td-l">예약변경</td>
+								<td>본인</td>
+								<td>2021-09-30 13:00</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="data-a">
+						<colgroup>
+							<col style="width:9%;">
+							<col style="width:14%;">
+							<col style="width:23%;">
+							<col style="width:22%;">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">No/대표</th>
+								<th scope="col">생년월일/성별</th>
+								<th scope="col">여행자명</th>
+								<th scope="col">연락처</th>
+								<th scope="col">여권</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<input type="radio" id="tmpLabel01_01" class="custom-radio" name="tmpRadio" checked>
+									<label for="tmpLabel01_01" class="type-block">여행자 1</label>
+								</td>
+								<td class="td-l">
+									1980-01-01
+									<div class="custom-radio-group input-box">
+										<input type="radio" id="tmpBtnRadio00_1" class="custom-radio type-dark" name="tmpBtnRadio00" checked="">
+										<label for="tmpBtnRadio00_1">남</label>
+										<input type="radio" id="tmpBtnRadio00_2" class="custom-radio type-dark" name="tmpBtnRadio00">
+										<label for="tmpBtnRadio00_2">여</label>
+									</div>
+								</td>
+								<td class="td-l">
+									<div class="input-box">
+										<input type="text" placeholder="한글이름">
+									</div>
+									<div class="input-box flex-box">
+										<div class="col4">
+											<input type="text" placeholder="영문성">
+										</div>
+										<div class="col6">
+											<input type="text" placeholder="영문이름">
+										</div>
+									</div>
+								</td>
+								<td class="td-l">
+									<div class="input-box">
+										<input type="text" placeholder="이메일">
+									</div>
+									<div class="input-box">
+										<input type="text" placeholder="휴대폰번호 ‘-’ 제외 입력">
+									</div>
+								</td>
+								<td class="td-l">
+									<div class="flex-box input-box">
+										<div class="col6">
+											<input type="text" placeholder="여권번호">
+										</div>
+										<div class="col4">
+											<select name="" id="">
+												<option value="">Korea</option>
+												<option value="">Korea1</option>
+												<option value="">Korea2</option>
+											</select>
+										</div>
+									</div>
+									<div class="flex-box input-box">
+										<div class="col6">
+											<input type="text" placeholder="여권만료일 YYYY-MM-DD">
+										</div>
+										<div class="col4">
+											<input type="checkbox" id="tmpcheck" class="custom-check" name="tmpcheck">
+											<label for="tmpcheck">전체 적용</label>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input type="radio" id="tmpLabel01_02" class="custom-radio" name="tmpRadio">
+									<label for="tmpLabel01_02" class="type-block">여행자 2</label>
+								</td>
+								<td class="td-l">
+									1980-01-01<br>
+									<div>여</div>
+								</td>
+								<td class="td-l">
+									김하나
+									<div class="flex-box">
+										<div class="col4">
+											Kim
+										</div>
+										<div class="col6">
+											Hana
+										</div>
+									</div>
+								</td>
+								<td class="td-l">
+									test@test.com
+									<div>010-1111-2222</div>
+								</td>
+								<td class="td-l">
+									<div class="flex-box">
+										<div class="col6">
+											M12345678
+										</div>
+										<div class="col4">
+											Korea
+										</div>
+									</div>
+									<div>
+										2025-01-01
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="data-a type-line">
+						<colgroup>
+							<col style="width:25%;">
+							<col style="width:25%;">
+							<col style="width:25%;">
+							<col style="width:25%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">기간</th>
+								<th scope="col">카드사</th>
+								<th scope="col">할부적용 금액</th>
+								<th scope="col">할부개월</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>상시</td>
+								<td>현대카드</td>
+								<td>5만원 이상</td>
+								<td>2~6개월 무이자</td>
+							</tr>
+							<tr>
+								<td>2021.09.30</td>
+								<td>삼성카드</td>
+								<td>5만원 이상</td>
+								<td>2~6개월 무이자</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>					
+					<h3 class="sstit">data-b</h3>
+<br>
+					<!-- S -->
+					<table class="data-b mtzero">
+						<colgroup>
+							<col style="width:80px;">
+							<col style="width:80px;">
+							<col style="width:125px;">
+							<col style="width:125px;">
+							<col style="width:125px;">
+							<col style="width:110px;">
+							<col style="width:110px;">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="col" rowspan="4">Total</th>
+								<th scope="col">Current</th>
+								<th scope="col">Sell</th>
+								<th scope="col">Fee</th>
+								<th scope="col">Penalty</th>
+								<th scope="col">Comm</th>
+								<th scope="col">Comm VAT</th>
+								<th scope="col">Net</th>
+							</tr>
+							<tr>
+								<td class="td-l">CHF</td>
+								<td>
+									1,200.00
+									<div class="section t-emphasis02">1,920,000</div>
+								</td>
+								<td>
+									24.00
+									<div class="section t-emphasis02">38,400</div>
+								</td>
+								<td>
+									270.00
+									<div class="section t-emphasis02">432,000</div>
+								</td>
+								<td>
+									48.00
+									<div class="section t-emphasis02">38,400</div>
+								</td>
+								<td>
+									4.80
+									<div class="section t-emphasis02">3,840</div>
+								</td>
+								<td>
+									1,441.20
+									<div class="section t-emphasis02">2,348,160</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-l">EUR</td>
+								<td>
+									1,200.00
+									<div class="section t-emphasis02">1,920,000</div>
+								</td>
+								<td>
+									24.00
+									<div class="section t-emphasis02">38,400</div>
+								</td>
+								<td>
+									270.00
+									<div class="section t-emphasis02">432,000</div>
+								</td>
+								<td>
+									48.00
+									<div class="section t-emphasis02">38,400</div>
+								</td>
+								<td>
+									4.80
+									<div class="section t-emphasis02">3,840</div>
+								</td>
+								<td>
+									1,441.20
+									<div class="section t-emphasis02">2,348,160</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="td-l">KRW</td>
+								<td>
+									<div class="t-emphasis02">1,920,000</div>
+								</td>
+								<td>
+									<div class="t-emphasis02">38,400</div>
+								</td>
+								<td>
+									<div class="t-emphasis02">432,000</div>
+								</td>
+								<td>
+									<div class="t-emphasis02">38,400</div>
+								</td>
+								<td>
+									<div class="t-emphasis02">3,840</div>
+								</td>
+								<td>
+									<div class="t-emphasis02">2,348,160</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>					
+					<h3 class="sstit">data-c</h3>
+<br>
+					<!-- S -->
+					<table class="data-c mtzero">
+						<colgroup>
+							<col style="width:15%;">
+							<col style="width:10%;">
+							<col style="width:15%;">
+							<col style="width:12%;">
+							<col style="width:17%;">
+							<col>
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col"></th>
+								<th scope="col">Task</th>
+								<th scope="col">날짜</th>
+								<th scope="col">작업자</th>
+								<th scope="col" colspan="2"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr data-toggle="wrap">
+								<td>
+									<button class="btn-toggle" type="button" data-toggle="button">
+										상세보기
+										<span class="label-outline03">현재</span>
+									</button>
+								</td>
+								<td>예약취소</td>
+								<td>2021-09-30 15:30</td>
+								<td>나담당</td>
+								<td class="td-l">test@test.com</td>
+								<td class="td-l">010-0000-0000</td>
+							</tr>
+							<tr class="details">
+								<td colspan="6">
+									<div class="details-wrap">
+										<div class="details-box">
+											<table class="data-c type-bg type-line">
+												<colgroup>
+													<col style="width:14%;">
+													<col>
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:26%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">취소 여정/여행자</th>
+														<th scope="col" colspan="3"></th>
+														<th scope="col">
+															<div class="row">
+																<div class="col-2 align-l"></div>
+																<div class="col-5 align-r">티켓금액</div>
+																<div class="col-5 align-r">총 환불금액</div>
+															</div>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>K123456780</td>
+														<td class="td-l">
+															<div class="route-wrap">
+																<div class="row">
+																	<div class="col-3 t-dark">9:13 AM</div>
+																	<div class="col-9">Paris Nord</div>
+																</div>
+																<div class="row">
+																	<div class="col-3 t-dark">↓</div>
+																	<div class="col-9">
+																		<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-3 t-dark">9:13 AM</div>
+																	<div class="col-9">London St Pancras International</div>
+																</div>
+															</div>
+														</td>
+														<td class="td-l">
+															2021-10-20 수<br><br>
+															직행<br>
+															1시간26분<br>
+															Standard Leisure
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-6 align-l">경로</div>
+																<div class="col-6 align-r">박은주</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-2 align-l">경로 1</div>
+																<div class="col-5 align-r">€ 500.00</div>
+																<div class="col-5 align-r">
+																	€ 400.00<br>
+																	<span class="t-emphasis04">480,000원</span>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>K123456780</td>
+														<td class="td-l">
+															<div class="route-wrap">
+																<div class="row">
+																	<div class="col-9">France PASS</div>
+																</div>
+																<div class="row">
+																	<div class="col-9">
+																		<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+																	</div>
+																</div>
+															</div>
+														</td>
+														<td class="td-l">
+															2021-10-20 수
+															~ 2021-12-30 목<br><br>
+															직행<br>
+															1시간26분<br>
+															Standard Leisure
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-6 align-l">경로</div>
+																<div class="col-6 align-r">박은주</div>
+															</div>
+															<div class="row">
+																<div class="col-6 align-l">경로</div>
+																<div class="col-6 align-r">박은주</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-2 align-l">성인1<br>경로 1</div>
+																<div class="col-5 align-r">€ 500.00</div>
+																<div class="col-5 align-r">
+																	€ 400.00<br>
+																	<span class="t-emphasis04">480,000원</span>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr data-toggle="wrap">
+								<td>
+									<button class="btn-toggle" type="button" data-toggle="button">상세보기</button>
+								</td>
+								<td>예약취소</td>
+								<td>2021-09-30 15:30</td>
+								<td>나담당</td>
+								<td class="td-l">test@test.com</td>
+								<td class="td-l">010-0000-0000</td>
+							</tr>
+							<tr class="details">
+								<td colspan="6">
+									<div class="details-wrap">
+										<div class="details-box">
+											<table class="data-c type-bg type-line">
+												<colgroup>
+													<col style="width:14%;">
+													<col>
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:26%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">취소 여정/여행자</th>
+														<th scope="col" colspan="3"></th>
+														<th scope="col">
+															<div class="row">
+																<div class="col-2 align-l"></div>
+																<div class="col-5 align-r">티켓금액</div>
+																<div class="col-5 align-r">총 환불금액</div>
+															</div>
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>K123456780</td>
+														<td class="td-l">
+															<div class="route-wrap">
+																<div class="row">
+																	<div class="col-3 t-dark">9:13 AM</div>
+																	<div class="col-9">Paris Nord</div>
+																</div>
+																<div class="row">
+																	<div class="col-3 t-dark">↓</div>
+																	<div class="col-9">
+																		<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+																	</div>
+																</div>
+																<div class="row">
+																	<div class="col-3 t-dark">9:13 AM</div>
+																	<div class="col-9">London St Pancras International</div>
+																</div>
+															</div>
+														</td>
+														<td class="td-l">
+															2021-10-20 수<br><br>
+															직행<br>
+															1시간26분<br>
+															Standard Leisure
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-6 align-l">경로</div>
+																<div class="col-6 align-r">박은주</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-2 align-l">경로 1</div>
+																<div class="col-5 align-r">€ 500.00</div>
+																<div class="col-5 align-r">
+																	€ 400.00<br>
+																	<span class="t-emphasis04">480,000원</span>
+																</div>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<td>K123456780</td>
+														<td class="td-l">
+															<div class="route-wrap">
+																<div class="row">
+																	<div class="col-9">France PASS</div>
+																</div>
+																<div class="row">
+																	<div class="col-9">
+																		<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+																	</div>
+																</div>
+															</div>
+														</td>
+														<td class="td-l">
+															2021-10-20 수
+															~ 2021-12-30 목<br><br>
+															직행<br>
+															1시간26분<br>
+															Standard Leisure
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-6 align-l">경로</div>
+																<div class="col-6 align-r">박은주</div>
+															</div>
+															<div class="row">
+																<div class="col-6 align-l">경로</div>
+																<div class="col-6 align-r">박은주</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-2 align-l">성인1<br>경로 1</div>
+																<div class="col-5 align-r">€ 500.00</div>
+																<div class="col-5 align-r">
+																	€ 400.00<br>
+																	<span class="t-emphasis04">480,000원</span>
+																</div>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr data-toggle="wrap">
+								<td></td>
+								<td>예약취소</td>
+								<td>2021-09-30 15:30</td>
+								<td>나담당</td>
+								<td class="td-l">test@test.com</td>
+								<td class="td-l">010-0000-0000</td>
+							</tr>
+							<tr data-toggle="wrap">
+								<td></td>
+								<td>예약취소</td>
+								<td>2021-09-30 15:30</td>
+								<td>나담당</td>
+								<td class="td-l">test@test.com</td>
+								<td class="td-l">010-0000-0000</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="data-c type-bg type-line mtzero">
+						<colgroup>
+							<col style="width:7%;">
+							<col style="width:13%;">
+							<col>
+							<col style="width:12%;">
+							<col style="width:9%;">
+							<col style="width:30%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col" colspan="4" class="th-l">변경 날짜</th>
+								<th scope="col">적용환율</th>
+								<th scope="col" class="th-r">티켓 금액</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>이전</td>
+								<td class="td-l">2021-10-20 수<br>10:30</td>
+								<td class="td-l">
+									<div class="route-wrap">
+										<div class="row">
+											<div class="col-12">Paris Nord</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-12">London St Pancras International</div>
+										</div>
+									</div>
+								</td>
+								<td class="td-l">
+									직행<br>
+									1시간26분<br>
+									Standard Leisure
+								</td>
+								<td class="td-l">
+									EUR<br>
+									1,400.00
+								</td>
+								<td>
+									<div class="row">
+										<div class="col-12 align-r t-dark">€ 556.00</div>
+									</div>
+									<div class="row">
+										<div class="col-8 align-l">성인 1, 경로 1, 청소년 0, 아동 0</div>
+										<div class="col-4 align-r">€ 556.00</div>
+									</div>
+									<div class="row">
+										<div class="col-8 align-l">좌석예약비</div>
+										<div class="col-4 align-r">€ 0.00</div>
+									</div>
+									<div class="row">
+										<div class="col-8 align-l">수하물</div>
+										<div class="col-4 align-r">€ 0.00</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>이전</td>
+								<td class="td-l">2021-10-20 수 ~ 2021-12-30 목</td>
+								<td class="td-l">
+									<div class="route-wrap">
+										<div class="row">
+											<div class="col-12">Paris Nord</div>
+										</div>
+										<div class="row">
+											<div class="col-12">
+												<object type="image/svg+xml" data="../images/logo/sj.svg"></object>
+											</div>
+										</div>
+									</div>
+								</td>
+								<td class="td-l">
+									직행<br>
+									1시간26분<br>
+									Standard Leisure
+								</td>
+								<td class="td-l">
+									EUR<br>
+									1,400.00
+								</td>
+								<td>
+									<div class="row">
+										<div class="col-12 align-r t-dark">€ 556.00</div>
+									</div>
+									<div class="row">
+										<div class="col-8 align-l">성인 1, 경로 1, 청소년 0, 아동 0</div>
+										<div class="col-4 align-r">€ 556.00</div>
+									</div>
+									<div class="row">
+										<div class="col-8 align-l">좌석예약비</div>
+										<div class="col-4 align-r">€ 0.00</div>
+									</div>
+									<div class="row">
+										<div class="col-8 align-l">수하물</div>
+										<div class="col-4 align-r">€ 0.00</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="data-c type-line2 mtzero">
+						<colgroup>
+							<col style="width:130px;">
+							<col style="width:25%;">
+							<col>
+							<col style="width:130px;">
+							<col style="width:85px;">
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="col">결제마감</th>
+								<th scope="col" class="th-l">결제/환불 금액</th>
+								<th scope="col">
+									<div class="row">
+										<div class="col-1 align-l"></div>
+										<div class="col-4 align-r">적용금액</div>
+										<div class="col-3 align-r">잔액</div>
+										<div class="col-4 align-r">H.Point 사용</div>
+									</div>
+								</th>
+								<th scope="col">요청일/처리일</th>
+								<th scope="col">처리수단</th>
+							</tr>
+							<tr>
+								<td>
+									2022-03-30 10:00
+									<div class="mt10 t-emphasis">결제</div>
+								</td>
+								<td class="group-bg">
+									<div class="row">
+										<div class="col-2 align-l">CHF</div>
+										<div class="col-5 align-r">100.00</div>
+										<div class="col-5 align-r">300,000</div>
+									</div>
+								</td>
+								<td class="group-bg2">
+									<div class="row">
+										<div class="col-1 align-l">CHF</div>
+										<div class="col-4 align-r">100.00</div>
+										<div class="col-3 align-r">0</div>
+										<div class="col-4 align-r">0</div>
+									</div>
+								</td>
+								<td>2022-03-29 15:45<br>2022-03-30 09:45</td>
+								<td class="type-balloon">
+									<div class="balloon-wrap">
+										<a href="#" class="t-dark">무통장</a>
+										<div class="balloon-box" aria-labelledby="dropdownMenuLink">
+											KB국민은행 <span>614701-04-004275</span> ㈜현대드림투어
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									2022-03-30 10:00
+									<div class="mt10">
+										<a href="#" class="btn-primary btn-m">결제변경</a>
+									</div>
+								</td>
+								<td class="group-bg">
+									<div class="row">
+										<div class="col-2 align-l">CHF</div>
+										<div class="col-5 align-r">100.00</div>
+										<div class="col-5 align-r">300,000</div>
+									</div>
+								</td>
+								<td class="group-bg2">
+									<div class="row">
+										<div class="col-1 align-l">CHF</div>
+										<div class="col-4 align-r">100.00</div>
+										<div class="col-3 align-r">0</div>
+										<div class="col-4 align-r">0</div>
+									</div>
+								</td>
+								<td>-<br>2022-03-30 09:45</td>
+								<td class="type-balloon">
+									<div class="balloon-wrap">
+										<a href="#" class="t-dark">계좌이체</a>
+										<div class="balloon-box" aria-labelledby="dropdownMenuLink">
+											KB국민은행 <span>614701-04-004275</span> ㈜현대드림투어
+										</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									2022-03-30 10:00
+									<div class="mt10">
+										<a href="#" class="btn-primary btn-m">결제변경</a>
+									</div>
+								<td class="group-bg">
+									<div class="row">
+										<div class="col-2 align-l">CHF</div>
+										<div class="col-5 align-r">100.00</div>
+										<div class="col-5 align-r">300,000</div>
+									</div>
+								</td>
+								<td class="group-bg2">
+									<div class="row">
+										<div class="col-1 align-l">CHF</div>
+										<div class="col-4 align-r">100.00</div>
+										<div class="col-3 align-r">0</div>
+										<div class="col-4 align-r">0</div>
+									</div>
+								</td>
+								<td>2022-03-29 15:45<br>-</td>
+								<td class="type-balloon">
+									<div class="balloon-wrap">
+										<a href="#" class="t-dark">무통장</a>
+										<div class="balloon-box" aria-labelledby="dropdownMenuLink">
+											KB국민은행 <span>614701-04-004275</span> ㈜현대드림투어
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<h3 class="sstit">board-info</h3>
+<br>
+					<!-- S -->
+					<table class="board-info">
+						<colgroup>
+							<col style="width:16%;">
+							<col>
+							<col style="width:16%;">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row"><label for="tmpLabel1">담당자명</label></th>
+								<td colspan="3">
+									<div class="flex-box">
+										<input type="text" id="tmpLabel1" placeholder="담당자명 입력" value="홍길동">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">계정 ID</th>
+								<td colspan="3">영문소문자+숫자 5자 이상</td>
+							</tr>
+							<tr>
+								<th scope="row">비밀번호</th>
+								<td colspan="3">
+									<a href="#" class="btn-primary btn-w-140">비밀번호 변경</a>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">비밀번호</th>
+								<td colspan="3">
+									<div class="input-form">
+										<div class="section">
+											<input type="password" placeholder="새로운 비밀번호 입력">
+										</div>
+										<div class="section">
+											<input type="password" placeholder="새로운 비밀번호 다시 입력">
+										</div>
+										<div class="invalid-feedback">회원 비밀번호 입력 해주세요.</div>
+										<div class="msg">※ 영문/숫자/특수문자 중 3종류 이상을 조합한 최소8자 (입력가능 특수문자 ! @ # ^ & * )</div>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><label for="tmpLabel2">연락처</label></th>
+								<td>
+									<div class="flex-box">
+										<input type="text" id="tmpLabel2" placeholder="연락처 입력" value="010-1234-5678">
+									</div>
+								</td>
+								<th scope="row"><label for="tmpLabel3">부서</label></th>
+								<td>
+									<div class="flex-box">
+										<input type="text" id="tmpLabel3" placeholder="부서 입력" value="영업">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><label for="tmpLabel4">이메일</label></th>
+								<td>
+									<div class="flex-box">
+										<input type="text" id="tmpLabel4" placeholder="이메일 입력" value="travel@travel.com">
+									</div>
+								</td>
+								<th scope="row"><label for="tmpLabel5">직급</label></th>
+								<td>
+									<div class="flex-box">
+										<input type="text" id="tmpLabel5" placeholder="직급 입력" value="나유저">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">담당 OP</th>
+								<td>현혜영</td>
+								<th scope="row">담당 Sales</th>
+								<td>나민지</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<table class="board-info board-type">
+						<colgroup>
+							<col style="width:12%;">
+							<col>
+							<col style="width:12%;">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row"><label for="tmpLabel1">한글이름 <span class="t-emphasis">*</span></label></th>
+								<td>
+									<div class="flex-box">
+										<input type="text" id="tmpLabel1" placeholder="한글이름 입력" value="홍길동">
+									</div>
+								</td>
+								<th scope="row"><label for="tmpLabel2">휴대폰 <span class="t-emphasis">*</span></label></th>
+								<td>
+									<div class="flex-box">
+										<input type="text" id="tmpLabel2" placeholder="010-0000-0000" value="010-1234-6789">
+									</div>
+								</td>
+							</tr>
+							<tr class="type-last">
+								<th scope="row"><label for="tmpLabel3">이메일 <span class="t-emphasis">*</span></label></th>
+								<td>
+									<div class="flex-box">
+										<input type="text" id="tmpLabel3" placeholder="이메일 입력" value="travel@travel.com">
+									</div>
+								</td>
+								<th scope="row"></th>
+								<td></td>
+							</tr>
+							<tr>
+								<th scope="row"><label for="tmpLabel4">메모</label></th>
+								<td colspan="3">
+									<div class="flex-box">
+										<textarea name="" id="tmpLabel4" cols="30" rows="4"></textarea>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //E -->
+<br><br>
+					<h3 class="sstit">board-section</h3>
+					<!-- S -->
+					<div class="board-section">
+						<div class="desc-group">
+							<input type="radio" id="tmpInfo01" class="custom-radio" name="tmpInfo">
+							<label for="tmpInfo01" class="group-inner">
+								<strong>여행자 1 - 성인<em class="t-emphasis02">(대표자)</em></strong>
+								<span class="noti"><em class="t-emphasis">*</em> 영문성, 영문이름, 생년월일, 유효기간, 발행국가은 여권과 동일해야 합니다.</span>
+							</label>
+						</div>
+						<div class="board-box">
+							<table class="board-info board-type">
+								<colgroup>
+									<col style="width:12%;">
+									<col>
+									<col style="width:12%;">
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row"><label for="tmpLabel01">한글이름 <span class="t-emphasis">*</span></label></th>
+										<td>
+											<div class="flex-box">
+												<input type="text" id="tmpLabel01" placeholder="한글이름 입력">
+											</div>
+											<span class="invalid-feedback">한글이름을 입력 해주세요.</span>
+										</td>
+										<th scope="row"><label for="tmpLabel02">영문이름 <span class="t-emphasis">*</span></label></th>
+										<td>
+											<div class="flex-box">
+												<div class="col-box">
+													<input type="text" id="tmpLabel02" placeholder="영문성 입력">
+													<span class="invalid-feedback">영문성을 입력 해주세요.</span>
+												</div>
+												<div class="col-box">
+													<input type="text" placeholder="영문이름 입력">
+													<span class="invalid-feedback">영문이름을 입력 해주세요.</span>
+												</div>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="tmpLabel03">생년월일 <span class="t-emphasis">*</span></label></th>
+										<td>
+											<div class="flex-box">
+												<input type="text" id="tmpLabel03" placeholder="1900-00-00">
+											</div>
+										</td>
+										<th scope="row"><label for="tmpLabel04_01">셩별 <span class="t-emphasis">*</span></label></th>
+										<td>
+											<div class="custom-radio-group">
+												<input type="radio" id="tmpLabel04_01" class="custom-radio" name="tmpRadio" checked>
+												<label for="tmpLabel04_01">남자</label>
+												<input type="radio" id="tmpLabel04_02" class="custom-radio" name="tmpRadio">
+												<label for="tmpLabel04_02">여자</label>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="tmpLabel05">이메일 <span class="t-emphasis">*</span></label></th>
+										<td>
+											<div class="flex-box">
+												<input type="text" id="tmpLabel05" placeholder="이메일 입력">
+											</div>
+										</td>
+										<th scope="row"><label for="tmpLabel06">휴대폰 <span class="t-emphasis">*</span></label></th>
+										<td>
+											<div class="flex-box">
+												<input type="text" id="tmpLabel06" placeholder="010-0000-0000">
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><label for="tmpLabel07">여권정보 <span class="t-emphasis">*</span></label></th>
+										<td>
+											<div class="flex-box">
+												<div class="col-box">
+													<input type="text" id="tmpLabel07" placeholder="여권번호 입력">
+												</div>
+												<div class="col-box">
+													<input type="text" placeholder="유효기간 입력">
+												</div>
+												<div class="col-box">
+													<input type="text" placeholder="발행국가 입력">
+												</div>
+											</div>
+										</td>
+										<th scope="row"></th>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- //E -->
+<br><br>
+					<!-- S -->
+					<div class="board-section">
+						<div class="board-box">
+							<table class="board-info board-type view">
+								<colgroup>
+									<col style="width:15%;">
+									<col>
+									<col style="width:15%;">
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">한글이름</th>
+										<td>홍길동</td>
+										<th scope="row">휴대폰</th>
+										<td>010-1234-6789</td>
+									</tr>
+									<tr>
+										<th scope="row">이메일</th>
+										<td>travel @ travel.com</td>
+										<th scope="row"></th>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- //E -->
+					
+				</div>
+				<!-- //TABEL -->
+			</div>
+		</section>
+		<!-- //container -->
+
+		<!-- footer -->
+@@include('../include/footer.html')
+		<!-- //footer -->
+		
+		<script type="text/javascript">
+			// 퍼블 test
+			$('.btn-primary-outline').on('click', function () {
+				$(this).closest('.search-result-top').toggleClass('selected');
+			});
+
+			// 퍼블 test
+			$('.search-result-content .content-section input[type="radio"]').on('change', function () {
+				$(this).closest('.content-section').addClass('selected').siblings().removeClass('selected');
+				$(this).closest('.content-section').find('.content-section-l input[type="radio"]').prop('checked', true);
+			});
+		</script>
+	</div>
+</body>
+</html>

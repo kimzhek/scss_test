@@ -1,5 +1,18 @@
-<link rel="stylesheet" type="text/css" href="@@webRoot/css/common.css">
-	<!-- <link rel="stylesheet" type="text/css" href="@@webRoot/css/layou.css">
-	<link rel="stylesheet" type="text/css" href="@@webRoot/css/contents.css"> -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="@@webRoot/js/common.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=1280">
+	<meta name="title" content="현대드림투어">
+	<title>현대드림투어</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/swiper.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// 퍼블 toggle
+			$('body').on('click', '[data-toggle="button"]', function (e) {
+				e.preventDefault();
+				$(this).closest('[data-toggle="wrap"]').toggleClass('selected');
+			});
+		});
+	</script>

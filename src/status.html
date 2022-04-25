@@ -1,0 +1,1588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko-KR">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>유럽기차 예약 시트템</title>
+		<style type="text/css">
+			html, body {
+				margin:0;
+				padding:0;
+			}
+			html {
+				overflow-y:scroll;
+			}
+			body {
+				color:#666;
+				background-color:#fff;
+				font:12px/1.5 '맑은 고딕','Malgun Gothic','Apple-Gothic','애플고딕','돋움',Dotum,'굴림',Gulim,Helvetica,Arial, Sans-serif;
+			}
+			a {
+				color:#27e;
+				text-decoration:none;
+			}
+			a:focus,
+			a:hover,
+			a:active {
+				text-decoration:underline;
+			}
+			.header {
+				padding:2em;
+			}
+				.header h1 {
+					display:inline;
+					margin-right:1em;
+					color:#000;
+					font-size:2em;
+				}
+				.header ul {
+					display:inline;
+					font-size:1.5em;
+					list-style:none;
+				}
+				.header ul li {
+					display:inline;
+				}
+			.group-title {
+				margin-top:1em;
+				color:#000;
+				font-weight:bold;
+				font-size:1.5em;
+			}
+			table {
+				width:100%;
+				border-collapse:collapse;
+				border-spacing:0;
+			}
+				table caption {
+					display:none;
+				}
+				table tr td:first-child {
+					color:black;
+					font-weight:bold;
+				}
+				table th {
+					color:#333;
+					background-color:#eee;
+				}
+				table th,
+				table td {
+					padding:.5em;
+					border:1px solid #ddd;
+					text-align:left;
+				}
+				table th,
+				table td.stat,
+				table td.date {
+					text-align:center;
+				}
+				table tr.even,
+				table tr td.multi {
+					background-color:#fafafa;
+				}
+				table tr.add td {
+					background-color:#fd0;
+				}
+				table tr.modify td {
+					background-color:#fffeb4;
+				}
+				table tr.hover td {
+					background-color:#eee;
+				}
+			table tr.none td {
+				color:#000;
+				background-color:#fc8989;
+			}
+			table tr.up td {
+				background-color:#ffe9f5;
+			}
+				.section {
+					margin:3em 0;
+				}
+				body.js .section {
+					margin:0;
+				}
+					.section .title {
+						margin:0;
+						padding:0;
+						color:#000;
+						font-weight:bold;
+						font-size:100%;
+					}
+					body.js .section .title {
+						padding:1em;
+						border:1px solid #ccc;
+						background-color:#ddd;
+						cursor:pointer;
+					}
+					body.js .section + .section .title {
+						border-top:0;
+					}
+						body.js .section .title .page-count {
+							color:#666;
+							font-weight:normal;
+						}
+					body.js .section .content {
+						display:none;
+					}
+				#sb-body{border:none !important;}
+				.menu-list{position:fixed;bottom:0;left:0;width:100%;background:rgba(0,0,0,0.7);padding:0;margin:0;}
+				.menu-list ul{display: table;table-layout: fixed;width: 100%;padding:0;margin:0;}
+				.menu-list li{list-style:none;display: table-cell;text-align:center;width: 50%;padding:0;margin:0;}
+				.menu-list li a{display:block;color:#fff;line-height:60px;padding:0;margin:0;font-size:13px;font-weight:bold;}
+				.menu-list li.btn{border-left:1px solid #fff;}
+				body .section:last-child{margin-bottom:100px;}
+		</style>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			(function ($) {
+				$.fn.stat = function (options) {
+					var settings = $.extend({
+							title: 'h2.title',
+							content: 'div.content',
+							files: 'tbody tr',
+							stat: 'td.stat',
+							index: 0,
+							openAll: false,
+							speed: 'fast'
+						}, options),
+						all_sections = this,
+						header = $('div.header');
+					return this.each(function () {
+						var self = this,
+							$self = $(self),
+							title_text = [],
+							completed = 0;
+						self.section_title = $(settings.title, $self);
+						self.content = $(settings.content, $self);
+						self.files = $(settings.files, $self);
+						self.files.each(function () {
+							var stat = $(settings.stat, this);
+							stat.each(function () {
+								var text = $(this).text();
+								if (text) {
+									completed++;
+								}
+							});
+						});
+						self.files
+							.bind('mouseenter', function () {
+								$(this).addClass('hover');
+							})
+							.bind('mouseleave', function () {
+								$(this).removeClass('hover');
+							});
+						title_text = [self.section_title.text(), ' <span class="page-count">(', completed, '/', self.files.length, ')</span>'];
+						self.section_title.html(title_text.join(''));
+						self.section_title.bind('click', function () {
+							self.content.slideToggle(settings.speed);
+						});
+						if (settings.openAll || ((settings.index - 1) === all_sections.index(this))) {
+							self.content.css('display', 'block');
+						}
+					});
+				};
+				$(document).ready(function () {
+					$('div.section').stat({ openAll: true });
+					$('#total').text($('tbody tr').length);
+					$('tbody tr:even').addClass('even');
+					$('tbody td[rowspan][rowspan!=1]').addClass('multi');
+				});
+			}(jQuery));
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">document.body.className += ' js';</script>
+		<div class="header">
+			<h1>유럽기차 예약 시트템 작업현황판</h1>
+		</div>
+		<div class="section" id="menu01" name="menu01">
+			<h2 class="title">TOTAL</h2>
+			<div class="content">
+				<table>
+					<thead>
+						<tr>
+							<th scope="col">2depth</th>
+							<th scope="col">3depth</th>
+							<th scope="col">4depth</th>
+							<th scope="col">5depth</th>
+							<th scope="col">6depth</th>
+							<th scope="col">7depth</th>
+							<th scope="col">path</th>
+							<th scope="col">file</th>
+							<th scope="col">stat</th>
+							<th scope="col">date</th>
+							<th scope="col">note</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>메인</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MA_001.html">F_MA_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-03<br>01-06<br>02-04<br>02-08</td>
+							<td>수정<br>수정<br>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td>로그인</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_LO_001.html">F_LO_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-22<br>12-27</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>그룹예약(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_GU_001.html">F_GU_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-27</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td>휴먼계정</td>
+							<td>아이디 재사용</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_LO_002.html">F_LO_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-03</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>확인</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_LO_003.html">F_LO_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-03</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td>회원가입</td>
+							<td>약관동의</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_001.html">F_JO_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-27</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>약관동의 팝업(popup)</td>
+							<td>이용약관 (필수)</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_002.html">F_JO_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-14<br>02-17</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>개인정보 수집,이용동의 (필수)</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_002_02.html">F_JO_002_02.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-09<br>02-17</td>
+							<td>추가<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>H.Point 서비스를 위한 제 3자 제공 동의 (필수)</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_002_04.html">F_JO_002_04.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">03-03</td>
+							<td>추가</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>제3자 개인정보 제공동의 (선택)</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_002_05.html">F_JO_002_05.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-09<br>02-17</td>
+							<td>추가<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>정보입력</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_003.html">F_JO_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-27<br>01-06</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>가입완료</td>
+							<td>제휴사</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_004.html">F_JO_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-03</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>사용자</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_JO_005.html">F_JO_005.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-03</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td>아이디 / 비밀번호 찾기</td>
+							<td>아이디 찾기</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_LO_001.html">C_LO_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>확인</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_LO_002.html">C_LO_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>비밀번호 찾기</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_LO_003.html">C_LO_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>비밀번호 재설정</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_LO_004.html">C_LO_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>비밀번호 변경 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_LO_005.html">C_LO_005.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-04</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>약관 동의</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_LO_006.html">C_LO_006.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-27</td>
+							<td>추가</td>
+						</tr>
+						<tr>
+							<td>검색</td>
+							<td>구간권</td>
+							<td>검색 결과</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MA_002.html">F_MA_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-17<br>01-11</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>패스권</td>
+							<td>검색 결과</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MA_003.html">F_MA_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-27<br>01-11</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<!-- <tr>
+							<td></td>
+							<td></td>
+							<td>패스정보(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_SE_005.html">F_SE_005.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr> -->
+						<tr>
+							<td>예약</td>
+							<td>예약하기</td>
+							<td>구간권</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MA_004.html">F_MA_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-06<br>01-11</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>패스권</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MA_004_2.html">F_MA_004_2.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-06<br>01-11</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>예약규정(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MA_005.html">F_MA_005.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-09<br>02-11<br>02-17</td>
+							<td>수정<br>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약확인</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MA_006.html">F_MA_006.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-06<br>01-11</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td>마이페이지</td>
+							<td>기차 예약내역 조회</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_001.html">F_MY_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-25<br>02-07</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>개인정보 표시(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/B_PV_001.html">B_PV_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약상세</td>
+							<td>결제전</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_002.html">F_MY_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11<br>02-10</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>결제하기</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_003.html">F_MY_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>결제요청 - pc</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_PY_001.html">C_PY_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11<br>01-12</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>완료</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_PY_002.html">C_PY_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-04</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>결제완료</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_004.html">F_MY_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약추가</td>
+							<td>1/2 단계 - 예약상품 선택</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_005.html">F_MY_005.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>검색 구간권</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_005_2.html">F_MY_005_2.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>검색 패스권</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_005_3.html">F_MY_005_3.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>2/2 단계 - 예약 전 확인</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_006.html">F_MY_006.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약변경</td>
+							<td>1/3 단계 - 변경 여정 선택</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_007.html">F_MY_007.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>2/3 단계 - 새 여정 선택</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_008.html">F_MY_008.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>3/3 단계 - 변경전확인</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_009.html">F_MY_009.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약취소</td>
+							<td>1/2 단계 - 취소 여정/여행자 선택</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_010.html">F_MY_010.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11<br>02-22</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>2/2 단계 - 취소 전 확인</td>
+							<td>통장, 카드</td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_011.html">F_MY_011.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-11</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>즐겨찾기</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_012.html">F_MY_012.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>쿠폰함</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_013.html">F_MY_013.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>상품권 신청(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_014.html">F_MY_014.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-16</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>쿠폰 가이드(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_015.html">F_MY_015.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>H.Point</td>
+							<td>인증</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_016.html">F_MY_016.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-16</td>
+							<td>추가</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_017.html">F_MY_017.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>H.Point 가이드(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_018.html">F_MY_018.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">12-16</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>정보관리</td>
+							<td>제휴사 정보</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_20.html">F_MY_20.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-06</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>사용자 정보</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_21.html">F_MY_21.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-06</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>그룹 정보</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_MY_22.html">F_MY_22.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-06</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>제휴사 정산</td>
+							<td>결제번호</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/B_RE_002.html">B_RE_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-25<br>01-27</td>
+							<td>신규/수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>R예약번호</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/B_RE_003.html">B_RE_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-25<br>01-27</td>
+							<td>신규/수정<br>수정</td>
+						</tr>
+						<tr>
+							<td>팝업(popup)</td>
+							<td>요금규정(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_001.html">C_RE_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-04</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>티켓 다운로드(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_003.html">C_RE_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-20</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>여행자정보(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_004.html">C_RE_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>여행자 선택(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_005.html">C_RE_005.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>수화물 안내(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_006.html">C_RE_006.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>결제 가이드(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_007.html">C_RE_007.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-09</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>무이자 할부 안내(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_008.html">C_RE_008.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>기차정보(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_009.html">C_RE_009.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>좌석확정가격(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_010.html">C_RE_010.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>가격변동(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_011.html">C_RE_011.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>패밀리카드(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_RE_012.html">C_RE_012.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>레일텔</td>
+							<td>리스트</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_HT_001.html">F_HT_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>상세</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_HT_002.html">F_HT_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-03</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td>프로모션</td>
+							<td>리스트</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_PR_001.html">F_PR_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>상세</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_PR_002.html">F_PR_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>고객센터</td>
+							<td>공지사항</td>
+							<td>리스트</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_CU_001.html">F_CU_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td>상세</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_CU_002.html">F_CU_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>FAQ</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_CU_003.html">F_CU_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>인보이스</td>
+							<td>FIT</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_IN_001.html">C_IN_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-27<br>02-28</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_IN_001_02.html">C_IN_001_02.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">03-21</td>
+							<td>신규</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>고객</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_IN_002.html">C_IN_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>그룹</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_IN_003.html">C_IN_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-27</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td>메일</td>
+							<td>비밀번호 재설정 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_001.html">C_ML_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약확정</td>
+							<td>패스권</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_002.html">C_ML_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약확정</td>
+							<td>구간권</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_002_2.html">C_ML_002_2.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>결제 요청 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_003.html">C_ML_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-18</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>결제 완료</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_004.html">C_ML_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21<br>01-25</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>발권 완료</td>
+							<td>패스권</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_015.html">C_ML_015.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>발권 완료</td>
+							<td>구간권</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_015_2.html">C_ML_015_2.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>발권 완료</td>
+							<td>구간권 (NTV Italo)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_015_3.html">C_ML_015_3.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21<br>01-25</td>
+							<td>수정<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약변경</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_005.html">C_ML_005.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>예약/발권 취소</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_006.html">C_ML_006.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-21</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>제휴사등록 승인 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_007.html">C_ML_007.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>제휴사등록 반려 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_008.html">C_ML_008.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-18</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>제휴사등록 탈퇴 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_009.html">C_ML_009.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>사용자등록 승인 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_010.html">C_ML_010.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>관리자 사용자등록 승인 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_011.html">C_ML_011.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>사용자등록 반려 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_012.html">C_ML_012.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-18</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>사용자등록 탈퇴 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_013.html">C_ML_013.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>개인정보 이용 안내</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/C_ML_014.html">C_ML_014.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>푸터</td>
+							<td>이용약관</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_PL_001.html">F_PL_001.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-14<br>02-17</td>
+							<td>신규<br>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>개인정보처리방침</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/F_PL_002.html">F_PL_002.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-14<br>02-17</td>
+							<td>신규<br>수정</td>
+						</tr>
+						<tr>
+							<td>에러페이지</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/error.html">error.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-03</td>
+							<td>신규</td>
+						</tr>
+						<tr>
+							<td>로딩페이지</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/</td>
+							<td><a target="_blank" href="html/loading.html">loading.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">01-06<br>01-11</td>
+							<td>신규<br>수정</td>
+						</tr>
+						<tr>
+							<td>모바일</td>
+							<td>결제요청</td>
+							<td>구간권</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/mobile</td>
+							<td><a target="_blank" href="mobile/C_PY_003.html">C_PY_003.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>결제완료</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/mobile</td>
+							<td><a target="_blank" href="mobile/C_PY_004.html">C_PY_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">02-04</td>
+							<td>수정</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>요금규정(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/mobile</td>
+							<td><a target="_blank" href="mobile/C_RE_009.html">C_RE_009.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>기차정보(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/mobile</td>
+							<td><a target="_blank" href="mobile/C_RE_010.html">C_RE_010.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>결제가이드(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/mobile</td>
+							<td><a target="_blank" href="mobile/C_RE_011.html">C_RE_011.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">03-21</td>
+							<td>신규</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>무이자 할부 안내(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/mobile</td>
+							<td><a target="_blank" href="mobile/C_RE_012.html">C_RE_012.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date"></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>여행자정보(popup)</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>/mobile</td>
+							<td><a target="_blank" href="mobile/C_RE_004.html">C_RE_004.html</a></td>
+							<td class="stat">⚫</td>
+							<td class="date">03-21</td>
+							<td>신규</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
