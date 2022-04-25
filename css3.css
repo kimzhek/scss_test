@@ -43,70 +43,7 @@ div {
 
 	validation
 
-	@at-root 
+	@include;
+	@at-root;
+	@content;
 }
-
-// List Data
-$bbbbbb: (apple, orange, banana, mango);
-
-.testtest {
-  @each $aaaaa in $bbbbbb {
-    li.icon-#{$aaaaa} {
-      background: url("/images/#{$aaaaa}.png");
-    }
-  }
-}
-input[type='checkbox'] {}
-
-<div class="invalid-feedback">도시/역 선택 해주세요.</div>
-
-@include commonCustom;
-
-@include _commonBgImg;
-
-@include slideAnimate(0, -1000px, .5s, cubic-bezier(1, 0, 1, 1));
-
-@include slideAnimate(600px, 0, .4s, cubic-bezier(0, 0, 0, 1));
-
-
-<!-- <span class="label-outline03">만료</span> -->
-
- <span class="t-emphasis">*</span>
-
- <span class="invalid-feedback">사업자 번호를 입력 해주세요.</span>
-
-
-
-
-Whoami77@@!!
-
-
-https://10.86.17.157/svn/project/
-
-1. svn 설치
-2. node.js 설치
-3. npm 설치
-4. git 설치
-
-
-
-node.js 설치
-npm 설치
-git 설치
-npm init
-npm install
-gulpfile.js 복사
-npm install gulp gulp-concat gulp-file-include gulp-uglify gulp-rename gulp-sass gulp-sourcemaps gulp-clean gulp-autoprefixer del path browser-sync sass --save-dev
-
-
-react 
-Fragment
-리액트 레퍼런스
-styled 컴포넌트
-styled-components
-
-
-node.js 설치
-npm 설치
-npm install --global yarn
-yarn create react-app react_test

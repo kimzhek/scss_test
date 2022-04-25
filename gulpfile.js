@@ -45,7 +45,7 @@ gulp.task('html', function () {
 
 // scss option
 var scssOptions = {
-    // outputStyle: "compressed",
+    outputStyle: "compressed",
     indentType: "tab",
     indentWidth: 1,
     precision: 6,
@@ -58,8 +58,8 @@ gulp.task('scss:compile', function () {
         .src(paths.scss) //불러오기
         .pipe(sourcemaps.init())//소스맵 초기화
         .pipe(scss(scssOptions).on('error', scss.logError))
-        // .pipe(concat('style.css')) //병합
-        // .pipe(autoprefixer())
+        .pipe(concat('style.css')) //병합
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write()) //소스맵
         .pipe(gulp.dest(dist + '/css')) //생성
         .pipe(browserSync.stream());

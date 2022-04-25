@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
-@mixin commonBgImg() {
-	background-size:100% 100%;
-	background-position:center center;
-	background-repeat:no-repeat;
+@mixin commonDeleteTxt($bgImg:false, $bgImgW:100%, $bgImgH:100%) {
+	@if $bgImg {
+		background-size:$bgImgW $bgImgH;
+		background-position:center center;
+		background-repeat:no-repeat;
+	};
 	overflow:hidden;
 	color:transparent;
 	font-size:1px;
