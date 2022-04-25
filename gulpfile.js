@@ -56,11 +56,11 @@ var scssOptions = {
 gulp.task('scss:compile', function () {
     return gulp
         .src(paths.scss) //불러오기
-        // .pipe(sourcemaps.init())//소스맵 초기화
+        .pipe(sourcemaps.init())//소스맵 초기화
         .pipe(scss(scssOptions).on('error', scss.logError))
-        .pipe(concat('style.css')) //병합
-        .pipe(autoprefixer())
-        // .pipe(sourcemaps.write()) //소스맵
+        // .pipe(concat('style.css')) //병합
+        // .pipe(autoprefixer())
+        .pipe(sourcemaps.write()) //소스맵
         .pipe(gulp.dest(dist + '/css')) //생성
         .pipe(browserSync.stream());
 });
