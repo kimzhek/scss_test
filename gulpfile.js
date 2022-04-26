@@ -45,7 +45,7 @@ gulp.task('html', function () {
 
 // scss option
 var scssOptions = {
-    // outputStyle: "compressed",
+    outputStyle: "compressed",
     indentType: "tab",
     indentWidth: 1,
     precision: 6,

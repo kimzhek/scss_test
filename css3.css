@@ -47,3 +47,20 @@ div {
 	@at-root;
 	@content;
 }
+@include slideAnimate(100%, 0, .3s, cubic-bezier(0, 0, 0, 1));
+@include slideAnimate(0, -100vh, .4s, cubic-bezier(1, 0, 1, 1));
+
+
+cubic-bezier(0.32, 0.08, 0.24, 1)
+
+cubic-bezier(0.52, 0.16, 0.24, 1)
+
+cubic-bezier(0.52, 0.16, 0.52, 0.84)
+
+
+
+
+
+
+
+스켈레톤
