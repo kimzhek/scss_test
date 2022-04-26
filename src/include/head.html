@@ -9,7 +9,14 @@
 	<script>
 		$(document).ready(function(){
 			$('.btn-global-nav').on('click', function(){
-				$('body').toggleClass('global-nav-open');
+				$('html').toggleClass('global-nav-open');
+			});
+			$('.h-search-box input').on('click', function(){
+				// $(this).closest('.h-search-box').find('button').show();
+				$('header').addClass('search-open')
+			});
+			$('.h-search-box button').on('click', function () {
+				$('header').removeClass('search-open')
 			});
 		});
 	</script>
