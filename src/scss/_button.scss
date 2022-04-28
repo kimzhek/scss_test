@@ -1,1 +1,37 @@
 @charset "UTF-8";
+
+/* =================================== btn ============================================ */
+.btn- {
+	@each $value, $color in $theme-colors {
+		&#{$value} {
+			@include buttonType ($color, $color);
+			&-outline {
+				@include buttonType ($color, $white, $color);
+			}
+		}
+	}
+
+	// height
+	&m {height:30px;}
+	&l {height:50px; font-size:16px;}
+	&xl {height:60px; font-size:16px;}
+	&block {width:100%;}
+
+	// btn group
+	&area- {
+		&l, &c, &r, &wrap {
+			display:flex;
+			align-items:center;
+			[class^="btn-"] {
+				& + [class^="btn-"] {
+					margin-left:10px;
+				}
+			}
+		}
+		&wrap {justify-content:space-between;}
+		&l {justify-content:flex-start;}
+		&c {justify-content:center;}
+		&r {justify-content:flex-end;}
+	}
+}
+/* =================================== btn ============================================ */

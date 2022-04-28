@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
-// hide Text
-@mixin commonHideTxt($bgImg:false, $bgImgW:100%, $bgImgH:100%) {
-	@if $bgImg {
+// hide Text && bg icon
+@mixin commonHideTxt($bgImgW:null, $bgImgH:null) {
+	@if $bgImgW {
 		background-size:$bgImgW $bgImgH;
 		background-position:center center;
 		background-repeat:no-repeat;
-	};
+	}
 	overflow:hidden;
 	color:transparent;
 	font-size:1px;
@@ -14,13 +14,53 @@
 }
 // slide Down && slide Up
 @mixin slideAnimate($mh, $mt, $ts, $tcb) {
-	max-height: $mh;
-	margin-top: $mt;
-	transition: all $ts $tcb;
+	max-height:$mh;
+	margin-top:$mt;
+	transition:all $ts $tcb;
 }
-// 말줄임
-@mixin textEllipsis() {
+
+// 텍스트 말줄임
+@mixin textEllipsis($line:1) {
 	overflow:hidden;
 	text-overflow:ellipsis;
-	white-space:nowrap;
+	@if $line > 1 {
+		display:-webkit-box;
+		-webkit-line-clamp:$line;
+		-webkit-box-orient:vertical;
+	}@else{
+		white-space:nowrap;
+	}
+}
+
+/* button */
+@mixin buttonType(
+	$border-color,
+	$background-color,
+	// $font-color:if($background-color == $light, $black, $white),
+	$font-color:$white,
+	$font-size:13px
+){
+	display:inline-flex;
+	justify-content:center;
+	align-items:center;
+	height:40px;
+	padding:0 20px;
+	border:1px solid $border-color;
+	background-color:$background-color;
+	color:$font-color;
+	font-size:$font-size;
+	&.disabled,
+	&:disabled {
+		border-color:$btn-disabled-bg;
+		background:$btn-disabled-bg;
+		color:$btn-disabled-color;
+		cursor: default;
+	}
+}
+
+/* light or dark */
+@mixin color-scheme($name) {
+	@media (prefers-color-scheme: #{$name}) {
+		@content;
+	}
 }

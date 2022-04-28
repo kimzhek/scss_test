@@ -47,9 +47,9 @@
 
 html, body {height:100%;}
 body, button, input, select, textarea {
-	color:$default;
+	color:getColor(font-color-default);
 	font-size:14px;
-	font-weight:$font-regular;
+	font-weight:$font-weight-regular;
 	font-family:'Noto Sans KR', sans-serif;
 	letter-spacing:-.5px;
 }
@@ -58,7 +58,7 @@ body, button, input, select, textarea {
 select {
 	height:50px;
 	padding:0 40px 0 20px;
-	border:1px solid $line-c8;
+	// border:1px solid $line-c8;
 	background:$white url(''+$url-common+'icon_select03.png') no-repeat right 20px center;
 	border-radius:0px;
 	-webkit-appearance:none;
@@ -78,9 +78,9 @@ input[type="number"],
 input[type="email"] {
 	height:50px;
 	padding:0 20px;
-	border:1px solid $line-c8;
-	background-color:$white;
-	color:$default;
+	// border:1px solid $line-c8;
+	background-color:getColor(input-default-bg);
+	color:getColor(font-color-default);
 	@include textEllipsis;
 	&::-ms-clear {
 		display:none;
@@ -90,11 +90,11 @@ input[type="email"] {
 	}
 	&[readonly],
 	&:disabled {
-		color:$default;
+		color:getColor(font-color-default);
 		background-color:#f5f5f5;
 	}
 	&:read-only {
-		color:$default;
+		color:getColor(font-color-default);
 		background-color:#f5f5f5;
 	}
 }
