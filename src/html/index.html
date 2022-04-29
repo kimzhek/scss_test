@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-@@include('../include/head.html')
+@@include('@@webRoot/include/head.html')
 </head>
 <body>
 	<div id="wrap">
 		<!-- header -->
-@@include('../include/header.html')
+@@include('@@webRoot/include/header.html')
 		<!-- //header -->
 		
 		<!-- container -->
-		<section id="container" class="theme--dark">
+		<section id="container">
 			<div style="width:100%; height:548px;position:relative;overflow:hidden;">
 				<img src="https://www.apple.com/v/home/an/images/heroes/iphone-13-pro/hero_iphone13pro_avail__iy77cld0zwii_small_2x.jpg" style="width:100%;width: 734px; height: 548px; position:absolute;top:0;left:50%;transform: translatex(-50%);" alt="">
 			</div>
 
 			<div class="color-test">
+				<select name="" id="">
+					<option value="">select</option>
+				</select>
 				<button type="button" class="btn-primary">Button</button>
 				<button type="button" class="btn-secondary">Button</button>
 				<button type="button" class="btn-success">Button</button>
@@ -75,7 +78,7 @@
 		<!-- //container -->
 
 		<!-- footer -->
-@@include('../include/footer.html')
+@@include('@@webRoot/include/footer.html')
 		<!-- //footer -->
 	</div>
 </body>

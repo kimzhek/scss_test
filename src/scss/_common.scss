@@ -47,20 +47,23 @@
 
 html, body {height:100%;}
 body, button, input, select, textarea {
-	color:getColor(font-color-default);
-	font-size:14px;
+	color:$font-color-default;
+	font-size:$font-size-default;
 	font-weight:$font-weight-regular;
-	font-family:'Noto Sans KR', sans-serif;
+	font-family:$font-family-base;
 	letter-spacing:-.5px;
 }
 
 /* select */
 select {
-	height:50px;
-	padding:0 40px 0 20px;
-	// border:1px solid $line-c8;
-	background:$white url(''+$url-common+'icon_select03.png') no-repeat right 20px center;
-	border-radius:0px;
+	height:$select-height-default;
+	padding:$select-padding-default;
+	border:1px solid $select-border-default;
+	background-color:$select-bg-default;
+	background-repeat:no-repeat;
+	background-position:right 20px center;
+	background-image:url(''+$url-common+'icon_select03.png');
+	border-radius:$select-radius-default;
 	-webkit-appearance:none;
 	-moz-appearance:none;
 	appearance:none;
@@ -68,7 +71,7 @@ select {
 	@include textEllipsis;
 }
 select::-ms-expand {
-	display:none
+	display:none;
 }
 
 /* input */
@@ -76,25 +79,26 @@ input[type="text"],
 input[type="password"],
 input[type="number"],
 input[type="email"] {
-	height:50px;
-	padding:0 20px;
-	// border:1px solid $line-c8;
-	background-color:getColor(input-default-bg);
-	color:getColor(font-color-default);
+	height:$input-height-default;
+	padding:$input-padding-default;
+	border:1px solid $input-border-default;
+	border-radius:$input-radius-default;
+	background-color:$input-bg-default;
+	color:$input-color-default;
 	@include textEllipsis;
 	&::-ms-clear {
 		display:none;
 	}
 	&::placeholder {
-		color:#bfbfbf;
+		color:$input-color-placeholder;
 	}
 	&[readonly],
 	&:disabled {
-		color:getColor(font-color-default);
-		background-color:#f5f5f5;
+		color:$font-color-default;
+		background-color:$input-bg-disabled;
 	}
 	&:read-only {
-		color:getColor(font-color-default);
-		background-color:#f5f5f5;
+		color:$font-color-default;
+		background-color:$input-bg-disabled;
 	}
 }

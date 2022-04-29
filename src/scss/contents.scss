@@ -9,10 +9,6 @@
 /* layout */
 
 html {
-	body {
-		background:getColor(body-bg);
-		color:getColor(font-color-default);
-	}
 	&.global-nav-open {
 		overflow:hidden;
 		body {
@@ -268,43 +264,23 @@ html {
 	@include textEllipsis($line:3);
 }
 
-
-.color-test {
-	padding:10px 0;
-	& + .color-test {
-		margin-top:30px;
+#wrap {
+	.color-test {
+		padding:10px 0;
+		& + .color-test {
+			margin-top:30px;
+		}
+		span {
+			display:inline-block;
+			margin:5px 3px;
+			padding:10px 20px;
+			border:1px solid red;
+			border-radius:8px;
+			color:#000;
+		}
+		button:not(.btn-block) {margin:5px;}
+		button {
+			font-size:15px;
+		}
 	}
-	span {
-		display:inline-block;
-		margin:5px 3px;
-		padding:10px 20px;
-		border:1px solid red;
-		border-radius:8px;
-		color:#000;
-	}
-	button:not(.btn-block) {margin:5px;}
-	// .white {background-color:$white; border-color:$white;}
-	// .light {background-color:$light; border-color:$light;}
-	// // .default {background-color:$default; border-color:$default;}
-	// .dark {background-color:$dark; border-color:$dark;}
-	// .black {background-color:$black; border-color:$black;}
-
-	// .primary {background-color:$primary; border-color:$primary;}
-	// .primary2 {background-color:getColor(c-primary); border-color:getColor(c-primary);}
-
-	// .secondary {background-color:$secondary; border-color:$secondary;}
-	// // .emphasis {background-color:$emphasis; border-color:$emphasis;}
-	// .warning {background-color:$warning; border-color:$warning;}
-	// .info {background-color:$info; border-color:$info;}
-
-	// .white {background-color:getColor(white); border-color:getColor(white);}
 }
-
-
-
-// .btn-secondary {
-	// @include themed() {
-	// 	background-color:t($primary);
-	// 	color:t($white);
-	// }
-// }

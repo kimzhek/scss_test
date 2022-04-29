@@ -27,32 +27,42 @@ $green:    #198754 !default;
 $teal:     #20c997 !default;
 $cyan:     #0dcaf0 !default;
 
-// body
-$body-bg :transparent !default;
-$body-bg-dark :$black !default;
+// font
+$font-color-default:        $black !default;
+$font-color-default-dark:   $white !default;
+$font-family-base:          'Noto Sans KR', sans-serif !default;
+$font-size-default:         14px !default;
+$font-weight-light:         300 !default;
+$font-weight-regular:       400 !default;
+$font-weight-medium:        500 !default;
+$font-weight-bold:          700 !default;
 
-// text
-$font-color-default:$black !default;
-$font-color-default-dark:$white !default;
-$font-weight-light:300 !default;
-$font-weight-regular:400 !default;
-$font-weight-medium:500 !default;
-$font-weight-bold:700 !default;
-
-// btn
-$btn-disabled-color: $gray-500 !default;
-$btn-disabled-bg: $gray-400 !default;
+// button
+$btn-disabled-color:        $gray-500 !default;
+$btn-disabled-bg:           $gray-400 !default;
 
 // input
-$input-default-bg: $white !default;
-$input-default-bg-dark: $black !default;
-$input-disabled-bg: $gray-200 !default;
+$input-height-default:      50px !default;
+$input-padding-default:     0 20px !default;
+$input-color-default:       $black !default;
+$input-color-placeholder:   $gray-600 !default;
+$input-bg-default:          $white !default;
+$input-bg-disabled:         $gray-200 !default;
+$input-border-default:      $red !default;
+$input-radius-default:      0px !default;
+
+// select
+$select-height-default:     50px !default;
+$select-padding-default:    0 40px 0 20px !default;
+$select-border-default:     $red !default;
+$select-bg-default:         $white !default;
+$select-radius-default:     0px !default;
 
 // url
-$url-path: "../images/" !default;
+$url-path:   "../images/" !default;
 $url-common: ""+$url-path+"common/" !default;
 
-
+// button && label
 $primary:   $blue !default;
 $secondary: $gray-600 !default;
 $success:   $green !default;
@@ -73,276 +83,35 @@ $theme-colors: (
   "dark":       $dark
 ) !default;
 
-
-$colors:(
-	font-color-default:$font-color-default,
-	body-bg:$body-bg,
-	input-default-bg:$input-default-bg,
-);
-$colors-dark:(
-	font-color-default:$font-color-default-dark,
-	body-bg:$body-bg-dark,
-	input-default-bg:$input-default-bg-dark,
+// light theme && dark theme
+$themes: (
+	light: (
+		font-color-default:$font-color-default,
+	),
+	dark: (
+		font-color-default:$font-color-default-dark,
+	),
 );
 
 :root {
-	@each $name, $color in $colors{
-		--#{$name}:#{$color};
-	}
-	@media (prefers-color-scheme: dark) {
-		@each $name, $color in $colors-dark{
-			--#{$name}:#{$color};
+	@each $theme, $map in $themes {
+		@if($theme == light){  
+			@each $key, $submap in $map {
+				$value: map-get(map-get($themes, $theme), '#{$key}');
+				--#{$key}:#{$value};
+			}
+		}@else{
+			// &[data-theme="dark"] {
+			@media (prefers-color-scheme: dark) {
+				@each $key, $submap in $map {
+					$value: map-get(map-get($themes, $theme), '#{$key}');
+					--#{$key}:#{$value};
+				}
+			}
 		}
 	}
 }
 
-@function getColor($color-name){
-	@return var(--#{$color-name});
+@function gc($variable) {
+	@return var(--#{$variable});
 }
-
-
-
-
-
-// // color
-// $white:#fff !default;
-// $light:#999 !default;
-// $default:#797979 !default;
-// $dark:#1f1b1c !default;
-// $black:#000 !default;
-// $primary:#004d45 !default;
-// $secondary:#17af98 !default;
-// $emphasis:#fa4156 !default;
-// $warning:#e6b300 !default;
-// $info:#bfbfbf !default;
-
-// $theme-colors: () !default;
-// $theme-colors: map-merge(
-// 	(
-// 		"primary":		$primary,
-// 		"secondary":	$secondary,
-// 		"dark":			$dark,
-// 		"default":		$default,
-// 		"light":		$light,
-// 		"info":			$info
-// 	),
-// 	$theme-colors
-// );
-
-
-// $themes: (
-// 	default: (
-// 		white: $white,
-// 		light: $light,
-// 		default: $default,
-// 		dark: $dark,
-// 		black: $black,
-// 		primary: $primary,
-// 		secondary: $secondary,
-// 		emphasis: $emphasis,
-// 		warning: $warning,
-// 		info: $info
-// 	),
-// 	dark: (
-// 		white: $white,
-// 		light: $light,
-// 		default: $default,
-// 		dark: $dark,
-// 		black: $black,
-// 		primary: red,
-// 		secondary: $secondary,
-// 		emphasis: $emphasis,
-// 		warning: $warning,
-// 		info: $info
-// 	),
-// );
-// $white:'white';
-// $light:'light';
-// $default:'default';
-// $dark:'dark';
-// $black:'black';
-// $primary:'primary';
-// $secondary:'secondary';
-// $emphasis:'emphasis';
-// $warning:'warning';
-// $inf:'info';
-
-// @mixin themed() {
-// 	@each $theme, $map in $themes {
-// 		.theme--#{$theme} & {
-// 			$theme-map: () !global;
-// 			@each $key, $submap in $map {
-// 				$value: map-get(map-get($themes, $theme), '#{$key}');
-// 				$theme-map: map-merge($theme-map, ($key: $value)) !global;
-// 			}
-// 			@content;
-// 			$theme-map: null !global;
-// 		}
-// 	}
-// }
-
-// @function t($key) {
-// 	@return map-get($theme-map, $key);
-// }
-
-
-
-
-
-
-// // color
-// $white:#bfbfbf !default;
-// $light:#999 !default;
-// $default:#797979 !default;
-// $dark:#1f1b1c !default;
-// $black:#000 !default;
-
-// $primary:yellow !default;
-
-// $secondary:#17af98 !default;
-// $emphasis:#fa4156 !default;
-// $warning:#e6b300 !default;
-// $info:#bfbfbf !default;
-
-// $theme-colors: () !default;
-// $theme-colors: map-merge(
-// 	(
-// 		"primary":		$primary,
-// 		"secondary":	$secondary,
-// 		"dark":			$dark,
-// 		"default":		$default,
-// 		"light":		$light,
-// 		"info":			$info
-// 	),
-// 	$theme-colors
-// );
-
-// $colors:(
-// 	c-white:$white,
-// 	c-light:$light,
-// 	c-default:$default,
-// 	c-dark:$dark,
-// 	c-black:$black,
-// 	c-primary:$primary,
-// 	c-secondary:$secondary,
-// 	c-emphasis:$emphasis,
-// 	c-warning:$warning,
-// 	c-info:$info,
-// );
-// $colors-dark:(
-// 	c-white:$white,
-// 	c-light:$light,
-// 	c-default:$default,
-// 	c-dark:$dark,
-// 	c-black:$black,
-// 	c-primary:red,
-// 	c-secondary:$secondary,
-// 	c-emphasis:$emphasis,
-// 	c-warning:$warning,
-// 	c-info:$info,
-// );
-
-// :root {
-// 	@each $name, $color in $colors{
-// 		--#{$name}:#{$color};
-// 	}
-// }
-// @media (prefers-color-scheme: dark) {
-// 	:root {
-// 		@each $name, $color in $colors-dark{
-// 			--#{$name}:#{$color};
-// 		}
-// 	}
-// }
-
-// @function getColor($color-name){
-// 	@return var(--#{$color-name});
-// }
-
-
-// $line-c8:#c8c8c8 !default;
-// $line-e0:#e0e0e0 !default;
-
-// // font
-// $font-light:300 !default;
-// $font-regular:400 !default;
-// $font-medium:500 !default;
-// $font-bold:700 !default;
-
-// // url
-// $url-path: "../images/" !default;
-// $url-common: ""+$url-path+"common/" !default;
-
-
-
-
-
-
-
-
-
-
-//////////////==================@include theme(background-color, $primary-color-dark);=====================//////////////
-// $light-theme: "light-theme";
-// $dark-theme: "dark-theme";
-
-// $primary-color-dark: "aaaaaaaa";
-// $primary-color: "primary-color";
-// $primary-color-light: "primary-color-light";
-// $primary-color-text: "primary-color-text";
-// $accent-color: "accent-color";
-// $primary-text-color: "primary-text-color";
-// $secondary-text-color: "secondary-text-color";
-// $divider-color: "divider-color";
-// $general-background: "general-background";
-// $general-background-light: "general-background-light";
-// /* ...other color keys... */
-
-// $themes: (
-// 	$light-theme: (
-// 		$primary-color-dark: #fff,
-// 		$primary-color: #000,
-// 		$primary-color-light: #DFDFF1,
-// 		$primary-color-text: #FFFFFF,
-// 		$accent-color: #0F67FF,
-// 		$primary-text-color: #151515,
-// 		$secondary-text-color: #575757,
-// 		$divider-color: #BDBDBD,
-// 		$general-background: #FAFAFA,
-// 		$general-background-light: #FFFFFF,
-// 	/* ...other color keys with HEX values... */
-// 	),
-// 	$dark-theme: (
-// 		$primary-color-dark: #000,
-// 		$primary-color: #fff,
-// 		$primary-color-light: #DFDFF1,
-// 		$primary-color-text: #FFFFFF,
-// 		$accent-color: #4fA7ff,
-// 		$primary-text-color: #d7d7d8,
-// 		$secondary-text-color: #A6A6A6,
-// 		$divider-color: #575757,
-// 		$general-background: #181918,
-// 		$general-background-light: #363636,
-// 	/* ...other color keys with HEX values... */
-// 	)
-// );
-
-// @mixin themeProperty($theme, $property, $color, $additionalPropertiesPositionIsFront, $additionalProperties) {
-// 	@if $additionalPropertiesPositionIsFront {
-// 		#{$property}: unquote($additionalProperties + ' ' + map-get($theme, $color));
-// 	} @else {
-// 		#{$property}: unquote(map-get($theme, $color) + ' ' + $additionalProperties);
-// 	}
-// }
-
-// @mixin theme($property, $color, $additionalPropertiesPositionIsFront: false, $additionalProperties: '') {
-// 	$light: map-get($themes, $light-theme);
-// 	$dark: map-get($themes, $dark-theme);
-
-// 	@include themeProperty($light, $property, $color, $additionalPropertiesPositionIsFront, $additionalProperties);
-
-// 	@media (prefers-color-scheme: dark) {
-// 		@include themeProperty($dark, $property, $color, $additionalPropertiesPositionIsFront, $additionalProperties);
-// 	}
-// }
-//////////////==================@include theme(background-color, $primary-color-dark);=====================//////////////

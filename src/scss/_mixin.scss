@@ -58,8 +58,8 @@
 	}
 }
 
-/* light or dark */
-@mixin color-scheme($name) {
+/* theme light or theme dark */
+@mixin gc-theme($name) {
 	@media (prefers-color-scheme: #{$name}) {
 		@content;
 	}
