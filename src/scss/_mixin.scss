@@ -32,7 +32,7 @@
 	}
 }
 
-/* button */
+// button
 @mixin buttonType(
 	$border-color,
 	$background-color,
@@ -58,7 +58,7 @@
 	}
 }
 
-/* theme light or theme dark */
+// theme light or theme dark
 @mixin gc-theme($name) {
 	@media (prefers-color-scheme: #{$name}) {
 		@content;

@@ -4,11 +4,17 @@
 @import "mixin";
 @import "base";
 @import "common";
-@import "button";
 
 /* layout */
 
 html {
+	body {
+		background:gc(font-color-default);
+		color:white;
+		@include gc-theme(dark){
+			color:black;
+		};
+	}
 	&.global-nav-open {
 		overflow:hidden;
 		body {

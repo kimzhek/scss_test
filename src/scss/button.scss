@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
-/* =================================== btn ============================================ */
+@import "variables";
+@import "mixin";
+
+/* button */
 .btn- {
 	@each $value, $color in $theme-colors {
 		&#{$value} {
@@ -34,4 +37,4 @@
 		&r {justify-content:flex-end;}
 	}
 }
-/* =================================== btn ============================================ */
+/* //button */

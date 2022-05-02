@@ -34,10 +34,7 @@ gulp.task('html', function () {
         .src([paths.html, '!./src/include/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
-            basepath: '@file',
-            context: {
-                nav: true
-            }
+            basepath: '@file'
         }))
         .pipe(gulp.dest(dist))
         .pipe(browserSync.stream());
@@ -58,7 +55,7 @@ gulp.task('scss:compile', function () {
         .src(paths.scss) //불러오기
         .pipe(sourcemaps.init())//소스맵 초기화
         .pipe(scss(scssOptions).on('error', scss.logError))
-        .pipe(concat('style.css')) //병합
+        // .pipe(concat('style.css')) //병합
         .pipe(autoprefixer())
         .pipe(sourcemaps.write()) //소스맵
         .pipe(gulp.dest(dist + '/css')) //생성
