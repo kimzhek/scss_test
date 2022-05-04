@@ -4,12 +4,12 @@
 			<a href="#" class="my-bag">장바구니</a>
 
 			<div class="h-search-box">
-				<input type="text" placeholder="apple.com 검색">
-				<button type="button" class="cancel">취소</button>
+				<input type="text" onclick="showSearchGroup();" placeholder="apple.com 검색">
+				<button type="button" class="cancel" onclick="hideSearchGroup();">취소</button>
 			</div>
 			
 			<nav id="globalNav">
-				<button class="btn-global-nav" type="button">Global Nav 메뉴 열기</button>
+				<button type="button" class="btn-global-nav" onclick="openGlobalNav();">Global Nav 메뉴 열기</button>
 				<ul class="global-nav-list">
 					<li><a href="#">스토어</a></li>
 					<li><a href="#">Mac</a></li>
@@ -23,4 +23,18 @@
 					<li><a href="#">고객지원</a></li>
 				</ul>
 			</nav>
+			<script type="text/javascript">
+				// 퍼블 임시 js
+				function openGlobalNav(){
+					document.documentElement.classList.toggle('global-nav-open')
+				};
+
+				function showSearchGroup(){
+					document.getElementById('header').classList.add('search-open')
+				};
+
+				function hideSearchGroup(){
+					document.getElementById('header').classList.remove('search-open')
+				};
+			</script>
 		</header>

@@ -5,22 +5,4 @@
 	@@if (context.button) {<link rel="stylesheet" href="@@button">}
 	@@if (context.input) {<link rel="stylesheet" href="@@input">}
 	<link rel="stylesheet" href="@@webRoot/css/contents.css">
-	<script type="text/javascript" src="@@webRoot/js/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$('.btn-global-nav').on('click', function(){
-				$('html').toggleClass('global-nav-open');
-			});
-			$('.h-search-box input').on('click', function(){
-				// $(this).closest('.h-search-box').find('button').show();
-				$('header').addClass('search-open')
-			});
-			$('.h-search-box button').on('click', function () {
-				$('header').removeClass('search-open')
-			});
-
-			$('.test-btn').on('click', function () {
-				$('.slideDown-box').toggleClass('selected')
-			});
-		});
-	</script>
+	<!-- <script type="text/javascript" src="@@webRoot/js/jquery.min.js"></script> -->

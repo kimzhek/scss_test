@@ -49,8 +49,8 @@
 				<button type="button" class="btn-primary btn-l btn-block">Button</button>
 			</div>
 
-			<button type="button" class="test-btn" style="background:#000; border-radius:8px; padding:10px 20px; color:#fff;">버튼</button>
-			<div class="slideDown-box">
+			<button type="button" class="btn-primary" onclick="toogleBox(slideDownBox);">Toggle Up Down</button>
+			<div class="slideDown-box" id="slideDownBox">
 				<div class="slideDown-box-inner">
 					내용<br>
 					내용<br>
@@ -77,6 +77,52 @@
 			<div class="txt1">한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다.</div>
 			<div class="txt2">두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다.</div>
 			<div class="txt3">세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다.</div>
+
+
+			<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Bottom Layer Popup</button>
+			<div class="layer-popup-wrap" id="tmpLayer01">
+				<div class="layer-container">
+					<div class="layer-header">Bottom Layer Popup</div>
+					<div class="layer-contents">
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.
+					</div>
+					<button type="button" class="layer-close" onclick="closeLayerPopup(this);">닫기</button>
+				</div>
+			</div>
+
+			<script type="text/javascript">
+				// 퍼블 임시 js
+				
+				// toogle box
+				function toogleBox(t) {
+					t.classList.toggle('selected');
+				};
+
+				// open layer
+				function openLayerPopup(t) {
+					t.classList.add('selected');
+					overflowFx(true);
+				};
+
+				// close layer
+				function closeLayerPopup(t) {
+					t.closest('.layer-popup-wrap').classList.remove('selected');
+					overflowFx(false);
+				};
+
+				function overflowFx($isHidden){
+					$isHidden ? document.body.classList.add('is-open') : document.body.classList.remove('is-open');
+				};
+			</script>
 		</section>
 		<!-- //container -->
 
