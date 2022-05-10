@@ -9,11 +9,11 @@
 
 html {
 	body {
-		background:gc(font-color-default);
-		color:white;
-		@include gc-theme(dark){
-			color:black;
-		};
+		// background:gc(font-color-default);
+		// color:white;
+		// @include gc-theme(dark){
+		// 	color:black;
+		// };
 		&.is-open {
 			overflow:hidden;
 			height:100%;
@@ -81,7 +81,7 @@ html {
 	display:flex;
 	flex-direction:column;
 	width:100%;
-	height:100%;
+	min-height:100%;
 
 	/* header */
 	#header {
@@ -301,15 +301,17 @@ html {
 	overflow:hidden;
 	position:fixed;
 	display:flex;
-	align-items:flex-end;
+	align-items:center;
 	top:auto;
 	bottom:0;
 	right:0;
 	left:0;
 	height:0;
 	// height:66px;
+	padding:0;
+	opacity:0;
+	transition:height 0s .6s, padding 0s .6s, opacity .3s cubic-bezier(1, 0, 1, 1);
 	z-index:100;
-	transition:height 0s .6s;
 	&:before {
 		content:'';
 		position:absolute;
@@ -318,25 +320,6 @@ html {
 		right:0;
 		left:0;
 		background:rgba($black, .8);
-		opacity:0;
-		transition:opacity .3s cubic-bezier(1, 0, 1, 1);
-	}
-	&.selected {
-		height:100%;
-		transition-delay:0s;
-		&:before {
-			opacity:1;
-			transition:opacity .3s cubic-bezier(0, 0, 0, 1);
-		}
-		.layer-container {
-			transform:none;
-			transition:transform .6s;
-		}
-	}
-	&.full {
-		.layer-container {
-			height: 100%;
-		}
 	}
 	.layer-container {
 		position:relative;
@@ -346,9 +329,6 @@ html {
 		width:100%;
 		max-height:100%;
 		background:#fff;
-		transform:translateY(100%);
-		// transform:translateY(calc(100% - 66px));
-		transition:transform .5s;
 		.layer-header {
 			max-height:66px;
 			padding:20px;
@@ -366,6 +346,48 @@ html {
 			top:0;
 			width:66px;
 			height:66px;
+		}
+	}
+	&.selected {
+		height:100%;
+		padding:20px;
+		opacity:1;
+		transition:height 0s 0s, opacity .3s cubic-bezier(0, 0, 0, 1);
+		.layer-container {
+			transform:none;
+			transition:transform .6s;
+		}
+	}
+	// Bottom Sheet type
+	&.type-bottom {
+		align-items:flex-end;
+		padding:0;
+		&:before {
+			opacity:0;
+			transition:opacity .3s cubic-bezier(1, 0, 1, 1);
+		}
+		&.selected {
+			&:before {
+				opacity:1;
+				transition:opacity .3s cubic-bezier(0, 0, 0, 1);
+			}
+			.layer-container {
+				transform:none;
+				transition:transform .6s;
+			}
+		}
+		.layer-container {
+			opacity:1;
+			transform:translateY(100%);
+			transition:transform .5s;
+			// transform:translateY(calc(100% - 66px));
+		}
+	}
+	// full size
+	&.type-full {
+		padding:0;
+		.layer-container {
+			height: 100%;
 		}
 	}
 }

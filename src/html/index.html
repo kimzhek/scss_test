@@ -79,11 +79,41 @@
 			<div class="txt3">세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다.</div>
 
 
-			<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Bottom Layer Popup</button>
+			<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
+			<!-- <button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button> -->
 			<div class="layer-popup-wrap" id="tmpLayer01">
+			<!-- <div class="layer-popup-wrap" id="tmpLayer01"> -->
+				<div class="layer-container">
+					<div class="layer-header">Layer Popup</div>
+					<div class="layer-contents">
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.
+						<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
+					</div>
+					<button type="button" class="layer-close" onclick="closeLayerPopup(this);">닫기</button>
+				</div>
+			</div>
+			<div class="layer-popup-wrap type-bottom" id="tmpLayer02">
 				<div class="layer-container">
 					<div class="layer-header">Bottom Layer Popup</div>
 					<div class="layer-contents">
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
 						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
 						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
 						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
@@ -100,6 +130,7 @@
 			</div>
 
 			<script type="text/javascript">
+
 				// 퍼블 임시 js
 				
 				// toogle box
@@ -109,18 +140,28 @@
 
 				// open layer
 				function openLayerPopup(t) {
+					
 					t.classList.add('selected');
-					overflowFx(true);
+					t.addEventListener('click' , function() {
+						if (event.target !== event.currentTarget) return;
+						event.preventDefault();
+						t.classList.remove('selected');
+						t.removeEventListener('click', arguments.callee);
+						overflowCl(false);
+					});
+					overflowCl(true);
 				};
 
 				// close layer
 				function closeLayerPopup(t) {
 					t.closest('.layer-popup-wrap').classList.remove('selected');
-					overflowFx(false);
+					overflowCl(false);
 				};
 
-				function overflowFx($isHidden){
-					$isHidden ? document.body.classList.add('is-open') : document.body.classList.remove('is-open');
+				// body 스크롤 막기
+				function overflowCl($isHidden){
+					var tLength = document.querySelectorAll('.layer-popup-wrap.selected').length;
+					$isHidden ? document.body.classList.add('is-open') : tLength <= 0 && document.body.classList.remove('is-open');
 				};
 			</script>
 		</section>

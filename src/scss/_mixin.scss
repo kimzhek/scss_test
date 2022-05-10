@@ -14,6 +14,7 @@
 }
 // slide Down && slide Up
 @mixin slideAnimate($mh, $mt, $ts, $tcb) {
+	visibility:if($mt < 0, hidden, visible);
 	max-height:$mh;
 	margin-top:$mt;
 	transition:all $ts $tcb;
