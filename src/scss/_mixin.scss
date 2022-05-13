@@ -59,6 +59,46 @@
 	}
 }
 
+// checkbook
+@mixin commonCustom() {
+	position:absolute;
+	width:1px;
+	height:1px;
+	padding:0;
+	margin:-1px;
+	overflow:hidden;
+	clip:rect(0,0,0,0);
+	border:0;
+	& + label {
+		position:relative;
+		display:inline-block;
+		font-size:13px;
+		line-height:20px;
+		&:before {
+			content:'';
+			display:inline-block;
+			width:20px;
+			height:20px;
+			margin-right:10px;
+			vertical-align:top;
+			box-sizing:border-box;
+		}
+	}
+	&:checked + label {
+		@content;
+	}
+	&:disabled + label {
+		cursor: default;
+		&:before {
+			border-color:transparent;
+			background-color:#eee;
+		}
+	}
+	&.no-label + label:before {
+		margin:0;
+	}
+}
+
 // theme light or theme dark
 @mixin gc-theme($name) {
 	@media (prefers-color-scheme: #{$name}) {

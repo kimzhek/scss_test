@@ -25,15 +25,15 @@
 			</nav>
 			<script type="text/javascript">
 				// 퍼블 임시 js
-				function openGlobalNav(){
+				const openGlobalNav = () => {
 					document.documentElement.classList.toggle('global-nav-open')
 				};
 
-				function showSearchGroup(){
+				const showSearchGroup = () => {
 					document.getElementById('header').classList.add('search-open')
 				};
 
-				function hideSearchGroup(){
+				const hideSearchGroup = () => {
 					document.getElementById('header').classList.remove('search-open')
 				};
 			</script>

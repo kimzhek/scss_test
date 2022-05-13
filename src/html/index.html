@@ -18,8 +18,40 @@
 				<img src="https://www.apple.com/v/home/an/images/heroes/iphone-13-pro/hero_iphone13pro_avail__iy77cld0zwii_small_2x.jpg" style="width:100%;width: 734px; height: 548px; position:absolute;top:0;left:50%;transform: translatex(-50%);" alt="">
 			</div>
 
+			<div class="tmp-guide-box">
+				<label for="tmpCheckbook" class="custom-checkbox">
+					<input type="checkbox" id="tmpCheckbook">
+					<span>체크박스</span>
+				</label>
+				<label for="tmpCheckbook02" class="custom-checkbox">
+					<input type="checkbox" id="tmpCheckbook02">
+					<span>체크박스</span>
+				</label>
+				<label for="tmpCheckbook03" class="custom-checkbox no-label">
+					<input type="checkbox" id="tmpCheckbook03">
+					<span>체크박스</span>
+				</label>
+			</div>
+
+			<div class="tmp-guide-box">
+				<label for="tmpRadio01" class="custom-radio">
+					<input type="radio" name="tmpRadio01" id="tmpRadio01" checked>
+					<span>Radio button</span>
+				</label>
+				<br><br>
+				<label for="tmpRadio02" class="custom-radio">
+					<input type="radio" name="tmpRadio01" id="tmpRadio02">
+					<span>Radio button</span>
+				</label>
+				<br><br>
+				<label for="tmpRadio03" class="custom-radio">
+					<input type="radio" name="tmpRadio01" id="tmpRadio03">
+					<span>Radio button</span>
+				</label>
+			</div>
+
 			<div class="color-test">
-				<button type="button" class="btn-primary">Button</button>
+				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Button</button>
 				<button type="button" class="btn-primary-dark">Button</button>
 				<button type="button" class="btn-primary-light">Button</button>
 				<button type="button" class="btn-secondary">Button</button>
@@ -80,90 +112,7 @@
 
 
 			<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
-			<!-- <button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button> -->
-			<div class="layer-popup-wrap" id="tmpLayer01">
-			<!-- <div class="layer-popup-wrap" id="tmpLayer01"> -->
-				<div class="layer-container">
-					<div class="layer-header">Layer Popup</div>
-					<div class="layer-contents">
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.
-						<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
-					</div>
-					<button type="button" class="layer-close" onclick="closeLayerPopup(this);">닫기</button>
-				</div>
-			</div>
-			<div class="layer-popup-wrap type-bottom" id="tmpLayer02">
-				<div class="layer-container">
-					<div class="layer-header">Bottom Layer Popup</div>
-					<div class="layer-contents">
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
-						상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.
-					</div>
-					<button type="button" class="layer-close" onclick="closeLayerPopup(this);">닫기</button>
-				</div>
-			</div>
-
-			<script type="text/javascript">
-
-				// 퍼블 임시 js
-				
-				// toogle box
-				function toogleBox(t) {
-					t.classList.toggle('selected');
-				};
-
-				// open layer
-				function openLayerPopup(t) {
-					
-					t.classList.add('selected');
-					t.addEventListener('click' , function() {
-						if (event.target !== event.currentTarget) return;
-						event.preventDefault();
-						t.classList.remove('selected');
-						t.removeEventListener('click', arguments.callee);
-						overflowCl(false);
-					});
-					overflowCl(true);
-				};
-
-				// close layer
-				function closeLayerPopup(t) {
-					t.closest('.layer-popup-wrap').classList.remove('selected');
-					overflowCl(false);
-				};
-
-				// body 스크롤 막기
-				function overflowCl($isHidden){
-					var tLength = document.querySelectorAll('.layer-popup-wrap.selected').length;
-					$isHidden ? document.body.classList.add('is-open') : tLength <= 0 && document.body.classList.remove('is-open');
-				};
-			</script>
+			<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
 		</section>
 		<!-- //container -->
 
@@ -171,5 +120,75 @@
 @@include('@@webRoot/include/footer.html')
 		<!-- //footer -->
 	</div>
+
+	<div class="layer-popup-wrap" id="tmpLayer01">
+		<div class="layer-container">
+			<div class="layer-header">Layer Popup</div>
+			<div class="layer-contents">
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
+			</div>
+			<button type="button" class="layer-close" onclick="closeLayerPopup(this);">닫기</button>
+		</div>
+	</div>
+	<div class="layer-popup-wrap type-bottom" id="tmpLayer02">
+		<div class="layer-container">
+			<div class="layer-header">Bottom Layer Popup</div>
+			<div class="layer-contents">
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.
+			</div>
+			<button type="button" class="layer-close" onclick="closeLayerPopup(this);">닫기</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+
+		// 퍼블 임시 js
+		// toogle box
+		const toogleBox = (t) => {
+			t.classList.toggle('selected');
+		};
+
+		// open layer
+		const openLayerPopup = (t) => {
+			t.classList.add('selected');
+			t.addEventListener('click', dimmCloseCl);
+			overflowCl(true);
+		};
+
+		// 영역밖 클릭시 close
+		const dimmCloseCl = () => {
+			if (event.target !== event.currentTarget) return;
+			event.currentTarget.classList.remove('selected');
+			event.currentTarget.removeEventListener('click', dimmCloseCl);
+			overflowCl(false);
+		};
+
+		// close layer
+		const closeLayerPopup = (t) => {
+			t.closest('.layer-popup-wrap').classList.remove('selected');
+			overflowCl(false);
+		};
+
+		// body 스크롤 막기
+		const overflowCl = ($isHidden) => {
+			const tLength = document.querySelectorAll('.layer-popup-wrap.selected').length;
+			$isHidden ? document.documentElement.classList.add('is-open') : tLength <= 0 && document.documentElement.classList.remove('is-open');
+		};
+	</script>
 </body>
 </html>

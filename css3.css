@@ -46,6 +46,15 @@ div {
 	@include;
 	@at-root;
 	@content;
+
+
+	#wrap {
+			overflow: hidden;
+			transition: transform .2s;
+			transform: scale(0.98);
+			border-top-right-radius: 10px;
+			border-top-left-radius: 10px;
+		}
 }
 @include slideAnimate(100%, 0, .3s, cubic-bezier(0, 0, 0, 1));
 @include slideAnimate(0, -100vh, .4s, cubic-bezier(1, 0, 1, 1));
