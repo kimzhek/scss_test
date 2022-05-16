@@ -243,199 +243,71 @@ html {
 	}
 }
 
-
-
-// tmp 임시
-.slideDown-box {
-	overflow:hidden;
-	.slideDown-box-inner {
-		background:green;
-		color:#fff;
-		@include slideAnimate(0, -100vh, .4s, cubic-bezier(1, 0, 1, 1));
-	}
-	&.selected {
-		.slideDown-box-inner {
-			@include slideAnimate(100%, 0, .3s, cubic-bezier(0, 0, 0, 1));
-		}
-	}
-}
-.txt1 {
-	margin:20px;
-	@include textEllipsis;
-}
-.txt2 {
-	margin: 20px;
-	@include textEllipsis($line:2);
-}
-.txt3 {
-	margin: 20px;
-	@include textEllipsis($line:3);
-}
-
-#wrap {
-	.color-test {
-		padding:10px 0;
-		& + .color-test {
-			margin-top:30px;
-		}
-		span {
-			display:inline-block;
-			margin:5px 3px;
-			padding:10px 20px;
-			border:1px solid red;
-			border-radius:8px;
-			color:#000;
-		}
-		button:not(.btn-block) {margin:5px;}
-		button {
-			font-size:15px;
-		}
-	}
-}
-.tmp-guide-box {
-	padding:20px;
-}
-
-
-/* checkbox & radio */
+/* checkbox */
 .custom-checkbox {
+	@include CheckRadioCustom(checkbox);
+}
+
+/* radio */
+.custom-radio {
+	@include CheckRadioCustom(radio);
+}
+
+/* switch */
+.custom-switch {
 	display:inline-block;
 	vertical-align:top;
-	input[type="checkbox"] {
+	input {
 		position:absolute;
 		width:1px;
 		height:1px;
 		padding:0;
 		margin:-1px;
 		overflow:hidden;
-		clip:rect(0,0,0,0);
+		clip:rect(0, 0, 0, 0);
 		border:0;
-		&:checked + span:before {
-			border-color:$primary;
-			// background-color:$primary;
-			// transition: background 0s;
-			box-shadow:
-					0 0 0 12px transparent,
-					inset 0 0 0 0 $white,
-					inset 0 0 0 20px $primary;
+		&:checked {
+			& + span {
+				background-color:$switch-bg-primary;
+				&:before {
+					transform: translateX(calc($switch-width - $switch-before-size - $switch-before-margin * 2));
+				}
+			}
+			&:disabled {
+				&+span {
+					background-color: $switch-checked-disabled;
+				}
+			}
 		}
-		&:checked + span:after {
-			content:"";
-			position:absolute;
-			top:6px;
-			left:5px;
-			border-right:3px solid transparent;
-			border-bottom:3px solid transparent;
-			
-			transform-origin:0% 100%;
-			// transform:rotate(45deg);
-			// animation:checkbox-check .1s 0s forwards;
-
-			width:4px;
-			height:10px;
-			border-color:$white;
-			transform: translate3d(0, -7px, 0) rotate(45deg);
-
-			
+		&:disabled {
+			& + span {
+				background-color:$switch-bg-disabled;
+			}
 		}
 	}
 	span {
 		position:relative;
-		display:inline-flex;
-		align-items:center;
-		font-size:15px;
-		vertical-align:top;
+		display:block;
+		width:$switch-width;
+		height:$switch-height;
+		background-color:$switch-bg-default;
+		border-radius:calc($switch-height / 2);
+		font-size:0;
+		line-height:0;
+		transition: background-color .3s;
 		&:before {
 			content:'';
-			width:20px;
-			height:20px;
-			margin-right:5px;
-			border:1px solid $gray;
-			border-radius:3px;
-			vertical-align:middle;
-			// transition: background .3s;
-
-			box-shadow:
-				0 0 0 -2px $primary,
-				inset 0 0 0 20px $white,
-				inset 0 0 0 10px $primary;
-			transition: all .3s;
+			position:absolute;
+			left:$switch-before-margin;
+			top:$switch-before-margin;
+			width:$switch-before-size;
+			height:$switch-before-size;
+			background-color:$switch-before-default;
+			border-radius:100%;
+			transform:translateX(0);
+			transition:transform .3s;
 		}
 	}
-	&.no-label {
-		span {
-			@include commonHideTxt;
-			&:before {
-				margin: 0;
-			}
-		}
-	}
-}
-// @keyframes checkbox-check{
-// 	0%{
-// 		width:0;
-// 		height:0;
-// 		border-color:$white;
-// 		transform:translate3d(0,0,0) rotate(45deg);
-// 	}
-// 	20%{
-// 		width:2px;
-// 		height:5px;
-// 		transform:translate3d(0,0,0) rotate(45deg);
-// 	}
-// 	100%{    
-// 		width:4px;
-// 		height:10px;    
-// 		border-color:$white;
-// 		transform:translate3d(0,-7px,0) rotate(45deg);
-// 	}
-// }
-
-
-/* radio */
-.custom-radio {
-	display:inline-block;
-	vertical-align:top;
-	input[type="radio"] {
-		position:absolute;
-		width:1px;
-		height:1px;
-		padding:0;
-		margin:-1px;
-		overflow:hidden;
-		clip:rect(0,0,0,0);
-		border:0;
-		&:checked + span {
-			&:before {
-				border-color:$primary;
-				box-shadow:
-					0 0 0 12px transparent,
-					inset 0 0 0 3px $white,
-					inset 0 0 0 20px $primary;
-			}
-		}
-	}
-	span {
-		display:inline-flex;
-		align-items:center;
-		vertical-align:top;
-		font-size:15px;
-		transition:all .2s;
-		&:before {
-			content:'';
-			width:20px;
-			height:20px;
-			margin-right:5px;
-			border-radius:50%;
-			border:1px solid $gray;
-			box-shadow:
-				0 0 0 -2px $primary,
-				inset 0 0 0 20px $white,
-				inset 0 0 0 10px $primary;
-			transition:all .3s;
-		}
-	}
-	
 }
 
 /* layer popup */
@@ -531,5 +403,43 @@ html {
 		.layer-container {
 			height: 100%;
 		}
+	}
+}
+
+// tmp 임시
+.slideDown-box {
+	overflow:hidden;
+	.slideDown-box-inner {
+		background:green;
+		color:#fff;
+		@include slideAnimate(0, -100vh, .4s, cubic-bezier(1, 0, 1, 1));
+	}
+	&.selected {
+		.slideDown-box-inner {
+			@include slideAnimate(100%, 0, .3s, cubic-bezier(0, 0, 0, 1));
+		}
+	}
+}
+.txt1 {
+	margin:20px;
+	@include textEllipsis;
+}
+.txt2 {
+	margin: 20px;
+	@include textEllipsis($line:2);
+}
+.txt3 {
+	margin: 20px;
+	@include textEllipsis($line:3);
+}
+
+.tmp-guide-box {
+	margin:20px;
+	padding:20px;
+	border:1px solid #ccc;
+	border-radius:10px;
+	box-shadow:0 10px 10px #888888;
+	button:not(.btn-block) {
+		margin: 2px;
 	}
 }

@@ -25,72 +25,96 @@ $teal:     #20c997 !default;
 $cyan:     #0dcaf0 !default;
 
 // font
-$font-color-default:        $black !default;
-$font-color-default-dark:   $white !default;
-$font-family-base:          'Noto Sans KR', sans-serif !default;
-$font-size-default:         14px !default;
-$font-weight-light:         300 !default;
-$font-weight-regular:       400 !default;
-$font-weight-medium:        500 !default;
-$font-weight-bold:          700 !default;
-
-// button
-$btn-disabled-color:        $gray-500 !default;
-$btn-disabled-bg:           $gray-400 !default;
+$font-color-default:          $black !default;
+$font-color-default-dark:     $white !default;
+$font-family-base:            'Noto Sans KR', sans-serif !default;
+$font-size-default:           15px !default;
+$font-weight-light:           300 !default;
+$font-weight-regular:         400 !default;
+$font-weight-medium:          500 !default;
+$font-weight-bold:            700 !default;
 
 // input
-$input-height-default:      50px !default;
-$input-padding-default:     0 20px !default;
-$input-color-default:       $black !default;
-$input-color-placeholder:   $gray-600 !default;
-$input-bg-default:          $white !default;
-$input-bg-disabled:         $gray-200 !default;
-$input-border-default:      $red !default;
-$input-radius-default:      0px !default;
+$input-height-default:        50px !default;
+$input-padding-default:       0 20px !default;
+$input-color-default:         $black !default;
+$input-color-placeholder:     $gray-600 !default;
+$input-color-disabled:        $gray-200 !default;
+$input-bg-default:            $white !default;
+$input-bg-disabled:           $gray-200 !default;
+$input-border-default:        $red !default;
+$input-radius-default:        0px !default;
+
+// checkbox && radio
+$checkradio-color-default:    $black  !default;
+$checkradio-color-disabled:   $gray-500  !default;
+$checkradio-size:             22px !default;
+$checkradio-margin:           5px !default;
+$checkradio-font-size:        $font-size-default !default;
+$checkradio-border-default:   $gray !default;
+$checkradio-border-primary:   $blue !default;
+$checkradio-border-disabled:  $gray-500  !default;
+$checkradio-shadow-default:   $white  !default;
+$checkradio-shadow-primary:   $checkradio-border-primary !default;
+$checkradio-shadow-disabled:  $gray-300  !default;
+$checkradio-checked-disabled: $gray-500  !default;
+$checkbox-border-radius:      3px !default;
+$checkbox-after-color:        $white !default;
+$radio-before-margin:         3px !default;
+
+// switch
+$switch-width:                50px;
+$switch-height:               25px;
+$switch-before-margin:        3px;
+$switch-before-size:          calc($switch-height - $switch-before-margin * 2);
+$switch-before-default:       $white;
+$switch-bg-default:           $gray-500;
+$switch-bg-primary:           $blue;
+$switch-bg-disabled:          $gray-300  !default;
+$switch-checked-disabled:     $gray-500  !default;
 
 // select
-$select-height-default:     50px !default;
-$select-padding-default:    0 40px 0 20px !default;
-$select-border-default:     $red !default;
-$select-bg-default:         $white !default;
-$select-radius-default:     0px !default;
+$select-height-default:       50px !default;
+$select-padding-default:      0 40px 0 20px !default;
+$select-border-default:       $red !default;
+$select-bg-default:           $white !default;
+$select-radius-default:       0px !default;
 
 // url
 $url-path:   "../images/" !default;
 $url-common: ""+$url-path+"common/" !default;
 
-// button && label
-$primary:         $blue !default;
-$primary-dark:    mix($black, $primary, 80%) !default;
-$primary-light:   mix($white, $primary, 20%) !default;
-
-$secondary:       $green !default;
-$secondary-dark:  mix($black, $secondary, 40%) !default;
-$secondary-light: mix($white, $secondary, 40%) !default;
-
-$accent:          $pink !default;
-$accent-dark:     mix($black, $accent, 40%) !default;
-$accent-light:    mix($white, $accent, 40%) !default;
-
-$success:         $indigo !default;
-$info:            $cyan !default;
-$warning:         $yellow !default;
-$danger:          $red !default;
+// button
+$btn-disabled-color:  $gray-500 !default;
+$btn-disabled-bg:     $gray-400 !default;
+$btn-primary:         $blue !default;
+$btn-primary-dark:    mix($black, $btn-primary, 80%) !default;
+$btn-primary-light:   mix($white, $btn-primary, 20%) !default;
+$btn-secondary:       $green !default;
+$btn-secondary-dark:  mix($black, $btn-secondary, 40%) !default;
+$btn-secondary-light: mix($white, $btn-secondary, 40%) !default;
+$btn-accent:          $pink !default;
+$btn-accent-dark:     mix($black, $btn-accent, 40%) !default;
+$btn-accent-light:    mix($white, $btn-accent, 40%) !default;
+$btn-success:         $indigo !default;
+$btn-info:            $cyan !default;
+$btn-warning:         $yellow !default;
+$btn-danger:          $red !default;
 
 $theme-colors: (
-  "primary":         $primary,
-  "primary-dark":    $primary-dark,
-  "primary-light":   $primary-light,
-  "secondary":       $secondary,
-  "secondary-dark":  $secondary-dark,
-  "secondary-light": $secondary-light,
-  "accent":          $accent,
-  "accent-dark":     $accent-dark,
-  "accent-light":    $accent-light,
-  "success":         $success,
-  "info":            $info,
-  "warning":         $warning,
-  "danger":          $danger,
+  "primary":         $btn-primary,
+  "primary-dark":    $btn-primary-dark,
+  "primary-light":   $btn-primary-light,
+  "secondary":       $btn-secondary,
+  "secondary-dark":  $btn-secondary-dark,
+  "secondary-light": $btn-secondary-light,
+  "accent":          $btn-accent,
+  "accent-dark":     $btn-accent-dark,
+  "accent-light":    $btn-accent-light,
+  "success":         $btn-success,
+  "info":            $btn-info,
+  "warning":         $btn-warning,
+  "danger":          $btn-danger,
 ) !default;
 
 // light theme && dark theme

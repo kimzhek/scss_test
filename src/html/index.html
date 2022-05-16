@@ -19,17 +19,45 @@
 			</div>
 
 			<div class="tmp-guide-box">
+				<input type="text" placeholder="INPUT">
+			</div>
+
+			<div class="tmp-guide-box">
 				<label for="tmpCheckbook" class="custom-checkbox">
-					<input type="checkbox" id="tmpCheckbook">
+					<input type="checkbox" id="tmpCheckbook" checked>
 					<span>체크박스</span>
 				</label>
+				<br><br>
 				<label for="tmpCheckbook02" class="custom-checkbox">
 					<input type="checkbox" id="tmpCheckbook02">
 					<span>체크박스</span>
 				</label>
-				<label for="tmpCheckbook03" class="custom-checkbox no-label">
-					<input type="checkbox" id="tmpCheckbook03">
-					<span>체크박스</span>
+				<br><br>
+				<label for="tmpCheckbook03" class="custom-checkbox">
+					<input type="checkbox" id="tmpCheckbook03" checked disabled>
+					<span>체크박스 disabled</span>
+				</label>
+				<br><br>
+				<label for="tmpCheckbook04" class="custom-checkbox">
+					<input type="checkbox" id="tmpCheckbook04" disabled>
+					<span>체크박스 disabled</span>
+				</label>
+				<br><br>
+				<label for="tmpSwitch01" class="custom-switch">
+					<input type="checkbox" id="tmpSwitch01" checked>
+					<span>Switch</span>
+				</label>
+				<label for="tmpSwitch02" class="custom-switch">
+					<input type="checkbox" id="tmpSwitch02" checked disabled>
+					<span>Switch disabled</span>
+				</label>
+				<label for="tmpSwitch03" class="custom-switch">
+					<input type="checkbox" id="tmpSwitch03">
+					<span>Switch disabled</span>
+				</label>
+				<label for="tmpSwitch04" class="custom-switch">
+					<input type="checkbox" id="tmpSwitch04" disabled>
+					<span>Switch disabled</span>
 				</label>
 			</div>
 
@@ -45,12 +73,17 @@
 				</label>
 				<br><br>
 				<label for="tmpRadio03" class="custom-radio">
-					<input type="radio" name="tmpRadio01" id="tmpRadio03">
-					<span>Radio button</span>
+					<input type="radio" name="tmpRadio02" id="tmpRadio03" checked disabled>
+					<span>Radio button disabled</span>
+				</label>
+				<br><br>
+				<label for="tmpRadio04" class="custom-radio">
+					<input type="radio" name="tmpRadio02" id="tmpRadio04" disabled>
+					<span>Radio button disabled</span>
 				</label>
 			</div>
 
-			<div class="color-test">
+			<div class="tmp-guide-box">
 				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Button</button>
 				<button type="button" class="btn-primary-dark">Button</button>
 				<button type="button" class="btn-primary-light">Button</button>
@@ -78,41 +111,43 @@
 				<button type="button" class="btn-primary btn-xl">Button</button>
 				<br><br>
 				<button type="button" class="btn-primary btn-l btn-block" disabled>disabled Button</button>
-				<button type="button" class="btn-primary btn-l btn-block">Button</button>
+				<button type="button" class="btn-primary btn-l btn-block">Full Button</button>
 			</div>
 
-			<button type="button" class="btn-primary" onclick="toogleBox(slideDownBox);">Toggle Up Down</button>
-			<div class="slideDown-box" id="slideDownBox">
-				<div class="slideDown-box-inner">
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용<br>
-					내용
+			<div class="tmp-guide-box">
+				<button type="button" class="btn-primary" onclick="toogleBox(slideDownBox);">Toggle Up Down</button>
+				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
+				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
+				<div class="slideDown-box" id="slideDownBox">
+					<div class="slideDown-box-inner">
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용<br>
+						내용
+					</div>
 				</div>
 			</div>
 
-			<div class="txt1">한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다.</div>
-			<div class="txt2">두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다.</div>
-			<div class="txt3">세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다.</div>
-
-
-			<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
-			<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
+			<div class="tmp-guide-box">
+				<div class="txt1">한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다.</div>
+				<div class="txt2">두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다.</div>
+				<div class="txt3">세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다.</div>
+			</div>
 		</section>
 		<!-- //container -->
 
