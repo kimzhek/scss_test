@@ -18,8 +18,22 @@
 				<img src="https://www.apple.com/v/home/an/images/heroes/iphone-13-pro/hero_iphone13pro_avail__iy77cld0zwii_small_2x.jpg" style="width:100%;width: 734px; height: 548px; position:absolute;top:0;left:50%;transform: translatex(-50%);" alt="">
 			</div>
 
-			<div class="tmp-guide-box">
+			<!-- <div class="tmp-guide-box">
 				<input type="text" placeholder="INPUT">
+			</div> -->
+
+			<div class="tmp-guide-box">
+				<div class="gc-tab">
+					<ul>
+						<li><a href="#">TAB01</a></li>
+						<li><a href="#">TAB02TAB02TAB02</a></li>
+						<li><a href="#" class="selected">TAB03</a></li>
+						<li><a href="#">TAB04</a></li>
+						<li><a href="#">TAB05</a></li>
+						<li><a href="#">TAB06</a></li>
+					</ul>
+					<span class="tab-indicator"></span>
+				</div>
 			</div>
 
 			<div class="tmp-guide-box">
@@ -83,7 +97,7 @@
 				</label>
 			</div>
 
-			<div class="tmp-guide-box">
+			<div class="tmp-guide-box guide-btn">
 				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Button</button>
 				<button type="button" class="btn-primary-dark">Button</button>
 				<button type="button" class="btn-primary-light">Button</button>
@@ -205,7 +219,7 @@
 			overflowCl(true);
 		};
 
-		// 영역밖 클릭시 close
+		// 영역밖 클릭시 layer close
 		const dimmCloseCl = () => {
 			if (event.target !== event.currentTarget) return;
 			event.currentTarget.classList.remove('selected');
@@ -224,6 +238,39 @@
 			const tLength = document.querySelectorAll('.layer-popup-wrap.selected').length;
 			$isHidden ? document.documentElement.classList.add('is-open') : tLength <= 0 && document.documentElement.classList.remove('is-open');
 		};
+
+		// Tab
+		const jsTab = document.querySelector('.gc-tab')
+		const jsTabindicator = jsTab.querySelector('.tab-indicator');
+		const jsTabItems = jsTab.querySelectorAll('a');
+
+		// Tab indicator 애니메이션
+		const tabIndicator = (el) => {
+			jsTabItems.forEach(item => {
+				item.classList.remove('selected');
+			});
+			jsTabindicator.style.width = `${el.offsetWidth}px`;
+			jsTabindicator.style.left = `${el.offsetLeft}px`;
+			el.classList.add('selected');
+			event.preventDefault();
+			targetScroll(el);
+		};
+
+		// Tab 정렬 자동 맞추기
+		const targetScroll = (el) => {
+			const tScrollX = el.offsetLeft - jsTab.offsetWidth / 2 + el.offsetWidth / 2;
+			jsTab.scroll({
+				left: tScrollX,
+				behavior:'smooth'
+			});
+		};
+		
+		window.onload = () => {
+			jsTabItems.forEach(item => {
+				item.addEventListener('click', e => { tabIndicator(e.target); });
+				item.classList.contains('selected') && tabIndicator(item);
+			});
+		}
 	</script>
 </body>
 </html>

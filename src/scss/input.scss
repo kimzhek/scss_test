@@ -10,4 +10,23 @@ input[type="number"],
 input[type="email"] {
 	@include inputType;
 }
-/* //input */
+
+/* select */
+select {
+	height:$select-height-default;
+	padding:$select-padding-default;
+	border:1px solid $select-border-default;
+	background-color:$select-bg-default;
+	background-repeat:no-repeat;
+	background-position:right 20px center;
+	background-image:url(''+$url-common+'icon_select03.png');
+	border-radius:$select-radius-default;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	cursor: pointer;
+	@include textEllipsis;
+}
+select::-ms-expand {
+	display:none;
+}

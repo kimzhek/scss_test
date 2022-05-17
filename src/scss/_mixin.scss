@@ -50,6 +50,7 @@
 	background-color:$background-color;
 	color:$font-color;
 	font-size:$font-size;
+
 	&.disabled,
 	&:disabled {
 		border-color:$btn-disabled-bg;
