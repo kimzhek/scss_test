@@ -14,153 +14,181 @@
 		
 		<!-- container -->
 		<section id="container">
-			<div style="width:100%; height:548px;position:relative;overflow:hidden;">
-				<img src="https://www.apple.com/v/home/an/images/heroes/iphone-13-pro/hero_iphone13pro_avail__iy77cld0zwii_small_2x.jpg" style="width:100%;width: 734px; height: 548px; position:absolute;top:0;left:50%;transform: translatex(-50%);" alt="">
-			</div>
+			<div class="contents">
 
-			<!-- <div class="tmp-guide-box">
-				<input type="text" placeholder="INPUT">
-			</div> -->
-
-			<div class="tmp-guide-box">
-				<div class="gc-tab">
-					<ul>
-						<li><a href="#">TAB01</a></li>
-						<li><a href="#">TAB02TAB02TAB02</a></li>
-						<li><a href="#" class="selected">TAB03</a></li>
-						<li><a href="#">TAB04</a></li>
-						<li><a href="#">TAB05</a></li>
-						<li><a href="#">TAB06</a></li>
-					</ul>
-					<span class="tab-indicator"></span>
+				<div class="tmp-guide-box">
+					<h2 class="guide-box-tit">Input</h2>
+					<input type="text" placeholder="이름">
+					<br><br>
+					<input type="text" value="홍길동">
+					<br><br>
+					<input type="text" value="disabled" disabled>
 				</div>
-			</div>
 
-			<div class="tmp-guide-box">
-				<label for="tmpCheckbook" class="custom-checkbox">
-					<input type="checkbox" id="tmpCheckbook" checked>
-					<span>체크박스</span>
-				</label>
-				<br><br>
-				<label for="tmpCheckbook02" class="custom-checkbox">
-					<input type="checkbox" id="tmpCheckbook02">
-					<span>체크박스</span>
-				</label>
-				<br><br>
-				<label for="tmpCheckbook03" class="custom-checkbox">
-					<input type="checkbox" id="tmpCheckbook03" checked disabled>
-					<span>체크박스 disabled</span>
-				</label>
-				<br><br>
-				<label for="tmpCheckbook04" class="custom-checkbox">
-					<input type="checkbox" id="tmpCheckbook04" disabled>
-					<span>체크박스 disabled</span>
-				</label>
-				<br><br>
-				<label for="tmpSwitch01" class="custom-switch">
-					<input type="checkbox" id="tmpSwitch01" checked>
-					<span>Switch</span>
-				</label>
-				<label for="tmpSwitch02" class="custom-switch">
-					<input type="checkbox" id="tmpSwitch02" checked disabled>
-					<span>Switch disabled</span>
-				</label>
-				<label for="tmpSwitch03" class="custom-switch">
-					<input type="checkbox" id="tmpSwitch03">
-					<span>Switch disabled</span>
-				</label>
-				<label for="tmpSwitch04" class="custom-switch">
-					<input type="checkbox" id="tmpSwitch04" disabled>
-					<span>Switch disabled</span>
-				</label>
-			</div>
+				<div class="tmp-guide-box">
+					<h2 class="guide-box-tit">Select</h2>
+					<select name="" id="">
+						<option value="옵션1">옵션1</option>
+						<option value="옵션2">옵션2</option>
+						<option value="옵션3">옵션3</option>
+					</select>
+				</div>
 
-			<div class="tmp-guide-box">
-				<label for="tmpRadio01" class="custom-radio">
-					<input type="radio" name="tmpRadio01" id="tmpRadio01" checked>
-					<span>Radio button</span>
-				</label>
-				<br><br>
-				<label for="tmpRadio02" class="custom-radio">
-					<input type="radio" name="tmpRadio01" id="tmpRadio02">
-					<span>Radio button</span>
-				</label>
-				<br><br>
-				<label for="tmpRadio03" class="custom-radio">
-					<input type="radio" name="tmpRadio02" id="tmpRadio03" checked disabled>
-					<span>Radio button disabled</span>
-				</label>
-				<br><br>
-				<label for="tmpRadio04" class="custom-radio">
-					<input type="radio" name="tmpRadio02" id="tmpRadio04" disabled>
-					<span>Radio button disabled</span>
-				</label>
-			</div>
+				<div class="tmp-guide-box">
+					<h2 class="guide-box-tit">Tab</h2>
+					<div class="gc-tab">
+						<ul>
+							<li><a href="#">TAB01</a></li>
+							<li><a href="#">TAB02TAB02TAB02</a></li>
+							<li><a href="#" class="selected">TAB03</a></li>
+							<li><a href="#">TAB04</a></li>
+							<li><a href="#">TAB05</a></li>
+							<li><a href="#">TAB06</a></li>
+						</ul>
+						<span class="tab-indicator"></span>
+					</div>
+				</div>
 
-			<div class="tmp-guide-box guide-btn">
-				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Button</button>
-				<button type="button" class="btn-primary-dark">Button</button>
-				<button type="button" class="btn-primary-light">Button</button>
-				<button type="button" class="btn-secondary">Button</button>
-				<button type="button" class="btn-secondary-dark">Button</button>
-				<button type="button" class="btn-secondary-light">Button</button>
-				<button type="button" class="btn-accent">Button</button>
-				<button type="button" class="btn-accent-dark">Button</button>
-				<button type="button" class="btn-accent-light">Button</button>
-				<button type="button" class="btn-success">Button</button>
-				<button type="button" class="btn-info">Button</button>
-				<button type="button" class="btn-warning">Button</button>
-				<button type="button" class="btn-danger">Button</button>
-				<br><br>
-				<button type="button" class="btn-primary-outline">Button</button>
-				<button type="button" class="btn-secondary-outline">Button</button>
-				<button type="button" class="btn-success-outline">Button</button>
-				<button type="button" class="btn-info-outline">Button</button>
-				<button type="button" class="btn-warning-outline">Button</button>
-				<button type="button" class="btn-danger-outline">Button</button>
-				<br><br>
-				<button type="button" class="btn-primary btn-m">Button</button>
-				<button type="button" class="btn-primary">Button</button>
-				<button type="button" class="btn-primary btn-l">Button</button>
-				<button type="button" class="btn-primary btn-xl">Button</button>
-				<br><br>
-				<button type="button" class="btn-primary btn-l btn-block" disabled>disabled Button</button>
-				<button type="button" class="btn-primary btn-l btn-block">Full Button</button>
-			</div>
+				<div class="tmp-guide-box">
+					<h2 class="guide-box-tit">Checkbox</h2>
+					<label for="tmpCheckbook" class="gc-checkbox">
+						<input type="checkbox" id="tmpCheckbook" checked>
+						<span>체크박스</span>
+					</label>
+					<br><br>
+					<label for="tmpCheckbook02" class="gc-checkbox">
+						<input type="checkbox" id="tmpCheckbook02">
+						<span>체크박스</span>
+					</label>
+					<br><br>
+					<label for="tmpCheckbook03" class="gc-checkbox">
+						<input type="checkbox" id="tmpCheckbook03" checked disabled>
+						<span>체크박스 disabled</span>
+					</label>
+					<br><br>
+					<label for="tmpCheckbook04" class="gc-checkbox">
+						<input type="checkbox" id="tmpCheckbook04" disabled>
+						<span>체크박스 disabled</span>
+					</label>
+					<br><br>
+					<label for="tmpSwitch01" class="gc-switch">
+						<input type="checkbox" id="tmpSwitch01" checked>
+						<span>Switch</span>
+					</label>
+					<label for="tmpSwitch02" class="gc-switch">
+						<input type="checkbox" id="tmpSwitch02" checked disabled>
+						<span>Switch disabled</span>
+					</label>
+					<label for="tmpSwitch03" class="gc-switch">
+						<input type="checkbox" id="tmpSwitch03">
+						<span>Switch disabled</span>
+					</label>
+					<label for="tmpSwitch04" class="gc-switch">
+						<input type="checkbox" id="tmpSwitch04" disabled>
+						<span>Switch disabled</span>
+					</label>
+				</div>
 
-			<div class="tmp-guide-box">
-				<button type="button" class="btn-primary" onclick="toogleBox(slideDownBox);">Toggle Up Down</button>
-				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
-				<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
-				<div class="slideDown-box" id="slideDownBox">
-					<div class="slideDown-box-inner">
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용<br>
-						내용
+				<div class="tmp-guide-box">
+					<h2 class="guide-box-tit">Radio</h2>
+					<label for="tmpRadio01" class="gc-radio">
+						<input type="radio" name="tmpRadio01" id="tmpRadio01" checked>
+						<span>Radio button</span>
+					</label>
+					<br><br>
+					<label for="tmpRadio02" class="gc-radio">
+						<input type="radio" name="tmpRadio01" id="tmpRadio02">
+						<span>Radio button</span>
+					</label>
+					<br><br>
+					<label for="tmpRadio03" class="gc-radio">
+						<input type="radio" name="tmpRadio02" id="tmpRadio03" checked disabled>
+						<span>Radio button disabled</span>
+					</label>
+					<br><br>
+					<label for="tmpRadio04" class="gc-radio">
+						<input type="radio" name="tmpRadio02" id="tmpRadio04" disabled>
+						<span>Radio button disabled</span>
+					</label>
+				</div>
+
+				<div class="tmp-guide-box guide-btn">
+					<h2 class="guide-box-tit">Button</h2>
+					<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Button</button>
+					<button type="button" class="btn-primary-dark">Button</button>
+					<button type="button" class="btn-primary-light">Button</button>
+					<button type="button" class="btn-secondary">Button</button>
+					<button type="button" class="btn-secondary-dark">Button</button>
+					<button type="button" class="btn-secondary-light">Button</button>
+					<button type="button" class="btn-accent">Button</button>
+					<button type="button" class="btn-accent-dark">Button</button>
+					<button type="button" class="btn-accent-light">Button</button>
+					<button type="button" class="btn-success">Button</button>
+					<button type="button" class="btn-info">Button</button>
+					<button type="button" class="btn-warning">Button</button>
+					<button type="button" class="btn-danger">Button</button>
+					<br><br>
+					<button type="button" class="btn-primary-outline">Button</button>
+					<button type="button" class="btn-secondary-outline">Button</button>
+					<button type="button" class="btn-success-outline">Button</button>
+					<button type="button" class="btn-info-outline">Button</button>
+					<button type="button" class="btn-warning-outline">Button</button>
+					<button type="button" class="btn-danger-outline">Button</button>
+					<br><br>
+					<button type="button" class="btn-primary btn-m">Button</button>
+					<button type="button" class="btn-primary">Button</button>
+					<button type="button" class="btn-primary btn-l">Button</button>
+					<button type="button" class="btn-primary btn-xl">Button</button>
+					<br><br>
+					<button type="button" class="btn-primary btn-l btn-block" disabled>disabled Button</button>
+					<button type="button" class="btn-primary btn-l btn-block">Full Button</button>
+				</div>
+
+				<div class="tmp-guide-box">
+					<h2 class="guide-box-tit">Text</h2>
+					<div class="txt1">한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다.</div>
+					<div class="txt2">두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다.</div>
+					<div class="txt3">세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다.</div>
+				</div>
+
+				<div class="tmp-guide-box">
+					<h2 class="guide-box-tit">Etc</h2>
+					<button type="button" class="btn-primary" onclick="toogleBox(slideDownBox);">Toggle Up Down</button>
+					<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
+					<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
+					<div class="slideDown-box" id="slideDownBox">
+						<div class="slideDown-box-inner">
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용<br>
+							내용
+						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="tmp-guide-box">
-				<div class="txt1">한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다한줄 말줄임 입니다.</div>
-				<div class="txt2">두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다두줄 말줄임 입니다.</div>
-				<div class="txt3">세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다세줄 말줄임 입니다.</div>
+			<div class="quick-menu-wrap">
+				<button type="button" class="quick-button" onclick="tmpQuickMenuCl(this);">Quick 메뉴 열기</button>
+				<ul>
+					<li><a href="#" class="type-menu01">MENU01</a></li>
+					<li><a href="#" class="type-menu02">MENU02</a></li>
+					<li><a href="#" class="type-menu03">MENU03</a></li>
+					<li><a href="#" class="type-menu04">MENU04</a></li>
+				</ul>
 			</div>
 		</section>
 		<!-- //container -->
@@ -203,6 +231,22 @@
 			<button type="button" class="layer-close" onclick="closeLayerPopup(this);">닫기</button>
 		</div>
 	</div>
+
+	<div class="layer-popup-wrap type-bottom type-drag" id="tmpLayer03">
+		<div class="layer-container">
+			<div class="layer-header">Drag Layer Popup</div>
+			<div class="layer-contents">
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.<br>
+				상품구매 및 리뷰를 등록하시면 마일리지가 적립됩니다.
+			</div>
+		</div>
+	</div>
 	
 	<script type="text/javascript">
 
@@ -233,10 +277,56 @@
 			overflowCl(false);
 		};
 
+		// body 스크롤 위치 저장
+		const scrollPosition = () => {
+			var de = document.documentElement;
+			var b = document.body;
+			var now = {};
+			now.Y = document.all ? (!de.scrollTop ? b.scrollTop : de.scrollTop) : (window.pageYOffset ? window.pageYOffset : window.scrollY);
+			return now.Y;
+		};
+
 		// body 스크롤 막기
 		const overflowCl = ($isHidden) => {
+
+			
+			
+			
 			const tLength = document.querySelectorAll('.layer-popup-wrap.selected').length;
+
+			// var wrapEl = document.getElementById('wrap');
+			// if 	($isHidden){
+			// 	// originalPosition = scrollPosition();
+				
+			// 	if (tLength >= 0){
+			// 		originalPosition = scrollPosition();
+			// 	}
+			// 	wrapEl.style.marginTop = -originalPosition + 'px';
+			// }else{
+			// 	// wrapEl.setAttribute('style', '');
+			// 	// document.documentElement.scrollTop = originalPosition;
+			// }
+			
 			$isHidden ? document.documentElement.classList.add('is-open') : tLength <= 0 && document.documentElement.classList.remove('is-open');
+
+			// if ($isHidden) {
+			// 	// originalPosition = scrollPosition();
+			// 	// wrapEl.style.marginTop = -originalPosition + 'px';
+
+			// } else {
+			// 	wrapEl.setAttribute('style', '');
+			// 	document.documentElement.scrollTop = originalPosition;
+			// }
+
+			// console.log(originalPosition)
+
+
+
+
+
+			
+
+			
 		};
 
 		// Tab
@@ -258,19 +348,84 @@
 
 		// Tab 정렬 자동 맞추기
 		const targetScroll = (el) => {
-			const tScrollX = el.offsetLeft - jsTab.offsetWidth / 2 + el.offsetWidth / 2;
+			let tScrollX = el.offsetLeft - jsTab.offsetWidth / 2 + el.offsetWidth / 2;
 			jsTab.scroll({
 				left: tScrollX,
 				behavior:'smooth'
 			});
 		};
 		
+		//  Tab 시작
 		window.onload = () => {
 			jsTabItems.forEach(item => {
 				item.addEventListener('click', e => { tabIndicator(e.target); });
 				item.classList.contains('selected') && tabIndicator(item);
 			});
 		}
+
+		// quick menu
+		const tmpQuickMenuCl = (t) => {
+			t.closest('.quick-menu-wrap').classList.toggle('selected');
+		};
+
+
+
+		var elWrap = document.documentElement.querySelector(".type-drag");
+		var el = elWrap.querySelectorAll(".layer-container");
+		var clientX, clientY;
+		el.forEach(item => {
+			item.addEventListener('touchstart', e => { handleStart(e, item) });
+			item.addEventListener("touchmove", e => { handleMove(e, item) });
+			item.addEventListener("touchend", e => { handleEnd(e, item) });
+		});
+
+
+		const handleStart = (e, t) => {
+			testtest = false;
+			clientY = e.touches[0].clientY;
+			style = window.getComputedStyle(t);
+			matrix = new WebKitCSSMatrix(style.transform);
+			
+			console.log('handleStart')
+		}
+		const handleMove = (e, t) => {
+			testtest = true;
+			const speed = 0;
+			const touches = clientY-e.changedTouches[0].clientY;
+			let deltaY = matrix.m42 - touches;
+			deltaY = deltaY <= 0 ? 0 : deltaY > t.offsetHeight - 66 ? t.offsetHeight - 66 : deltaY;
+			dragSlide(t, deltaY, speed)
+			if (touches > 0) {
+				t.closest('.layer-popup-wrap').classList.add('selected')
+				overflowCl(true);
+			} else if (deltaY >= 208){
+				t.closest('.layer-popup-wrap').classList.remove('selected')
+				overflowCl(false);
+			}
+
+			console.log('handleMove')
+		}
+		const handleEnd = (e, t) => {
+			const speed = 400;
+			let deltaY = e.changedTouches[0].clientY - clientY;
+
+			deltaY = deltaY <= 0 ? 0 : 208;
+			if (testtest){
+				dragSlide(t, deltaY, speed)
+				testtest = false;
+			}
+			if (deltaY >= 208) {
+				t.closest('.layer-popup-wrap').classList.remove('selected')
+				overflowCl(false);
+			}
+			
+			console.log('handleEnd')
+		}
+
+		const dragSlide = (t, deltaY, speed) => {
+			t.style.transition = (speed / 1000).toFixed(1) + 's',
+			t.style.transform = 'translateY(' + deltaY + 'px)'
+		};
 	</script>
 </body>
 </html>

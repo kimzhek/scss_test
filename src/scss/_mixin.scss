@@ -151,32 +151,6 @@
 	}
 }
 
-// input
-@mixin inputType(){
-	height:$input-height-default;
-	padding:$input-padding-default;
-	border:1px solid $input-border-default;
-	border-radius:$input-radius-default;
-	background-color:$input-bg-default;
-	color:$input-color-default;
-	@include textEllipsis;
-	&::-ms-clear {
-		display:none;
-	}
-	&::placeholder {
-		color:$input-color-placeholder;
-	}
-	&[readonly],
-	&:disabled {
-		color:$input-color-disabled;
-		background-color:$input-bg-disabled;
-	}
-	&:read-only {
-		color:$input-color-disabled;
-		background-color:$input-bg-disabled;
-	}
-}
-
 // theme light or theme dark
 @mixin gc-theme($name) {
 	@media (prefers-color-scheme: #{$name}) {

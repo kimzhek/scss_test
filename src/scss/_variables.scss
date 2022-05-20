@@ -35,15 +35,22 @@ $font-weight-medium:          500 !default;
 $font-weight-bold:            700 !default;
 
 // input
-$input-height-default:        50px !default;
-$input-padding-default:       0 20px !default;
+$input-height-default:        40px !default;
+$input-padding-default:       0 15px !default;
 $input-color-default:         $black !default;
 $input-color-placeholder:     $gray-600 !default;
-$input-color-disabled:        $gray-200 !default;
+$input-color-disabled:        $gray-600 !default;
 $input-bg-default:            $white !default;
-$input-bg-disabled:           $gray-200 !default;
-$input-border-default:        $red !default;
+$input-bg-disabled:           $gray-300 !default;
+$input-border-default:        $gray !default;
 $input-radius-default:        0px !default;
+
+// select
+$select-height-default:       40px !default;
+$select-padding-default:      0 40px 0 15px !default;
+$select-border-default:       $red !default;
+$select-bg-default:           $white !default;
+$select-radius-default:       0px !default;
 
 // checkbox && radio
 $checkradio-color-default:    $black  !default;
@@ -72,13 +79,6 @@ $switch-bg-default:           $gray-500;
 $switch-bg-primary:           $blue;
 $switch-bg-disabled:          $gray-300  !default;
 $switch-checked-disabled:     $gray-500  !default;
-
-// select
-$select-height-default:       50px !default;
-$select-padding-default:      0 40px 0 20px !default;
-$select-border-default:       $red !default;
-$select-bg-default:           $white !default;
-$select-radius-default:       0px !default;
 
 // url
 $url-path:   "../images/" !default;
