@@ -48,9 +48,6 @@ div {
 	@content;
 
 
-	
-
-
 	#wrap {
 			overflow: hidden;
 			transition: transform .2s;
