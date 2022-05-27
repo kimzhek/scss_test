@@ -323,62 +323,58 @@
 		};
 
 		// Tab
-		const jsTab = document.querySelector('.gc-tab');
-		const jsTabindicator = jsTab.querySelector('.tab-indicator');
-		const jsTabItems = jsTab.querySelectorAll('a');
-
-		// Tab indicator 애니메이션
-		const tabIndicator = (el) => {
-			jsTabItems.forEach(item => {
-				item.classList.remove('selected');
-			});
-			jsTabindicator.style.width = `${el.offsetWidth}px`;
-			jsTabindicator.style.left = `${el.offsetLeft}px`;
-			el.classList.add('selected');
-			event.preventDefault();
-			targetScroll(el);
-		};
-
-		// Tab 정렬 자동 맞추기
-		const targetScroll = (el) => {
-			let tScrollX = el.offsetLeft - jsTab.offsetWidth / 2 + el.offsetWidth / 2;
-			jsTab.scroll({
-				left: tScrollX,
-				behavior:'smooth'
-			});
-		};
-		
-		//  Tab 시작
-		window.onload = () => {
-			jsTabItems.forEach(item => {
-				item.addEventListener('click', e => { tabIndicator(e.target); });
-				item.classList.contains('selected') && tabIndicator(item);
-			});
-			tabScrollEv();
-		}
-
-		const tabScrollEv = () => {
+		const commonTabEv = (function(){
+			console.log('commonTabEv')
+			
 			const jsTabWrap = document.querySelector('.gc-tab-wrap');
+			const jsTab = jsTabWrap.querySelector('.gc-tab');
 			const jsTabUl = jsTab.querySelector('ul');
+			const jsTabindicator = jsTab.querySelector('.tab-indicator');
+			const jsTabItems = jsTab.querySelectorAll('a');
 			const jsTabLi = jsTabUl.children;
+
 			let ticking = false;
 			let totalWidth = 0;
 			let firstW = 0;
 			let lastW = 0;
-			for (var i = 0; i < jsTabLi.length; i++) {
+
+			for (let i = 0; i < jsTabLi.length; i++) {
 				totalWidth += parseInt(jsTabLi[i].offsetWidth, 10);
 				firstW = jsTabLi[0].offsetWidth;
 				lastW = jsTabLi[jsTabLi.length - 1].offsetWidth;
 			}
-			const update = function(t, n){
+
+			// Tab indicator 애니메이션
+			const tabIndicator = (el) => {
+				jsTabItems.forEach(item => {
+					item.classList.remove('selected');
+				});
+				jsTabindicator.style.width = `${el.offsetWidth}px`;
+				jsTabindicator.style.left = `${el.offsetLeft}px`;
+				el.classList.add('selected');
+				event.preventDefault();
+				targetScroll(el);
+			};
+
+			// Tab 정렬 자동 맞추기
+			const targetScroll = (el) => {
+				let tScrollX = el.offsetLeft - jsTab.offsetWidth / 2 + el.offsetWidth / 2;
+				jsTab.scroll({
+					left: tScrollX,
+					behavior:'smooth'
+				});
+			};
+			
+			const update = (t, n) => {
 				n <= firstW /2 ? jsTabWrap.classList.remove('first') : jsTabWrap.classList.add('first');
 				n >= totalWidth - t.offsetWidth - lastW / 2 ? jsTabWrap.classList.remove('last') : jsTabWrap.classList.add('last');
 			};
+
 			const onScroll = () => {
-				tabScrollP = event.target.scrollLeft;
-				let t = event.target;
+				const t = event.target;
+				const tabScrollP = t.scrollLeft;
 				if (!ticking) {
-					var raf = window.requestAnimationFrame
+					let raf = window.requestAnimationFrame
 						|| window.webkitRequestAnimationFrame
 						|| window.mozRequestAnimationFrame
 						|| window.msRequestAnimationFrame
@@ -391,93 +387,23 @@
 					ticking = true;
 				};
 			};
-			jsTab.addEventListener('scroll', onScroll);
-		}
-		// tabScrollEv();
 
+			//  Tab 시작
+			window.onload = () => {
+				jsTabItems.forEach(item => {
+					item.addEventListener('click', e => { tabIndicator(e.target); });
+					item.classList.contains('selected') && tabIndicator(item);
+				});
+			}
 
-
-
-
-		const app = (function() {  
-			var privateVar = 'private';
 			return {
-				prop : privateVar
-			};
-		}());
-		console.log(app.prop); // "private" 출력
+				onScroll: onScroll
+			}
+		})();
 
+		
+		document.querySelector('.gc-tab').addEventListener('scroll', commonTabEv.onScroll);
 
-		// class BottomSheet {
-		// 	constructor(id) {
-		// 		this.id = id;
-		// 		this.el = document.getElementById(id);
-		// 		this.scrim = this.el.querySelector(".c-bottom-sheet__scrim");
-		// 		this.handle = this.el.querySelector(".c-bottom-sheet__handle");
-		// 		this.sheet = this.el.querySelector(".c-bottom-sheet__sheet");
-		// 		this.activate = this.activate.bind(this);
-		// 		this.deactivate = this.deactivate.bind(this);        
-
-		// 		this.scrim.addEventListener("click", this.deactivate);
-		// 		this.handle.addEventListener("click", this.deactivate);
-				
-		// 		this.sheetListener = new TouchDragListener({
-		// 			el: this.sheet,
-		// 			touchStartCallback: ({el, active, initialY, currentY, yOffset}) => {
-		// 				el.style.setProperty("--translateY", `translateY(0)`);
-		// 				el.style.setProperty("transition", `unset`);
-		// 			},
-		// 			touchEndCallback: ({el, active, initialY, currentY, yOffset}) => {
-		// 				el.style.setProperty(
-		// 					"transition",
-		// 					`transform 150ms cubic-bezier(0.4, 0, 0.2, 1)`
-		// 				);
-		// 				el.style.setProperty(
-		// 					"--translateY",
-		// 					`translateY(${currentY}px)`
-		// 				);
-		// 			},
-		// 			touchMoveCallback: ({el, active, initialY, currentY, yOffset}) => {
-		// 				if (currentY <= -40) {
-		// 					currentY = -41 + currentY / 10;
-		// 				} else if (currentY <= -60) {
-		// 					currentY = -60;
-		// 				} else if (currentY >= 210) {
-		// 					this.deactivate(currentY);
-		// 					return;
-		// 				}
-				
-		// 				el.style.setProperty(
-		// 					"--translateY",
-		// 					`translateY(${currentY}px)`
-		// 				);
-		// 			}
-		// 		});
-
-		// 		this.scrimListener = new TouchDragListener({
-		// 			el: this.scrim,
-		// 			touchMoveCallback: ({el, active, initialY, currentY, yOffset}) => {
-		// 				if (currentY >= 83) {
-		// 					this.deactivate();
-		// 					return;
-		// 				}
-		// 			}
-		// 		});
-		// 	}
-		// 	activate(e) {
-		// 		console.log('deactivate')
-		// 	}
-		// 	deactivate(translateY) {
-		// 		console.log('deactivate')
-		// 	}
-		// }
-
-		// const bottomSheet = new BottomSheet("country-selector");
-		// document
-		// 	.getElementById("country-select-button")
-		// 	.addEventListener("click", bottomSheet.activate);
-
-		// window.bottomSheet = bottomSheet;
 	</script>
 </body>
 </html>

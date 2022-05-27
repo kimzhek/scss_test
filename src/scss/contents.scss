@@ -315,6 +315,29 @@ html {
 }
 
 /* tab */
+.gc-tab-wrap {
+	position:relative;
+	&.first:before {
+		content:'';
+		position:absolute;
+		top:0;
+		bottom:1px;
+		left:0;
+		width:40px;
+		background:linear-gradient(to right, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+		z-index:2;
+	}
+	&.last:after {
+		content:'';
+		position:absolute;
+		top:0;
+		bottom:1px;
+		right:0;
+		width:40px;
+		background:linear-gradient(to left, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+		z-index:2;
+	}
+}
 .gc-tab {
 	position:relative;
 	overflow-x:auto;
@@ -477,15 +500,15 @@ html {
 		}
 	}
 }
-.txt1 {
+.tmp-txt1 {
 	margin:20px 0;
 	@include textEllipsis;
 }
-.txt2 {
+.tmp-txt2 {
 	margin:20px 0;
 	@include textEllipsis($line:2);
 }
-.txt3 {
+.tmp-txt3 {
 	margin:20px 0;
 	@include textEllipsis($line:3);
 }

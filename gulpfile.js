@@ -8,8 +8,8 @@ var concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
     clean = require('gulp-clean'),
     autoprefixer = require('gulp-autoprefixer'),
-    del = require('del'),
-    path = require('path'),
+	dependents = require('gulp-dependents'),
+	cached = require('gulp-cached'),
     browserSync = require('browser-sync').create();
 
 var src = './src';
@@ -23,19 +23,21 @@ var paths = {
 };
 
 // clean
-gulp.task('clean', function () {
+gulp.task('clean', () => {
     return gulp.src(dist + '/*')
         .pipe(clean());
 });
 
 // html
-gulp.task('html', function () {
+gulp.task('html', () => {
     return gulp
-        .src([paths.html, '!./src/include/*.html'])
+		// .src([paths.html, '!./src/include/*.html'], { since: gulp.lastRun('html') })
+		.src([paths.html, '!./src/include/*.html'])
         .pipe(fileinclude({
             prefix: '@@',
             basepath: '@file'
         }))
+		.pipe(cached('html'))
         .pipe(gulp.dest(dist))
         .pipe(browserSync.stream());
 });
@@ -50,12 +52,14 @@ var scssOptions = {
 };
 
 // scss
-gulp.task('scss:compile', function () {
+gulp.task('scss', () => {
     return gulp
-        .src(paths.scss) //불러오기
+		// .src(paths.scss, { since: gulp.lastRun('scss') }) //불러오기
+		// .pipe(dependents())
+		.src(paths.scss) //불러오기
         .pipe(sourcemaps.init())//소스맵 초기화
         .pipe(scss(scssOptions).on('error', scss.logError))
-        // .pipe(concat('style.css')) //병합
+        .pipe(concat('style.css')) //병합
         .pipe(autoprefixer())
         .pipe(sourcemaps.write()) //소스맵
         .pipe(gulp.dest(dist + '/css')) //생성
@@ -63,9 +67,9 @@ gulp.task('scss:compile', function () {
 });
 
 // js
-gulp.task('js:combine', function () {
+gulp.task('js', () => {
     return gulp
-        .src(paths.js) //불러오기
+		.src(paths.js, { since: gulp.lastRun('js') }) //불러오기
         // .pipe(sourcemaps.init())//소스맵 초기화
         // .pipe(concat('common.js')) // 병합
         // .pipe(gulp.dest('./dist/js')) // 생성
@@ -78,21 +82,20 @@ gulp.task('js:combine', function () {
 });
 
 // img
-gulp.task('img', function () {
+gulp.task('img', () => {
     return gulp
-        .src(paths.img) //불러오기
+		.src(paths.img, { since: gulp.lastRun('img') }) //불러오기
         .pipe(gulp.dest('./dist/images')) // 생성
         .pipe(browserSync.stream());
 
 });
 
 // fonts
-gulp.task('fonts', function () {
+gulp.task('fonts', () => {
     return gulp
         .src(paths.fonts) //불러오기
         .pipe(gulp.dest('./dist/fonts')) // 생성
         .pipe(browserSync.stream());
-
 });
 
 // browserSync
@@ -110,11 +113,14 @@ gulp.task('browserSync', () => {
     });
 });
 
-function watch(){
+const watch = () => {
     gulp.watch(paths.html, gulp.series('html'));
-    gulp.watch(paths.js, gulp.series('js:combine'));
-    gulp.watch(paths.scss, gulp.series('scss:compile'));
+    gulp.watch(paths.js, gulp.series('js'));
+    gulp.watch(paths.scss, gulp.series('scss'));
     gulp.watch(paths.img, gulp.series('img'));
 };
 
-gulp.task('default', gulp.series('clean', 'html', 'scss:compile', 'js:combine', 'img', 'fonts', 'browserSync', watch));
+// 순차
+gulp.task('default', gulp.series('clean', 'html', 'scss', 'js', 'img', 'fonts', 'browserSync', watch));
+// 동시
+// gulp.task('default', gulp.series('clean', gulp.parallel('html', 'scss', 'js', 'img', 'fonts'), 'browserSync', watch));
