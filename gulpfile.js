@@ -107,7 +107,7 @@ gulp.task('browserSync', () => {
                 baseDir: 'dist',
                 index: "status.html"
             },
-            browser: "chrome"
+			browser: "google chrome"
         });
         resolve();
     });
