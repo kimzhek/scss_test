@@ -14,18 +14,18 @@
 
 # npm install gulp gulp-concat gulp-file-include gulp-uglify gulp-rename gulp-sass gulp-sourcemaps gulp-clean gulp-autoprefixer del path browser-sync sass --save-dev
 
-# git
+## git
 
-## git clone 주소
+### `git clone 주소`
 
-## git remote add origin 깃주소
+### `git remote add origin 깃주소`
 
-## git status
+### `git status`
 
-## git add .
+### `git add .`
 
-## git commit -m"설명"
+### `git commit -m"설명"`
 
-## git push
+### `git push`
 
-## git stash pop
+### `git stash pop`
