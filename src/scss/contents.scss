@@ -257,13 +257,13 @@ html {
 /* accodian */
 .accodian-box {
 	overflow:hidden;
-	.slideDown-box-inner {
+	.accodian-box-inner {
 		background:green;
 		color:#fff;
 		@include slideAnimate(0, -100vh, .4s, cubic-bezier(1, 0, 1, 1));
 	}
 	&.selected {
-		.slideDown-box-inner {
+		.accodian-box-inner {
 			@include slideAnimate(100%, 0, .3s, cubic-bezier(0, 0, 0, 1));
 		}
 	}
