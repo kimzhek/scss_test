@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* tab */
+.gc-tab-wrap {
+	position:relative;
+	&.first:before {
+		content:'';
+		position:absolute;
+		top:0;
+		bottom:1px;
+		left:0;
+		width:40px;
+		background:linear-gradient(to right, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+		z-index:2;
+	}
+	&.last:after {
+		content:'';
+		position:absolute;
+		top:0;
+		bottom:1px;
+		right:0;
+		width:40px;
+		background:linear-gradient(to left, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
+		z-index:2;
+	}
+}
+.gc-tab {
+	position:relative;
+	overflow-x:auto;
+	border-bottom:1px solid $black;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	ul {
+		position:relative;
+		display:flex;
+		z-index:1;
+		li {
+			flex:1;
+			// flex-shrink:0;
+			// width:100px;
+			a {
+				display:block;
+				padding:10px 20px;
+				color:$black;
+				text-align:center;
+			}
+		}
+	}
+	.tab-indicator {
+		position:absolute;
+		left:0;
+		bottom:0;
+		height:2px;
+		background-color:$blue;
+		transition:all .4s;
+		z-index:1;
+	}
+}

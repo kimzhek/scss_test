@@ -1,13 +1,23 @@
+@charset "UTF-8";
 
 @import "variables";
 @import "mixin";
 @import "base";
 @import "common";
-@import "input";
 @import "button";
+@import "input";
+@import "select";
+@import "radio";
+@import "checkbox";
+@import "switch";
+@import "tab";
+@import "layer";
+@import "quick-menu";
+@import "icon";
+// 카테고리 scss
+@import "notice";
 
 /* layout */
-
 html {
 	&.is-open {
 		overflow:hidden;
@@ -71,9 +81,6 @@ html {
 	}
 }
 
-
-
-
 /* wrap */
 #wrap {
 	position:relative;
@@ -90,7 +97,6 @@ html {
 		width:100%;
 		height:48px;
 		background-color:rgba(0, 0, 0, .8);
-		// background-color:$themes;
 		backdrop-filter:saturate(180%) blur(20px);
 		transition:background .3s cubic-bezier(0.32, 0.08, 0.24, 1), height .6s cubic-bezier(0.32, 0.08, 0.24, 1);
 		flex-shrink:0;
@@ -109,7 +115,7 @@ html {
 				height:100%;
 				z-index:2;
 				background-image:url('https://www.apple.com/ac/globalnav/7/ko_KR/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_apple_image__b5er5ngrzxqq_small.svg');
-				@include commonHideTxt($bgImgW:auto, $bgImgH:auto);
+				@include commonHideTxt(auto, auto);
 			}
 		}
 		.my-bag {
@@ -121,7 +127,7 @@ html {
 			z-index:2;
 			background-image:url('https://www.apple.com/ac/globalnav/7/ko_KR/images/be15095f-5a20-57d0-ad14-cf4c638e223a/globalnav_bag_image__yzte50i47ciu_small.svg');
 			transition:transform 0.44s 0.2s cubic-bezier(0.32, 0.08, 0.24, 1), opacity 0.28s 0.36s cubic-bezier(0.32, 0.08, 0.24, 1);
-			@include commonHideTxt($bgImgW:auto, $bgImgH:auto);
+			@include commonHideTxt(auto, auto);
 		}
 		.h-search-box {
 			visibility:hidden;
@@ -248,247 +254,8 @@ html {
 	}
 }
 
-/* checkbox */
-.gc-checkbox {
-	@include CheckRadioCustom(checkbox);
-}
-
-/* radio */
-.gc-radio {
-	@include CheckRadioCustom(radio);
-}
-
-/* switch */
-.gc-switch {
-	display:inline-block;
-	vertical-align:top;
-	input {
-		position:absolute;
-		width:1px;
-		height:1px;
-		padding:0;
-		margin:-1px;
-		overflow:hidden;
-		clip:rect(0, 0, 0, 0);
-		border:0;
-		&:checked {
-			& + span {
-				background-color:$switch-bg-primary;
-				&:before {
-					transform: translateX(calc($switch-width - $switch-before-size - $switch-before-margin * 2));
-				}
-			}
-			&:disabled {
-				&+span {
-					background-color: $switch-checked-disabled;
-				}
-			}
-		}
-		&:disabled {
-			& + span {
-				background-color:$switch-bg-disabled;
-			}
-		}
-	}
-	span {
-		position:relative;
-		display:block;
-		width:$switch-width;
-		height:$switch-height;
-		background-color:$switch-bg-default;
-		border-radius:calc($switch-height / 2);
-		font-size:0;
-		line-height:0;
-		transition: background-color .3s;
-		&:before {
-			content:'';
-			position:absolute;
-			left:$switch-before-margin;
-			top:$switch-before-margin;
-			width:$switch-before-size;
-			height:$switch-before-size;
-			background-color:$switch-before-default;
-			border-radius:100%;
-			transform:translateX(0);
-			transition:transform .3s;
-		}
-	}
-}
-
-/* tab */
-.gc-tab-wrap {
-	position:relative;
-	&.first:before {
-		content:'';
-		position:absolute;
-		top:0;
-		bottom:1px;
-		left:0;
-		width:40px;
-		background:linear-gradient(to right, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
-		z-index:2;
-	}
-	&.last:after {
-		content:'';
-		position:absolute;
-		top:0;
-		bottom:1px;
-		right:0;
-		width:40px;
-		background:linear-gradient(to left, rgba(#fff, 1) 0%, rgba(#fff, 0) 100%);
-		z-index:2;
-	}
-}
-.gc-tab {
-	position:relative;
-	overflow-x:auto;
-	border-bottom:1px solid $black;
-	&::-webkit-scrollbar {
-		display: none;
-	}
-	ul {
-		position:relative;
-		display:flex;
-		z-index:1;
-		li {
-			flex:1;
-			a {
-				display:block;
-				padding:10px 20px;
-				color:$black;
-				text-align:center;
-			}
-		}
-	}
-	.tab-indicator {
-		position:absolute;
-		left:0;
-		bottom:0;
-		height:2px;
-		background-color:$blue;
-		transition:all .4s;
-		z-index:1;
-	}
-}
-
-/* layer popup */
-.layer-popup-wrap {
-	overflow:hidden;
-	position:fixed;
-	display:flex;
-	align-items:center;
-	top:auto;
-	bottom:0;
-	right:0;
-	left:0;
-	height:0;
-	padding:0;
-	opacity:0;
-	transition:height 0s .6s, padding 0s .6s, opacity .3s cubic-bezier(1, 0, 1, 1);
-	z-index:100;
-	&:before {
-		content:'';
-		position:absolute;
-		top:0;
-		bottom:0;
-		right:0;
-		left:0;
-		background:rgba($black, .8);
-	}
-	.layer-container {
-		position:relative;
-		overflow:hidden;
-		display:flex;
-		flex-direction:column;
-		width:100%;
-		max-height:100%;
-		background:#fff;
-		.layer-header {
-			max-height:66px;
-			padding:20px;
-			border-bottom:1px solid $black;
-			font-size:18px;
-			font-weight:bold;
-		}
-		.layer-contents {
-			overflow-y:auto;
-			padding:20px;
-		}
-		.layer-close {
-			position:absolute;
-			right:0;
-			top:0;
-			width:66px;
-			height:66px;
-		}
-	}
-	&.selected {
-		height:100%;
-		padding:20px;
-		opacity:1;
-		transition:height 0s 0s, opacity .3s cubic-bezier(0, 0, 0, 1);
-		.layer-container {
-			transform:none;
-			transition:transform .6s;
-		}
-	}
-	// type Bottom Sheet
-	&.type-bottom {
-		align-items:flex-end;
-		padding:0;
-		&:before {
-			opacity:0;
-			transition:opacity .3s cubic-bezier(1, 0, 1, 1);
-		}
-		&.selected {
-			&:before {
-				opacity:1;
-				transition:opacity .3s cubic-bezier(0, 0, 0, 1);
-			}
-			.layer-container {
-				transform:none;
-				transition:transform .6s;
-			}
-		}
-		.layer-container {
-			opacity:1;
-			transform:translateY(100%);
-			transition:transform .5s;
-		}
-	}
-	// type Drag Bottom Sheet
-	&.type-drag {
-		.layer-container {
-			max-height:none;
-			transform:translateY(calc(100% - 66px));
-		}
-		&.type-bottom {
-			height:66px;
-			opacity:1;
-			&.selected {
-				height:100%;
-				transition-delay:0s;
-				&:before {
-						opacity: 1;
-						transition: opacity .3s cubic-bezier(0, 0, 0, 1);
-				}
-				.layer-container {
-					transition:none;
-				}
-			}
-		}
-	}
-	// full size
-	&.type-full {
-		padding:0;
-		.layer-container {
-			height:100%;
-		}
-	}
-}
-
-// tmp 임시
-.slideDown-box {
+/* accodian */
+.accodian-box {
 	overflow:hidden;
 	.slideDown-box-inner {
 		background:green;
@@ -501,19 +268,20 @@ html {
 		}
 	}
 }
+
+// tmp 임시
 .tmp-txt1 {
 	margin:20px 0;
 	@include textEllipsis;
 }
 .tmp-txt2 {
 	margin:20px 0;
-	@include textEllipsis($line:2);
+	@include textEllipsis(2);
 }
 .tmp-txt3 {
 	margin:20px 0;
-	@include textEllipsis($line:3);
+	@include textEllipsis(3);
 }
-
 .tmp-guide-box {
 	margin:20px;
 	padding:20px;
@@ -530,95 +298,5 @@ html {
 		color:black;
 		font-size:20px;
 		font-weight:700;
-	}
-}
-
-.quick-menu-wrap {
-	$itemLength : 4;
-	position:fixed;
-	bottom:50px;
-	right:30px;
-	display:flex;
-	flex-direction:column-reverse;
-	align-items:center;
-	z-index:10;
-	.quick-button {
-		position:relative;
-		overflow:hidden;
-		width:50px;
-		height:50px;
-		background-color:goldenrod;
-		border-radius:100%;
-		box-shadow:0 0 10px #888;
-		transition: transform .3s;
-		z-index:1;
-		touch-action:manipulation;
-		-webkit-tap-highlight-color:transparent;
-		@include commonHideTxt;
-		&:before {
-			content:'';
-			position:absolute;
-			top:50%;
-			left:50%;
-			width:4px;
-			height:20px;
-			margin:-10px 0 0 -2px;
-			background-color:white;
-		}
-		&:after {
-			content:'';
-			position:absolute;
-			top:50%;
-			left:50%;
-			width:20px;
-			height:4px;
-			margin:-2px 0 0 -10px;
-			background-color:white;
-		}
-	}
-	ul {
-		height:0;
-		transition:height 0s .3s;
-		li {
-			margin-bottom:10px;
-			transition: transform .3s;
-			@for $i from 1 through $itemLength {
-				&:nth-child(#{$i}) {
-					transform: translateY($itemLength * 50px - $i * 50px + 55px);
-				}
-			}
-			a {
-				overflow:hidden;
-				display:block;
-				width:40px;
-				height:40px;
-				border-radius:100%;
-				@include commonHideTxt;
-				&.type-menu01 {
-					background-color: skyblue;
-				}
-				&.type-menu02 {
-					background-color: peru;
-				}
-				&.type-menu03 {
-					background-color: sienna;
-				}
-				&.type-menu04 {
-					background-color: slategray;
-				}
-			}
-		}
-	}
-	&.selected {
-		.quick-button {
-			transform:rotate(225deg);
-		}
-		ul {
-			height:$itemLength * 50px;
-			transition: height 0s 0s;
-			li {
-				transform:none;
-			}
-		}
 	}
 }

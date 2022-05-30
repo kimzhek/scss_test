@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+/* layer popup */
+.layer-popup-wrap {
+	overflow:hidden;
+	position:fixed;
+	display:flex;
+	align-items:center;
+	top:auto;
+	bottom:0;
+	right:0;
+	left:0;
+	height:0;
+	padding:0;
+	opacity:0;
+	transition:height 0s .6s, padding 0s .6s, opacity .3s cubic-bezier(1, 0, 1, 1);
+	z-index:100;
+	&:before {
+		content:'';
+		position:absolute;
+		top:0;
+		bottom:0;
+		right:0;
+		left:0;
+		background:rgba($black, .8);
+	}
+	.layer-container {
+		position:relative;
+		overflow:hidden;
+		display:flex;
+		flex-direction:column;
+		width:100%;
+		max-height:100%;
+		background:#fff;
+		.layer-header {
+			max-height:66px;
+			padding:20px;
+			border-bottom:1px solid $black;
+			font-size:18px;
+			font-weight:bold;
+		}
+		.layer-contents {
+			overflow-y:auto;
+			padding:20px;
+		}
+		.layer-close {
+			position:absolute;
+			right:0;
+			top:0;
+			width:66px;
+			height:66px;
+		}
+	}
+	&.selected {
+		height:100%;
+		padding:20px;
+		opacity:1;
+		transition:height 0s 0s, opacity .3s cubic-bezier(0, 0, 0, 1);
+		.layer-container {
+			transform:none;
+			transition:transform .6s;
+		}
+	}
+	// type Bottom Sheet
+	&.type-bottom {
+		align-items:flex-end;
+		padding:0;
+		&:before {
+			opacity:0;
+			transition:opacity .3s cubic-bezier(1, 0, 1, 1);
+		}
+		&.selected {
+			&:before {
+				opacity:1;
+				transition:opacity .3s cubic-bezier(0, 0, 0, 1);
+			}
+			.layer-container {
+				transform:none;
+				transition:transform .6s;
+			}
+		}
+		.layer-container {
+			opacity:1;
+			transform:translateY(100%);
+			transition:transform .5s;
+		}
+	}
+	// type Drag Bottom Sheet
+	&.type-drag {
+		.layer-container {
+			max-height:none;
+			transform:translateY(calc(100% - 66px));
+		}
+		&.type-bottom {
+			height:66px;
+			opacity:1;
+			&.selected {
+				height:100%;
+				transition-delay:0s;
+				&:before {
+						opacity: 1;
+						transition: opacity .3s cubic-bezier(0, 0, 0, 1);
+				}
+				.layer-container {
+					transition:none;
+				}
+			}
+		}
+	}
+	// full size
+	&.type-full {
+		padding:0;
+		.layer-container {
+			height:100%;
+		}
+	}
+}

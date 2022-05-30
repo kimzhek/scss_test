@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "mixin";
+
+/* quick menu */
+.quick-menu-wrap {
+	$itemLength : 4;
+	position:fixed;
+	bottom:50px;
+	right:30px;
+	display:flex;
+	flex-direction:column-reverse;
+	align-items:center;
+	z-index:10;
+	.quick-button {
+		position:relative;
+		overflow:hidden;
+		width:50px;
+		height:50px;
+		background-color:goldenrod;
+		border-radius:100%;
+		box-shadow:0 0 10px #888;
+		transition: transform .3s;
+		z-index:1;
+		touch-action:manipulation;
+		-webkit-tap-highlight-color:transparent;
+		@include commonHideTxt;
+		&:before {
+			content:'';
+			position:absolute;
+			top:50%;
+			left:50%;
+			width:4px;
+			height:20px;
+			margin:-10px 0 0 -2px;
+			background-color:white;
+		}
+		&:after {
+			content:'';
+			position:absolute;
+			top:50%;
+			left:50%;
+			width:20px;
+			height:4px;
+			margin:-2px 0 0 -10px;
+			background-color:white;
+		}
+	}
+	ul {
+		height:0;
+		transition:height 0s .3s;
+		li {
+			margin-bottom:10px;
+			transition: transform .3s;
+			@for $i from 1 through $itemLength {
+				&:nth-child(#{$i}) {
+					transform: translateY($itemLength * 50px - $i * 50px + 55px);
+				}
+			}
+			a {
+				overflow:hidden;
+				display:block;
+				width:40px;
+				height:40px;
+				border-radius:100%;
+				@include commonHideTxt;
+				&.type-menu01 {
+					background-color: skyblue;
+				}
+				&.type-menu02 {
+					background-color: peru;
+				}
+				&.type-menu03 {
+					background-color: sienna;
+				}
+				&.type-menu04 {
+					background-color: slategray;
+				}
+			}
+		}
+	}
+	&.selected {
+		.quick-button {
+			transform:rotate(225deg);
+		}
+		ul {
+			height:$itemLength * 50px;
+			transition: height 0s 0s;
+			li {
+				transform:none;
+			}
+		}
+	}
+}

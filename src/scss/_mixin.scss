@@ -33,6 +33,18 @@
 	}
 }
 
+// icon
+@mixin ic($ws, $hs ,$path:null){
+    display:inline-block;
+    width:$ws;
+    height:$hs;
+    @if not($path == null or $path == ''){
+        $icon-path : $url-ico + $path;
+        background-image:url($icon-path);
+    }
+    background-size:100% 100%;
+}
+
 // button
 @mixin buttonType(
 	$border-color,
@@ -156,4 +168,33 @@
 	@media (prefers-color-scheme: #{$name}) {
 		@content;
 	}
+}
+
+
+
+// Rounded corners
+@mixin border-top-radius($radius) {
+	border-top-right-radius: $radius;
+	 border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius) {
+	border-bottom-right-radius: $radius;
+	   border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+	border-bottom-right-radius: $radius;
+	 border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius) {
+	border-bottom-left-radius: $radius;
+	   border-top-left-radius: $radius;
+}
+@mixin border-radius ($radius: 5px) {
+	-webkit-border-radius: $radius;
+	   -moz-border-radius: $radius;
+			border-radius: $radius;
+
+	 -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+    	  background-clip: padding-box;
 }

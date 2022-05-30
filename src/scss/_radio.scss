@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "mixin";
+
+/* radio */
+.gc-radio {
+	@include CheckRadioCustom(radio);
+}

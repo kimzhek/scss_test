@@ -83,6 +83,7 @@ $switch-checked-disabled:     $gray-500  !default;
 // url
 $url-path:   "../images/" !default;
 $url-common: ""+$url-path+"common/" !default;
+$url-ico: $url-path + "/icon/" !default;
 
 // button
 $btn-disabled-color:  $gray-500 !default;

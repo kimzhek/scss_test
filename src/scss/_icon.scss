@@ -1,0 +1,29 @@
+@charset "UTF-8";
+.ico{
+  display: inline-block;
+  background-size: 100% 100%;
+
+  &.xs{
+    width: 12px;
+    height: 12px;
+  }
+  &.sm{
+    width: 16px;
+    height: 16px;
+  }
+  &.md{
+    width: 20px;
+    height: 20px;
+  }
+  &.lg{
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.arrow-right{
+  background-image: url(../images/icon/arrow-right.svg);
+}
+.star{
+  background-image: url(../images/icon/star.svg);
+}
