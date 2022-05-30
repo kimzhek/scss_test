@@ -1,8 +1,5 @@
 @charset "UTF-8";
 
-@import "variables";
-@import "mixin";
-
 /* button */
 .btn- {
 	@each $value, $color in $theme-colors {

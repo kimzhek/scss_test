@@ -1,20 +1,19 @@
-var gulp = require('gulp');
+const gulp =         require('gulp');
+const concat =       require('gulp-concat');
+const fileinclude =  require('gulp-file-include');
+const uglify =       require('gulp-uglify');
+const rename =       require('gulp-rename');
+const scss =         require('gulp-sass')(require('sass'));
+const sourcemaps =   require('gulp-sourcemaps');
+const clean =        require('gulp-clean');
+const autoprefixer = require('gulp-autoprefixer');
+const dependents =   require('gulp-dependents');
+const cached =       require('gulp-cached');
+const browserSync =  require('browser-sync').create();
 
-var concat = require('gulp-concat'),
-    fileinclude = require('gulp-file-include'),
-    uglify = require('gulp-uglify'),
-    rename = require('gulp-rename'),
-    scss = require('gulp-sass')(require('sass')),
-    sourcemaps = require('gulp-sourcemaps'),
-    clean = require('gulp-clean'),
-    autoprefixer = require('gulp-autoprefixer'),
-	dependents = require('gulp-dependents'),
-	cached = require('gulp-cached'),
-    browserSync = require('browser-sync').create();
-
-var src = './src';
-var dist = './dist';
-var paths = {
+const src = './src';
+const dist = './dist';
+const paths = {
     html : src + '/**/*.html',
     js : src + '/js/**/*.js',
     scss : src + '/scss/**/*.scss',
@@ -53,10 +52,10 @@ var scssOptions = {
 
 // scss
 gulp.task('scss', () => {
-    return gulp
-		// .src(paths.scss, { since: gulp.lastRun('scss') }) //불러오기
-		// .pipe(dependents())
-		.src(paths.scss) //불러오기
+	return gulp
+		// .src(paths.scss) //불러오기
+		.src(paths.scss, { since: gulp.lastRun('scss') }) //불러오기
+		.pipe(dependents())
         .pipe(sourcemaps.init())//소스맵 초기화
         .pipe(scss(scssOptions).on('error', scss.logError))
         .pipe(concat('style.css')) //병합
@@ -107,7 +106,8 @@ gulp.task('browserSync', () => {
                 baseDir: 'dist',
                 index: "status.html"
             },
-			browser: "google chrome"
+			browser: "chrome"
+			// browser: ["google chrome"]
         });
         resolve();
     });
