@@ -1,13 +1,7 @@
 {
-  "name": "project",
-  "version": "1.0.0",
-  "description": "node.js 설치",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"gulp": "gulp"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.27.5",
     "gulp": "^4.0.2",
@@ -22,13 +16,5 @@
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.42.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kimzhek/scss_test.git"
-  },
-  "bugs": {
-    "url": "https://github.com/kimzhek/scss_test/issues"
-  },
-  "homepage": "https://github.com/kimzhek/scss_test#readme"
+  }
 }
