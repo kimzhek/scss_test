@@ -86,7 +86,6 @@ gulp.task('img', () => {
 		.src(paths.img, { since: gulp.lastRun('img') }) //불러오기
         .pipe(gulp.dest('./dist/images')) // 생성
         .pipe(browserSync.stream());
-
 });
 
 // fonts
