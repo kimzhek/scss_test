@@ -102,20 +102,20 @@ $btn-info:            $cyan !default;
 $btn-warning:         $yellow !default;
 $btn-danger:          $red !default;
 
-$theme-colors: (
-  "primary":         $btn-primary,
-  "primary-dark":    $btn-primary-dark,
-  "primary-light":   $btn-primary-light,
-  "secondary":       $btn-secondary,
-  "secondary-dark":  $btn-secondary-dark,
-  "secondary-light": $btn-secondary-light,
-  "accent":          $btn-accent,
-  "accent-dark":     $btn-accent-dark,
-  "accent-light":    $btn-accent-light,
-  "success":         $btn-success,
-  "info":            $btn-info,
-  "warning":         $btn-warning,
-  "danger":          $btn-danger,
+$btn-theme-colors: (
+	"primary":         $btn-primary,
+	"primary-dark":    $btn-primary-dark,
+	"primary-light":   $btn-primary-light,
+	"secondary":       $btn-secondary,
+	"secondary-dark":  $btn-secondary-dark,
+	"secondary-light": $btn-secondary-light,
+	"accent":          $btn-accent,
+	"accent-dark":     $btn-accent-dark,
+	"accent-light":    $btn-accent-light,
+	"success":         $btn-success,
+	"info":            $btn-info,
+	"warning":         $btn-warning,
+	"danger":          $btn-danger,
 ) !default;
 
 // light theme && dark theme
