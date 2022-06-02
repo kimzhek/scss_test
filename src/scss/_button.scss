@@ -1,36 +1,69 @@
 @charset "UTF-8";
 
 /* button */
-.btn- {
-	@each $value, $color in $theme-colors {
-		&#{$value} {
-			@include buttonType ($color, $color);
+.btn {
+	display:inline-flex;
+	justify-content:center;
+	align-items:center;
+	height:40px;
+	padding:0 20px;
+	border:1px solid $black;
+	font-size:13px;
+	@each $value, $color in $btn-theme-colors {
+		&-#{$value} {
+			@include buttonType ($color, $color, $white);
 			&-outline {
 				@include buttonType ($color, $white, $color);
 			}
 		}
 	}
 
+	&.disabled,
+	&:disabled {
+		border-color: $btn-disabled-bg;
+		background: $btn-disabled-bg;
+		color: $btn-disabled-color;
+		cursor: default;
+	}
+
 	// height
-	&m {height:30px;}
-	&l {height:50px; font-size:16px;}
-	&xl {height:60px; font-size:16px;}
-	&full {width:100%;}
+	&.xs {
+		height:30px;
+	}
+	&.sm {
+		height:35px;
+	}
+	&.md {
+		height:40px;
+	}
+	&.lg {
+		height:45px;
+	}
+	&.xl {
+		height:50px;
+	}
+	&.full {
+		width: 100%;
+	}
 
 	// btn group
-	&area- {
-		&l, &c, &r, &wrap {
-			display:flex;
-			align-items:center;
-			[class^="btn-"] {
-				& + [class^="btn-"] {
-					margin-left:10px;
-				}
-			}
+	&-left, &-center, &-right, &-group {
+		display:flex;
+		align-items:center;
+		.btn + .btn {
+			margin-left:10px;
 		}
-		&wrap {justify-content:space-between;}
-		&l {justify-content:flex-start;}
-		&c {justify-content:center;}
-		&r {justify-content:flex-end;}
+	}
+	&-group {
+		justify-content:space-between;
+	}
+	&-left {
+		justify-content:flex-start;
+	}
+	&-center {
+		justify-content:center;
+	}
+	&-right {
+		justify-content:flex-end;
 	}
 }

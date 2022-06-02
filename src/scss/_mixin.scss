@@ -49,27 +49,11 @@
 @mixin buttonType(
 	$border-color,
 	$background-color,
-	// $font-color:if($background-color == $light, $black, $white),
-	$font-color:$white,
-	$font-size:13px
+	$font-color
 ){
-	display:inline-flex;
-	justify-content:center;
-	align-items:center;
-	height:40px;
-	padding:0 20px;
-	border:1px solid $border-color;
+	border-color:$border-color;
 	background-color:$background-color;
 	color:$font-color;
-	font-size:$font-size;
-
-	&.disabled,
-	&:disabled {
-		border-color:$btn-disabled-bg;
-		background:$btn-disabled-bg;
-		color:$btn-disabled-color;
-		cursor: default;
-	}
 }
 
 // checkbook && radio
@@ -175,26 +159,25 @@
 // Rounded corners
 @mixin border-top-radius($radius) {
 	border-top-right-radius: $radius;
-	 border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
 }
 @mixin border-right-radius($radius) {
 	border-bottom-right-radius: $radius;
-	   border-top-right-radius: $radius;
+	border-top-right-radius: $radius;
 }
 @mixin border-bottom-radius($radius) {
 	border-bottom-right-radius: $radius;
-	 border-bottom-left-radius: $radius;
+	border-bottom-left-radius: $radius;
 }
 @mixin border-left-radius($radius) {
 	border-bottom-left-radius: $radius;
-	   border-top-left-radius: $radius;
+	border-top-left-radius: $radius;
 }
 @mixin border-radius ($radius: 5px) {
 	-webkit-border-radius: $radius;
-	   -moz-border-radius: $radius;
-			border-radius: $radius;
-
-	 -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-    	  background-clip: padding-box;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
 }
