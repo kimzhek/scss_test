@@ -300,3 +300,20 @@ html {
 		font-weight:700;
 	}
 }
+
+body {
+	background-color:gc(font-color-default);
+}
+div {
+	@include get-color(color, text-color);
+}
+
+@include gc-theme(dark) {
+	body {
+		color: red;
+	}
+	.btn-primary {
+		background-color:green;
+	}
+	
+}

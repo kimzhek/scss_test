@@ -122,12 +122,67 @@ $theme-colors: (
 $themes: (
 	light: (
 		font-color-default:$font-color-default,
+		font-color-defaulta:$font-color-default,
+		font-color-defaultb:$font-color-default,
+		font-color-defaultc:$font-color-default,
 	),
 	dark: (
 		font-color-default:$font-color-default-dark,
+		font-color-defaulta:$font-color-default-dark,
+		font-color-defaultb:$font-color-default-dark,
+		font-color-defaultc:$font-color-default-dark,
 	),
 );
 
+:root {
+	@each $theme, $map in $themes {
+		@if($theme == light){  
+			@each $key, $submap in $map {
+				$value: map-get(map-get($themes, $theme), '#{$key}');
+				--#{$key}:#{$value};
+			};
+		}@else{
+			// &[data-theme="dark"] {
+			@media (prefers-color-scheme: dark) {
+				@each $key, $submap in $map {
+					$value: map-get(map-get($themes, $theme), '#{$key}');
+					--#{$key}:#{$value};
+				};
+			};
+		};
+	};
+};
+
 @function gc($variable) {
 	@return var(--#{$variable});
+};
+
+
+
+
+$colors:(
+	light: (
+		bg-color:#fff,
+		text-color:#323232,
+	),
+	dark: (
+		bg-color:#323232,
+		text-color:#fff,
+	)
+);
+
+
+@function get-color($key, $type: 'light'){
+	@each $name, $color in map-get($colors, $type){
+		@if($key == $name){
+			@return $color
+		};
+	};
+};
+
+@mixin get-color($property,$color){
+	#{$property}: get-color($color);
+	@at-root body.dark & {
+		#{$property}: get-color($color, dark);
+	};
 };

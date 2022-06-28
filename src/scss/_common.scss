@@ -44,24 +44,6 @@
 			url('../fonts/NotoSansKR-Bold.woff2') format('woff2'), /* Super Modern Browsers */
 			url('../fonts/NotoSansKR-Bold.woff') format('woff'); /* Modern Browsers */
 }
-:root {
-	@each $theme, $map in $themes {
-		@if($theme == light){  
-			@each $key, $submap in $map {
-				$value: map-get(map-get($themes, $theme), '#{$key}');
-				--#{$key}:#{$value};
-			}
-		}@else{
-			// &[data-theme="dark"] {
-			@media (prefers-color-scheme: dark) {
-				@each $key, $submap in $map {
-					$value: map-get(map-get($themes, $theme), '#{$key}');
-					--#{$key}:#{$value};
-				}
-			}
-		}
-	}
-}
 html, body {height:100%;}
 body, button, input, select, textarea {
 	color:$font-color-default;

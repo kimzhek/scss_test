@@ -60,6 +60,9 @@
 	padding:0 20px;
 	border:1px solid $border-color;
 	background-color:$background-color;
+	// @if $background-color == 'primary' {
+	// 	@include get-color(color, text-color);
+	// }
 	color:$font-color;
 	font-size:$font-size;
 
@@ -165,7 +168,9 @@
 
 // theme light or theme dark
 @mixin gc-theme($name) {
-	@media (prefers-color-scheme: #{$name}) {
+	// @media (prefers-color-scheme: #{$name}) {
+	[data-theme="dark"] {
+	// .test {
 		@content;
 	}
 }
