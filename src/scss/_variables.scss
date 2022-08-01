@@ -122,15 +122,9 @@ $theme-colors: (
 $themes: (
 	light: (
 		font-color-default:$font-color-default,
-		font-color-defaulta:$font-color-default,
-		font-color-defaultb:$font-color-default,
-		font-color-defaultc:$font-color-default,
 	),
 	dark: (
 		font-color-default:$font-color-default-dark,
-		font-color-defaulta:$font-color-default-dark,
-		font-color-defaultb:$font-color-default-dark,
-		font-color-defaultc:$font-color-default-dark,
 	),
 );
 

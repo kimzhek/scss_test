@@ -301,19 +301,15 @@ html {
 	}
 }
 
-body {
-	background-color:gc(font-color-default);
-}
-div {
-	@include get-color(color, text-color);
-}
+// body {
+// 	background-color:gc(font-color-default);
+// }
 
-@include gc-theme(dark) {
-	body {
-		color: red;
-	}
-	.btn-primary {
-		background-color:green;
-	}
-	
-}
+// @include gc-theme(dark) {
+// 	body {
+// 		color: red;
+// 	}
+// 	.btn-primary {
+// 		background-color:green;
+// 	}
+// }

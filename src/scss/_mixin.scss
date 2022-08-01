@@ -168,8 +168,8 @@
 
 // theme light or theme dark
 @mixin gc-theme($name) {
-	// @media (prefers-color-scheme: #{$name}) {
-	[data-theme="dark"] {
+	@media (prefers-color-scheme: #{$name}) {
+	// [data-theme="dark"] {
 	// .test {
 		@content;
 	}
