@@ -52,3 +52,25 @@ body, button, input, select, textarea {
 	font-family:$font-family-base;
 	letter-spacing:-.5px;
 }
+
+
+/* ripple effect */
+.c-ripple {
+	position:relative;
+	overflow:hidden;
+	touch-action:manipulation;
+	-webkit-tap-highlight-color:transparent;
+	&-animate {
+		position:absolute;
+		width:20px;
+		height:20px;
+		border-radius:100%;
+		background:#000;
+		transform:translate(-50%, -50%) scale(.1);
+		animation:rippleActive .4s linear;
+	}
+	@keyframes rippleActive {
+		0% {transform: translate(-50%, -50%) scale(.1);}
+		100% {transform: translate(-50%, -50%) scale(var(--material-scale)); opacity:0;}
+	}
+}
