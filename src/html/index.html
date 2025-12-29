@@ -152,10 +152,10 @@
 					<button type="button" class="btn btn-primary xl">Button</button>
 					<br><br>
 					<button type="button" class="btn btn-primary xl full" disabled>disabled Button</button>
-					<button type="button" class="btn-primary btn-l btn-full">Full Button</button>
-					<button type="button" class="btn-primary btn-l btn-full">Full Button</button>
-					<button type="button" class="btn-primary btn-l btn-full">Full Button</button>
-					<button type="button" class="btn-primary btn-l btn-full">Full Button</button>
+					<button type="button" class="btn btn-primary btn-l btn-full">Full Button</button>
+					<button type="button" class="btn btn-primary btn-l btn-full">Full Button</button>
+					<button type="button" class="btn btn-primary btn-l btn-full">Full Button</button>
+					<button type="button" class="btn btn-primary btn-l btn-full">Full Button</button>
 
 					<div class="btn-group">
 						<div class="btn-left">
@@ -183,9 +183,9 @@
 				<!-- Etc -->
 				<div class="tmp-guide-box">
 					<h2 class="guide-box-tit">Etc</h2>
-					<button type="button" class="btn-primary" onclick="accodianBox(slideDownBox);">Accodian Up Down</button>
-					<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
-					<button type="button" class="btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
+					<button type="button" class="btn btn-primary" onclick="accodianBox(slideDownBox);">Accodian Up Down</button>
+					<button type="button" class="btn btn-primary" onclick="openLayerPopup(tmpLayer01);">Layer Popup</button>
+					<button type="button" class="btn btn-primary" onclick="openLayerPopup(tmpLayer02);">Bottom Layer Popup</button>
 					<div class="accodian-box" id="slideDownBox">
 						<div class="accodian-box-inner">
 							내용<br>
@@ -419,6 +419,27 @@
 
 		
 		document.querySelector('.gc-tab').addEventListener('scroll', commonTabEv.onScroll);
+
+
+		class rippleEffect {
+			constructor(el) {
+				el.addEventListener('click', this.onClick);
+			};
+			onClick(event) {
+				this.rect = this.getBoundingClientRect();
+				const ripple = document.createElement('span');
+				ripple.className = "c-ripple-animate";
+				ripple.style.left = `${event.x - this.rect.left}px`;
+				ripple.style.top = `${event.y - this.rect.top}px`;
+				ripple.style.background = `#${this.dataset.color && this.dataset.color}`;
+				ripple.style.setProperty('--material-scale', this.offsetWidth / 10);
+				this.append(ripple);
+				setTimeout(() => ripple.parentNode.removeChild(ripple), 400);
+			};
+		};
+		Array.from(document.querySelectorAll('.c-ripple')).forEach(el => {
+			const RippleEffect = new rippleEffect(el);
+		});
 
 	</script>
 </body>

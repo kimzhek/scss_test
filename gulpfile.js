@@ -43,6 +43,7 @@ gulp.task('html', () => {
 
 // scss option
 var scssOptions = {
+    api: 'modern',// Sass 3.0
     // outputStyle: "compressed",
     indentType: "tab",
     indentWidth: 1,

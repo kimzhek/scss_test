@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+@use "sass:color";
+@use "sass:map";
+
 // color
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
@@ -89,14 +92,14 @@ $url-ico: $url-path + "/icon/" !default;
 $btn-disabled-color:  $gray-500 !default;
 $btn-disabled-bg:     $gray-400 !default;
 $btn-primary:         $blue !default;
-$btn-primary-dark:    mix($black, $btn-primary, 80%) !default;
-$btn-primary-light:   mix($white, $btn-primary, 20%) !default;
+$btn-primary-dark:    color.mix($black, $btn-primary, 80%) !default;
+$btn-primary-light:   color.mix($white, $btn-primary, 20%) !default;
 $btn-secondary:       $green !default;
-$btn-secondary-dark:  mix($black, $btn-secondary, 40%) !default;
-$btn-secondary-light: mix($white, $btn-secondary, 40%) !default;
+$btn-secondary-dark:  color.mix($black, $btn-secondary, 40%) !default;
+$btn-secondary-light: color.mix($white, $btn-secondary, 40%) !default;
 $btn-accent:          $pink !default;
-$btn-accent-dark:     mix($black, $btn-accent, 40%) !default;
-$btn-accent-light:    mix($white, $btn-accent, 40%) !default;
+$btn-accent-dark:     color.mix($black, $btn-accent, 40%) !default;
+$btn-accent-light:    color.mix($white, $btn-accent, 40%) !default;
 $btn-success:         $indigo !default;
 $btn-info:            $cyan !default;
 $btn-warning:         $yellow !default;
@@ -128,6 +131,92 @@ $themes: (
 	),
 );
 
+:root {
+	@each $theme, $map in $themes {
+		@if($theme == light){  
+			@each $key, $submap in $map {
+				$value: map.get(map.get($themes, $theme), '#{$key}');
+				--#{$key}:#{$value};
+			};
+		}@else{
+			// &[data-theme="dark"] {
+			@media (prefers-color-scheme: dark) {
+				@each $key, $submap in $map {
+					$value: map.get(map.get($themes, $theme), '#{$key}');
+					--#{$key}:#{$value};
+				};
+			};
+		};
+	};
+};
+
 @function gc($variable) {
 	@return var(--#{$variable});
 };
+
+
+
+
+$colors:(
+	light: (
+		bg-color:#323232,
+		text-color:#fff,
+	),
+	dark: (
+		bg-color:#fff,
+		text-color:#323232,
+	)
+);
+
+
+// @function get-color($key, $type: 'light'){
+// 	@each $name, $color in map-get($colors, $type){
+// 		@if($key == $name){
+// 			@return $color
+// 		};
+// 	};
+// };
+
+// @mixin get-color($property,$color){
+// 	#{$property}: get-color($color);
+// 	@at-root body.dark & {
+// 		#{$property}: get-color($color, dark);
+// 	};
+// };
+
+// // 반복문 대신 map-get을 중첩해서 쓰면 훨씬 빠르고 정확합니다.
+// @function get-color($key, $type: 'light') {
+// 	@return map-get(map-get($colors, $type), $key);
+// }
+
+// // 여러 속성을 Map 형태로 한 번에 받도록 개선한 믹스인
+// @mixin theme-style($map) {
+// 	// 1. 라이트 모드 적용
+// 	@each $property, $color-key in $map {
+// 		#{$property}: get-color($color-key, light);
+// 	}
+
+// 	// 2. 다크 모드 적용 (한 번만 생성됨)
+// 	@at-root body.dark & {
+// 		@each $property, $color-key in $map {
+// 			#{$property}: get-color($color-key, dark);
+// 		}
+// 	}
+// }
+
+:root {
+	@each $name, $color in map.get($colors, light) {
+		--#{$name}: #{$color};
+	}
+}
+
+body.dark {
+	@each $name, $color in map.get($colors, dark) {
+		--#{$name}: #{$color};
+	}
+}
+
+// 2. 믹스인에서는 변수만 연결해줍니다.
+@mixin theme-style($property, $color-key) {
+	#{$property}: var(--#{$color-key});
+}

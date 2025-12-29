@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+@use "variables" as *;
+@use "mixin" as *;
+
 /* switch */
 .gc-switch {
 	display:inline-block;
