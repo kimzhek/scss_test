@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-@import "variables";
-@import "mixin";
+@use "variables" as *;
+@use "mixin" as *;
 
 /* quick menu */
 .quick-menu-wrap {

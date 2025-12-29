@@ -1,21 +1,21 @@
 @charset "UTF-8";
 
-@import "variables";
-@import "mixin";
-@import "base";
-@import "common";
-@import "button";
-@import "input";
-@import "select";
-@import "radio";
-@import "checkbox";
-@import "switch";
-@import "tab";
-@import "layer";
-@import "quick-menu";
-@import "icon";
+@use "variables" as *;
+@use "mixin" as *;
+@use "base" as *;
+@use "common" as *;
+@use "button" as *;
+@use "input" as *;
+@use "select" as *;
+@use "radio" as *;
+@use "checkbox" as *;
+@use "switch" as *;
+@use "tab" as *;
+@use "layer" as *;
+@use "quick-menu" as *;
+@use "icon" as *;
 // 카테고리 scss
-@import "notice";
+@use "notice" as *;
 
 /* layout */
 html {
@@ -312,4 +312,14 @@ html {
 // 	.btn-primary {
 // 		background-color:green;
 // 	}
+// }
+
+
+.box {
+	@include theme-style(background-color, bg-color);
+    @include theme-style(color, text-color);
+}
+// .box111 {
+// 	@include theme-style(background-color, bg-color);
+//     @include theme-style(color, text-color);
 // }

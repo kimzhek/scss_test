@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@use "variables" as *;
+
 // hide Text && bg icon
 @mixin commonHideTxt($bgImgW:null, $bgImgH:null) {
 	@if $bgImgW {
@@ -14,7 +16,13 @@
 }
 // slide Down && slide Up
 @mixin slideAnimate($mh, $mt, $ts, $tcb) {
-	visibility:if($mt < 0, hidden, visible);
+	// visibility:if($mt < 0, hidden, visible);
+	// visibility:if(sass($mt < 0): hidden; else: visible);
+	 @if $mt < 0 {
+		visibility: hidden;
+	} @else {
+		visibility: visible;
+	}
 	max-height:$mh;
 	margin-top:$mt;
 	transition:all $ts $tcb;
@@ -78,9 +86,26 @@
 // checkbook && radio
 @mixin CheckRadioCustom(
 	$type,
-	$before-shadow: if($type == checkbox, 0, $radio-before-margin),
-	$border-radius: if($type == checkbox, $checkbox-border-radius, 50%)
+	// $before-shadow: if($type == checkbox, 0, $radio-before-margin),
+	// $border-radius: if($type == checkbox, $checkbox-border-radius, 50%)
+
+	// 최신 Sass 문법 적용: if(sass(조건): 참; else: 거짓)
+	// $before-shadow: if(sass($type == checkbox): 0; else: $radio-before-margin),
+	// $border-radius: if(sass($type == checkbox): $checkbox-border-radius; else: 50%)
+	
+	$before-shadow: null, // 초기값을 null로 설정
+	$border-radius: null
 ) {
+
+	@if $type == checkbox {
+		$before-shadow:0;
+		$border-radius:$checkbox-border-radius;
+	}@else{
+		$before-shadow:$radio-before-margin;
+		$border-radius:50%;
+	}
+
+
 	display:inline-block;
 	vertical-align:top;
 	input {

@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+@use "variables" as *;
+@use "mixin" as *;
+
 /* select */
 select {
 	height:$select-height-default;
